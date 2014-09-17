@@ -1,26 +1,63 @@
 /****************************************************************************
 ** Meta object code from reading C++ file 'clientmodel.h'
 **
-** Created: Mon Aug 25 07:18:09 2014
-**      by: The Qt Meta Object Compiler version 63 (Qt 4.8.1)
+** Created by: The Qt Meta Object Compiler version 67 (Qt 5.2.1)
 **
 ** WARNING! All changes made in this file will be lost!
 *****************************************************************************/
 
 #include "../src/qt/clientmodel.h"
+#include <QtCore/qbytearray.h>
+#include <QtCore/qmetatype.h>
 #if !defined(Q_MOC_OUTPUT_REVISION)
 #error "The header file 'clientmodel.h' doesn't include <QObject>."
-#elif Q_MOC_OUTPUT_REVISION != 63
-#error "This file was generated using the moc from 4.8.1. It"
+#elif Q_MOC_OUTPUT_REVISION != 67
+#error "This file was generated using the moc from 5.2.1. It"
 #error "cannot be used with the include files from this version of Qt."
 #error "(The moc has changed too much.)"
 #endif
 
 QT_BEGIN_MOC_NAMESPACE
+struct qt_meta_stringdata_ClientModel_t {
+    QByteArrayData data[16];
+    char stringdata[170];
+};
+#define QT_MOC_LITERAL(idx, ofs, len) \
+    Q_STATIC_BYTE_ARRAY_DATA_HEADER_INITIALIZER_WITH_OFFSET(len, \
+    offsetof(qt_meta_stringdata_ClientModel_t, stringdata) + ofs \
+        - idx * sizeof(QByteArrayData) \
+    )
+static const qt_meta_stringdata_ClientModel_t qt_meta_stringdata_ClientModel = {
+    {
+QT_MOC_LITERAL(0, 0, 11),
+QT_MOC_LITERAL(1, 12, 21),
+QT_MOC_LITERAL(2, 34, 0),
+QT_MOC_LITERAL(3, 35, 5),
+QT_MOC_LITERAL(4, 41, 16),
+QT_MOC_LITERAL(5, 58, 12),
+QT_MOC_LITERAL(6, 71, 5),
+QT_MOC_LITERAL(7, 77, 5),
+QT_MOC_LITERAL(8, 83, 7),
+QT_MOC_LITERAL(9, 91, 5),
+QT_MOC_LITERAL(10, 97, 11),
+QT_MOC_LITERAL(11, 109, 20),
+QT_MOC_LITERAL(12, 130, 14),
+QT_MOC_LITERAL(13, 145, 11),
+QT_MOC_LITERAL(14, 157, 4),
+QT_MOC_LITERAL(15, 162, 6)
+    },
+    "ClientModel\0numConnectionsChanged\0\0"
+    "count\0numBlocksChanged\0countOfPeers\0"
+    "error\0title\0message\0modal\0updateTimer\0"
+    "updateNumConnections\0numConnections\0"
+    "updateAlert\0hash\0status\0"
+};
+#undef QT_MOC_LITERAL
+
 static const uint qt_meta_data_ClientModel[] = {
 
  // content:
-       6,       // revision
+       7,       // revision
        0,       // classname
        0,    0, // classinfo
        6,   14, // methods
@@ -30,32 +67,32 @@ static const uint qt_meta_data_ClientModel[] = {
        0,       // flags
        3,       // signalCount
 
- // signals: signature, parameters, type, tag, flags
-      19,   13,   12,   12, 0x05,
-      65,   46,   12,   12, 0x05,
-     111,   91,   12,   12, 0x05,
+ // signals: name, argc, parameters, tag, flags
+       1,    1,   44,    2, 0x06,
+       4,    2,   47,    2, 0x06,
+       6,    3,   52,    2, 0x06,
 
- // slots: signature, parameters, type, tag, flags
-     139,   12,   12,   12, 0x0a,
-     168,  153,   12,   12, 0x0a,
-     206,  194,   12,   12, 0x0a,
+ // slots: name, argc, parameters, tag, flags
+      10,    0,   59,    2, 0x0a,
+      11,    1,   60,    2, 0x0a,
+      13,    2,   63,    2, 0x0a,
+
+ // signals: parameters
+    QMetaType::Void, QMetaType::Int,    3,
+    QMetaType::Void, QMetaType::Int, QMetaType::Int,    3,    5,
+    QMetaType::Void, QMetaType::QString, QMetaType::QString, QMetaType::Bool,    7,    8,    9,
+
+ // slots: parameters
+    QMetaType::Void,
+    QMetaType::Void, QMetaType::Int,   12,
+    QMetaType::Void, QMetaType::QString, QMetaType::Int,   14,   15,
 
        0        // eod
-};
-
-static const char qt_meta_stringdata_ClientModel[] = {
-    "ClientModel\0\0count\0numConnectionsChanged(int)\0"
-    "count,countOfPeers\0numBlocksChanged(int,int)\0"
-    "title,message,modal\0error(QString,QString,bool)\0"
-    "updateTimer()\0numConnections\0"
-    "updateNumConnections(int)\0hash,status\0"
-    "updateAlert(QString,int)\0"
 };
 
 void ClientModel::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, void **_a)
 {
     if (_c == QMetaObject::InvokeMetaMethod) {
-        Q_ASSERT(staticMetaObject.cast(_o));
         ClientModel *_t = static_cast<ClientModel *>(_o);
         switch (_id) {
         case 0: _t->numConnectionsChanged((*reinterpret_cast< int(*)>(_a[1]))); break;
@@ -66,31 +103,45 @@ void ClientModel::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id,
         case 5: _t->updateAlert((*reinterpret_cast< const QString(*)>(_a[1])),(*reinterpret_cast< int(*)>(_a[2]))); break;
         default: ;
         }
+    } else if (_c == QMetaObject::IndexOfMethod) {
+        int *result = reinterpret_cast<int *>(_a[0]);
+        void **func = reinterpret_cast<void **>(_a[1]);
+        {
+            typedef void (ClientModel::*_t)(int );
+            if (*reinterpret_cast<_t *>(func) == static_cast<_t>(&ClientModel::numConnectionsChanged)) {
+                *result = 0;
+            }
+        }
+        {
+            typedef void (ClientModel::*_t)(int , int );
+            if (*reinterpret_cast<_t *>(func) == static_cast<_t>(&ClientModel::numBlocksChanged)) {
+                *result = 1;
+            }
+        }
+        {
+            typedef void (ClientModel::*_t)(const QString & , const QString & , bool );
+            if (*reinterpret_cast<_t *>(func) == static_cast<_t>(&ClientModel::error)) {
+                *result = 2;
+            }
+        }
     }
 }
 
-const QMetaObjectExtraData ClientModel::staticMetaObjectExtraData = {
-    0,  qt_static_metacall 
-};
-
 const QMetaObject ClientModel::staticMetaObject = {
-    { &QObject::staticMetaObject, qt_meta_stringdata_ClientModel,
-      qt_meta_data_ClientModel, &staticMetaObjectExtraData }
+    { &QObject::staticMetaObject, qt_meta_stringdata_ClientModel.data,
+      qt_meta_data_ClientModel,  qt_static_metacall, 0, 0}
 };
 
-#ifdef Q_NO_DATA_RELOCATION
-const QMetaObject &ClientModel::getStaticMetaObject() { return staticMetaObject; }
-#endif //Q_NO_DATA_RELOCATION
 
 const QMetaObject *ClientModel::metaObject() const
 {
-    return QObject::d_ptr->metaObject ? QObject::d_ptr->metaObject : &staticMetaObject;
+    return QObject::d_ptr->metaObject ? QObject::d_ptr->dynamicMetaObject() : &staticMetaObject;
 }
 
 void *ClientModel::qt_metacast(const char *_clname)
 {
     if (!_clname) return 0;
-    if (!strcmp(_clname, qt_meta_stringdata_ClientModel))
+    if (!strcmp(_clname, qt_meta_stringdata_ClientModel.stringdata))
         return static_cast<void*>(const_cast< ClientModel*>(this));
     return QObject::qt_metacast(_clname);
 }
@@ -103,6 +154,10 @@ int ClientModel::qt_metacall(QMetaObject::Call _c, int _id, void **_a)
     if (_c == QMetaObject::InvokeMetaMethod) {
         if (_id < 6)
             qt_static_metacall(this, _c, _id, _a);
+        _id -= 6;
+    } else if (_c == QMetaObject::RegisterMethodArgumentMetaType) {
+        if (_id < 6)
+            *reinterpret_cast<int*>(_a[0]) = -1;
         _id -= 6;
     }
     return _id;

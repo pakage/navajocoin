@@ -1,8 +1,7 @@
 /********************************************************************************
 ** Form generated from reading UI file 'overviewpage.ui'
 **
-** Created: Mon Aug 25 07:12:20 2014
-**      by: Qt User Interface Compiler version 4.8.1
+** Created by: Qt User Interface Compiler version 5.2.1
 **
 ** WARNING! All changes made in this file will be lost when recompiling UI file!
 ********************************************************************************/
@@ -11,22 +10,22 @@
 #define UI_OVERVIEWPAGE_H
 
 #include <QtCore/QVariant>
-#include <QtGui/QAction>
-#include <QtGui/QApplication>
-#include <QtGui/QButtonGroup>
-#include <QtGui/QFormLayout>
-#include <QtGui/QFrame>
-#include <QtGui/QHBoxLayout>
-#include <QtGui/QHeaderView>
-#include <QtGui/QLabel>
-#include <QtGui/QLineEdit>
-#include <QtGui/QListView>
-#include <QtGui/QPushButton>
-#include <QtGui/QRadioButton>
-#include <QtGui/QSpacerItem>
-#include <QtGui/QTextEdit>
-#include <QtGui/QVBoxLayout>
-#include <QtGui/QWidget>
+#include <QtWidgets/QAction>
+#include <QtWidgets/QApplication>
+#include <QtWidgets/QButtonGroup>
+#include <QtWidgets/QFormLayout>
+#include <QtWidgets/QFrame>
+#include <QtWidgets/QHBoxLayout>
+#include <QtWidgets/QHeaderView>
+#include <QtWidgets/QLabel>
+#include <QtWidgets/QLineEdit>
+#include <QtWidgets/QListView>
+#include <QtWidgets/QPushButton>
+#include <QtWidgets/QRadioButton>
+#include <QtWidgets/QSpacerItem>
+#include <QtWidgets/QTextEdit>
+#include <QtWidgets/QVBoxLayout>
+#include <QtWidgets/QWidget>
 
 QT_BEGIN_NAMESPACE
 
@@ -53,9 +52,12 @@ public:
     QFrame *line;
     QLabel *labelTotalText;
     QLabel *labelTotal;
-    QSpacerItem *verticalSpacer_4;
-    QLabel *label_2;
     QSpacerItem *verticalSpacer;
+    QVBoxLayout *verticalLayout_6;
+    QLabel *label_icon_title;
+    QSpacerItem *verticalSpacer_4;
+    QVBoxLayout *verticalLayout_8;
+    QLabel *label_2;
     QVBoxLayout *verticalLayout_3;
     QFrame *frame_2;
     QVBoxLayout *verticalLayout;
@@ -63,10 +65,13 @@ public:
     QLabel *label_4;
     QLabel *labelTransactionsStatus;
     QSpacerItem *horizontalSpacer;
+    QFrame *line_2;
     QListView *listTransactions;
     QPushButton *unlockWalletButton;
+    QFrame *line_3;
     QVBoxLayout *verticalLayout_7;
     QHBoxLayout *horizontalLayout_6;
+    QSpacerItem *horizontalSpacer_3;
     QRadioButton *rbLang_en;
     QRadioButton *rbLang_ru;
     QRadioButton *rbLang_cn;
@@ -83,24 +88,25 @@ public:
     void setupUi(QWidget *OverviewPage)
     {
         if (OverviewPage->objectName().isEmpty())
-            OverviewPage->setObjectName(QString::fromUtf8("OverviewPage"));
+            OverviewPage->setObjectName(QStringLiteral("OverviewPage"));
         OverviewPage->resize(732, 548);
-        OverviewPage->setStyleSheet(QString::fromUtf8("background-image: url(:/images2/8);\n"
-"background-color: rgb(0, 0, 0);"));
+        OverviewPage->setStyleSheet(QStringLiteral(""));
         horizontalLayout = new QHBoxLayout(OverviewPage);
-        horizontalLayout->setObjectName(QString::fromUtf8("horizontalLayout"));
+        horizontalLayout->setObjectName(QStringLiteral("horizontalLayout"));
         verticalLayout_2 = new QVBoxLayout();
-        verticalLayout_2->setObjectName(QString::fromUtf8("verticalLayout_2"));
+        verticalLayout_2->setObjectName(QStringLiteral("verticalLayout_2"));
+        verticalLayout_2->setSizeConstraint(QLayout::SetMinimumSize);
         frame = new QFrame(OverviewPage);
-        frame->setObjectName(QString::fromUtf8("frame"));
+        frame->setObjectName(QStringLiteral("frame"));
+        frame->setStyleSheet(QStringLiteral("background-color: rgb(255,255,255);"));
         frame->setFrameShape(QFrame::StyledPanel);
         frame->setFrameShadow(QFrame::Raised);
         verticalLayout_4 = new QVBoxLayout(frame);
-        verticalLayout_4->setObjectName(QString::fromUtf8("verticalLayout_4"));
+        verticalLayout_4->setObjectName(QStringLiteral("verticalLayout_4"));
         horizontalLayout_4 = new QHBoxLayout();
-        horizontalLayout_4->setObjectName(QString::fromUtf8("horizontalLayout_4"));
+        horizontalLayout_4->setObjectName(QStringLiteral("horizontalLayout_4"));
         label_5 = new QLabel(frame);
-        label_5->setObjectName(QString::fromUtf8("label_5"));
+        label_5->setObjectName(QStringLiteral("label_5"));
         QFont font;
         font.setPointSize(11);
         font.setBold(true);
@@ -110,9 +116,9 @@ public:
         horizontalLayout_4->addWidget(label_5);
 
         labelWalletStatus = new QLabel(frame);
-        labelWalletStatus->setObjectName(QString::fromUtf8("labelWalletStatus"));
-        labelWalletStatus->setStyleSheet(QString::fromUtf8("QLabel { color: red; }"));
-        labelWalletStatus->setText(QString::fromUtf8("(out of sync)"));
+        labelWalletStatus->setObjectName(QStringLiteral("labelWalletStatus"));
+        labelWalletStatus->setStyleSheet(QStringLiteral("QLabel { color: red; }"));
+        labelWalletStatus->setText(QStringLiteral("(out of sync)"));
         labelWalletStatus->setAlignment(Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter);
 
         horizontalLayout_4->addWidget(labelWalletStatus);
@@ -125,85 +131,85 @@ public:
         verticalLayout_4->addLayout(horizontalLayout_4);
 
         formLayout_2 = new QFormLayout();
-        formLayout_2->setObjectName(QString::fromUtf8("formLayout_2"));
+        formLayout_2->setObjectName(QStringLiteral("formLayout_2"));
         formLayout_2->setFieldGrowthPolicy(QFormLayout::AllNonFixedFieldsGrow);
         formLayout_2->setHorizontalSpacing(12);
-        formLayout_2->setVerticalSpacing(12);
+        formLayout_2->setVerticalSpacing(6);
         label = new QLabel(frame);
-        label->setObjectName(QString::fromUtf8("label"));
+        label->setObjectName(QStringLiteral("label"));
 
         formLayout_2->setWidget(0, QFormLayout::LabelRole, label);
 
         labelBalance = new QLabel(frame);
-        labelBalance->setObjectName(QString::fromUtf8("labelBalance"));
+        labelBalance->setObjectName(QStringLiteral("labelBalance"));
         QFont font1;
         font1.setBold(true);
         font1.setWeight(75);
         labelBalance->setFont(font1);
         labelBalance->setCursor(QCursor(Qt::IBeamCursor));
-        labelBalance->setText(QString::fromUtf8("0 NAB"));
+        labelBalance->setText(QStringLiteral("0 NAB"));
         labelBalance->setTextInteractionFlags(Qt::LinksAccessibleByMouse|Qt::TextSelectableByKeyboard|Qt::TextSelectableByMouse);
 
         formLayout_2->setWidget(0, QFormLayout::FieldRole, labelBalance);
 
         label_6 = new QLabel(frame);
-        label_6->setObjectName(QString::fromUtf8("label_6"));
+        label_6->setObjectName(QStringLiteral("label_6"));
 
         formLayout_2->setWidget(1, QFormLayout::LabelRole, label_6);
 
         labelStake = new QLabel(frame);
-        labelStake->setObjectName(QString::fromUtf8("labelStake"));
+        labelStake->setObjectName(QStringLiteral("labelStake"));
         labelStake->setFont(font1);
         labelStake->setCursor(QCursor(Qt::IBeamCursor));
-        labelStake->setText(QString::fromUtf8("0 NAB"));
+        labelStake->setText(QStringLiteral("0 NAB"));
         labelStake->setTextInteractionFlags(Qt::LinksAccessibleByMouse|Qt::TextSelectableByKeyboard|Qt::TextSelectableByMouse);
 
         formLayout_2->setWidget(1, QFormLayout::FieldRole, labelStake);
 
         label_3 = new QLabel(frame);
-        label_3->setObjectName(QString::fromUtf8("label_3"));
+        label_3->setObjectName(QStringLiteral("label_3"));
 
         formLayout_2->setWidget(2, QFormLayout::LabelRole, label_3);
 
         labelUnconfirmed = new QLabel(frame);
-        labelUnconfirmed->setObjectName(QString::fromUtf8("labelUnconfirmed"));
+        labelUnconfirmed->setObjectName(QStringLiteral("labelUnconfirmed"));
         labelUnconfirmed->setFont(font1);
         labelUnconfirmed->setCursor(QCursor(Qt::IBeamCursor));
-        labelUnconfirmed->setText(QString::fromUtf8("0 NAB"));
+        labelUnconfirmed->setText(QStringLiteral("0 NAB"));
         labelUnconfirmed->setTextInteractionFlags(Qt::LinksAccessibleByMouse|Qt::TextSelectableByKeyboard|Qt::TextSelectableByMouse);
 
         formLayout_2->setWidget(2, QFormLayout::FieldRole, labelUnconfirmed);
 
         labelImmatureText = new QLabel(frame);
-        labelImmatureText->setObjectName(QString::fromUtf8("labelImmatureText"));
+        labelImmatureText->setObjectName(QStringLiteral("labelImmatureText"));
 
         formLayout_2->setWidget(3, QFormLayout::LabelRole, labelImmatureText);
 
         labelImmature = new QLabel(frame);
-        labelImmature->setObjectName(QString::fromUtf8("labelImmature"));
+        labelImmature->setObjectName(QStringLiteral("labelImmature"));
         labelImmature->setFont(font1);
-        labelImmature->setText(QString::fromUtf8("0 NAB"));
+        labelImmature->setText(QStringLiteral("0 NAB"));
         labelImmature->setTextInteractionFlags(Qt::LinksAccessibleByMouse|Qt::TextSelectableByKeyboard|Qt::TextSelectableByMouse);
 
         formLayout_2->setWidget(3, QFormLayout::FieldRole, labelImmature);
 
         line = new QFrame(frame);
-        line->setObjectName(QString::fromUtf8("line"));
+        line->setObjectName(QStringLiteral("line"));
         line->setFrameShape(QFrame::HLine);
         line->setFrameShadow(QFrame::Sunken);
 
         formLayout_2->setWidget(4, QFormLayout::SpanningRole, line);
 
         labelTotalText = new QLabel(frame);
-        labelTotalText->setObjectName(QString::fromUtf8("labelTotalText"));
+        labelTotalText->setObjectName(QStringLiteral("labelTotalText"));
 
         formLayout_2->setWidget(5, QFormLayout::LabelRole, labelTotalText);
 
         labelTotal = new QLabel(frame);
-        labelTotal->setObjectName(QString::fromUtf8("labelTotal"));
+        labelTotal->setObjectName(QStringLiteral("labelTotal"));
         labelTotal->setFont(font1);
         labelTotal->setCursor(QCursor(Qt::IBeamCursor));
-        labelTotal->setText(QString::fromUtf8("0 NAB"));
+        labelTotal->setText(QStringLiteral("0 NAB"));
         labelTotal->setTextInteractionFlags(Qt::LinksAccessibleByMouse|Qt::TextSelectableByKeyboard|Qt::TextSelectableByMouse);
 
         formLayout_2->setWidget(5, QFormLayout::FieldRole, labelTotal);
@@ -214,44 +220,70 @@ public:
 
         verticalLayout_2->addWidget(frame);
 
+        verticalSpacer = new QSpacerItem(20, 40, QSizePolicy::Minimum, QSizePolicy::Expanding);
+
+        verticalLayout_2->addItem(verticalSpacer);
+
+        verticalLayout_6 = new QVBoxLayout();
+        verticalLayout_6->setSpacing(0);
+        verticalLayout_6->setObjectName(QStringLiteral("verticalLayout_6"));
+        verticalLayout_6->setSizeConstraint(QLayout::SetDefaultConstraint);
+        verticalLayout_6->setContentsMargins(-1, 0, 0, 0);
+        label_icon_title = new QLabel(OverviewPage);
+        label_icon_title->setObjectName(QStringLiteral("label_icon_title"));
+        QFont font2;
+        font2.setPointSize(13);
+        label_icon_title->setFont(font2);
+        label_icon_title->setLayoutDirection(Qt::LeftToRight);
+        label_icon_title->setStyleSheet(QStringLiteral("QLabel{qproperty-alignment: AlignCenter; }"));
+
+        verticalLayout_6->addWidget(label_icon_title);
+
+
+        verticalLayout_2->addLayout(verticalLayout_6);
+
         verticalSpacer_4 = new QSpacerItem(20, 40, QSizePolicy::Minimum, QSizePolicy::Expanding);
 
         verticalLayout_2->addItem(verticalSpacer_4);
 
+        verticalLayout_8 = new QVBoxLayout();
+        verticalLayout_8->setSpacing(0);
+        verticalLayout_8->setObjectName(QStringLiteral("verticalLayout_8"));
+        verticalLayout_8->setContentsMargins(12, 0, 12, 0);
         label_2 = new QLabel(OverviewPage);
-        label_2->setObjectName(QString::fromUtf8("label_2"));
+        label_2->setObjectName(QStringLiteral("label_2"));
         label_2->setPixmap(QPixmap(QString::fromUtf8(":/images/Wallet_Logo")));
         label_2->setAlignment(Qt::AlignCenter);
 
-        verticalLayout_2->addWidget(label_2);
+        verticalLayout_8->addWidget(label_2);
 
-        verticalSpacer = new QSpacerItem(20, 40, QSizePolicy::Minimum, QSizePolicy::Expanding);
 
-        verticalLayout_2->addItem(verticalSpacer);
+        verticalLayout_2->addLayout(verticalLayout_8);
 
 
         horizontalLayout->addLayout(verticalLayout_2);
 
         verticalLayout_3 = new QVBoxLayout();
-        verticalLayout_3->setObjectName(QString::fromUtf8("verticalLayout_3"));
+        verticalLayout_3->setSpacing(6);
+        verticalLayout_3->setObjectName(QStringLiteral("verticalLayout_3"));
         frame_2 = new QFrame(OverviewPage);
-        frame_2->setObjectName(QString::fromUtf8("frame_2"));
-        frame_2->setStyleSheet(QString::fromUtf8(""));
+        frame_2->setObjectName(QStringLiteral("frame_2"));
+        frame_2->setStyleSheet(QStringLiteral("background-color: rgb(255,255,255);"));
         frame_2->setFrameShape(QFrame::StyledPanel);
         frame_2->setFrameShadow(QFrame::Raised);
         verticalLayout = new QVBoxLayout(frame_2);
-        verticalLayout->setObjectName(QString::fromUtf8("verticalLayout"));
+        verticalLayout->setObjectName(QStringLiteral("verticalLayout"));
         horizontalLayout_2 = new QHBoxLayout();
-        horizontalLayout_2->setObjectName(QString::fromUtf8("horizontalLayout_2"));
+        horizontalLayout_2->setObjectName(QStringLiteral("horizontalLayout_2"));
         label_4 = new QLabel(frame_2);
-        label_4->setObjectName(QString::fromUtf8("label_4"));
+        label_4->setObjectName(QStringLiteral("label_4"));
 
         horizontalLayout_2->addWidget(label_4);
 
         labelTransactionsStatus = new QLabel(frame_2);
-        labelTransactionsStatus->setObjectName(QString::fromUtf8("labelTransactionsStatus"));
-        labelTransactionsStatus->setStyleSheet(QString::fromUtf8("QLabel { color: red; }"));
-        labelTransactionsStatus->setText(QString::fromUtf8("(out of sync)"));
+        labelTransactionsStatus->setObjectName(QStringLiteral("labelTransactionsStatus"));
+        labelTransactionsStatus->setStyleSheet(QStringLiteral("QLabel { color: red; }"));
+        labelTransactionsStatus->setText(QStringLiteral("(out of sync)"));
         labelTransactionsStatus->setAlignment(Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter);
 
         horizontalLayout_2->addWidget(labelTransactionsStatus);
@@ -263,9 +295,16 @@ public:
 
         verticalLayout->addLayout(horizontalLayout_2);
 
+        line_2 = new QFrame(frame_2);
+        line_2->setObjectName(QStringLiteral("line_2"));
+        line_2->setFrameShape(QFrame::HLine);
+        line_2->setFrameShadow(QFrame::Sunken);
+
+        verticalLayout->addWidget(line_2);
+
         listTransactions = new QListView(frame_2);
-        listTransactions->setObjectName(QString::fromUtf8("listTransactions"));
-        listTransactions->setStyleSheet(QString::fromUtf8("QListView { background: transparent; }"));
+        listTransactions->setObjectName(QStringLiteral("listTransactions"));
+        listTransactions->setStyleSheet(QStringLiteral("QListView { background: transparent; }"));
         listTransactions->setFrameShape(QFrame::NoFrame);
         listTransactions->setVerticalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
         listTransactions->setHorizontalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
@@ -277,14 +316,18 @@ public:
         verticalLayout_3->addWidget(frame_2);
 
         unlockWalletButton = new QPushButton(OverviewPage);
-        unlockWalletButton->setObjectName(QString::fromUtf8("unlockWalletButton"));
+        unlockWalletButton->setObjectName(QStringLiteral("unlockWalletButton"));
         QSizePolicy sizePolicy(QSizePolicy::Minimum, QSizePolicy::Fixed);
         sizePolicy.setHorizontalStretch(0);
         sizePolicy.setVerticalStretch(0);
         sizePolicy.setHeightForWidth(unlockWalletButton->sizePolicy().hasHeightForWidth());
         unlockWalletButton->setSizePolicy(sizePolicy);
         unlockWalletButton->setMaximumSize(QSize(16777214, 16777214));
-        unlockWalletButton->setStyleSheet(QString::fromUtf8(""));
+        unlockWalletButton->setStyleSheet(QLatin1String("background-color: qlineargradient(spread:pad, x1:0, y1:1, x2:0, y2:0, stop:0 rgb(240,240,240), stop:1 rgb(255, 255, 255));\n"
+"border-radius:3px;\n"
+"border: 1px solid #C4C1BD;\n"
+"color: #4C4C4C;\n"
+"padding: 4px 0;"));
         unlockWalletButton->setCheckable(false);
         unlockWalletButton->setAutoDefault(false);
         unlockWalletButton->setDefault(true);
@@ -292,20 +335,30 @@ public:
 
         verticalLayout_3->addWidget(unlockWalletButton);
 
+        line_3 = new QFrame(OverviewPage);
+        line_3->setObjectName(QStringLiteral("line_3"));
+        line_3->setFrameShape(QFrame::HLine);
+        line_3->setFrameShadow(QFrame::Sunken);
+
+        verticalLayout_3->addWidget(line_3);
+
         verticalLayout_7 = new QVBoxLayout();
-        verticalLayout_7->setContentsMargins(10, 10, 10, 10);
-        verticalLayout_7->setObjectName(QString::fromUtf8("verticalLayout_7"));
+        verticalLayout_7->setSpacing(0);
+        verticalLayout_7->setObjectName(QStringLiteral("verticalLayout_7"));
+        verticalLayout_7->setContentsMargins(0, 0, 0, 0);
         horizontalLayout_6 = new QHBoxLayout();
-#ifndef Q_OS_MAC
         horizontalLayout_6->setSpacing(6);
-#endif
-        horizontalLayout_6->setContentsMargins(6, 6, 6, 6);
-        horizontalLayout_6->setObjectName(QString::fromUtf8("horizontalLayout_6"));
+        horizontalLayout_6->setObjectName(QStringLiteral("horizontalLayout_6"));
+        horizontalLayout_6->setContentsMargins(0, 0, 0, 0);
+        horizontalSpacer_3 = new QSpacerItem(40, 20, QSizePolicy::Expanding, QSizePolicy::Minimum);
+
+        horizontalLayout_6->addItem(horizontalSpacer_3);
+
         rbLang_en = new QRadioButton(OverviewPage);
-        rbLang_en->setObjectName(QString::fromUtf8("rbLang_en"));
+        rbLang_en->setObjectName(QStringLiteral("rbLang_en"));
         rbLang_en->setMinimumSize(QSize(25, 19));
         rbLang_en->setMaximumSize(QSize(25, 19));
-        rbLang_en->setStyleSheet(QString::fromUtf8("QRadioButton::indicator {\n"
+        rbLang_en->setStyleSheet(QLatin1String("QRadioButton::indicator {\n"
 "	subcontrol-position: top center;\n"
 "	image: url(:/icons/flag_en);\n"
 " }\n"
@@ -349,10 +402,10 @@ public:
         horizontalLayout_6->addWidget(rbLang_en);
 
         rbLang_ru = new QRadioButton(OverviewPage);
-        rbLang_ru->setObjectName(QString::fromUtf8("rbLang_ru"));
+        rbLang_ru->setObjectName(QStringLiteral("rbLang_ru"));
         rbLang_ru->setMinimumSize(QSize(25, 19));
         rbLang_ru->setMaximumSize(QSize(25, 19));
-        rbLang_ru->setStyleSheet(QString::fromUtf8("QRadioButton::indicator {\n"
+        rbLang_ru->setStyleSheet(QLatin1String("QRadioButton::indicator {\n"
 "	subcontrol-position: top center;\n"
 "	image: url(:/icons/flag_ru);\n"
 " }\n"
@@ -397,10 +450,10 @@ public:
         horizontalLayout_6->addWidget(rbLang_ru);
 
         rbLang_cn = new QRadioButton(OverviewPage);
-        rbLang_cn->setObjectName(QString::fromUtf8("rbLang_cn"));
+        rbLang_cn->setObjectName(QStringLiteral("rbLang_cn"));
         rbLang_cn->setMinimumSize(QSize(25, 19));
         rbLang_cn->setMaximumSize(QSize(25, 19));
-        rbLang_cn->setStyleSheet(QString::fromUtf8("QRadioButton::indicator {\n"
+        rbLang_cn->setStyleSheet(QLatin1String("QRadioButton::indicator {\n"
 "	subcontrol-position: top center;\n"
 "	image: url(:/icons/flag_cn);\n"
 " }\n"
@@ -450,14 +503,14 @@ public:
         verticalLayout_7->addLayout(horizontalLayout_6);
 
         horizontalLayout_8 = new QHBoxLayout();
-        horizontalLayout_8->setContentsMargins(6, 6, 6, 6);
-        horizontalLayout_8->setObjectName(QString::fromUtf8("horizontalLayout_8"));
+        horizontalLayout_8->setObjectName(QStringLiteral("horizontalLayout_8"));
+        horizontalLayout_8->setContentsMargins(0, 6, 0, 6);
         txtChat = new QTextEdit(OverviewPage);
-        txtChat->setObjectName(QString::fromUtf8("txtChat"));
-        QFont font2;
-        font2.setPointSize(10);
-        txtChat->setFont(font2);
-        txtChat->setStyleSheet(QString::fromUtf8(""));
+        txtChat->setObjectName(QStringLiteral("txtChat"));
+        QFont font3;
+        font3.setPointSize(10);
+        txtChat->setFont(font3);
+        txtChat->setStyleSheet(QStringLiteral(""));
         txtChat->setFrameShape(QFrame::Box);
         txtChat->setVerticalScrollBarPolicy(Qt::ScrollBarAlwaysOn);
         txtChat->setHorizontalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
@@ -469,53 +522,86 @@ public:
         verticalLayout_7->addLayout(horizontalLayout_8);
 
         horizontalLayout_5 = new QHBoxLayout();
-        horizontalLayout_5->setContentsMargins(6, 6, 6, 6);
-        horizontalLayout_5->setObjectName(QString::fromUtf8("horizontalLayout_5"));
+        horizontalLayout_5->setSpacing(0);
+        horizontalLayout_5->setObjectName(QStringLiteral("horizontalLayout_5"));
+        horizontalLayout_5->setContentsMargins(0, 6, 0, 6);
         btnBold = new QPushButton(OverviewPage);
-        btnBold->setObjectName(QString::fromUtf8("btnBold"));
-        btnBold->setMaximumSize(QSize(20, 16777215));
-        QFont font3;
-        font3.setPointSize(10);
-        font3.setBold(true);
-        font3.setWeight(75);
-        btnBold->setFont(font3);
+        btnBold->setObjectName(QStringLiteral("btnBold"));
+        btnBold->setMaximumSize(QSize(32, 27));
+        QFont font4;
+        font4.setPointSize(11);
+        font4.setBold(false);
+        font4.setWeight(50);
+        btnBold->setFont(font4);
 #ifndef QT_NO_TOOLTIP
-        btnBold->setToolTip(QString::fromUtf8("<html><head/><body><p><span style=\" font-weight:600;\">10 CHAT</span></p></body></html>"));
+        btnBold->setToolTip(QStringLiteral("<html><head/><body><p><span style=\" font-weight:600;\">10 CHAT</span></p></body></html>"));
 #endif // QT_NO_TOOLTIP
-        btnBold->setShortcut(QString::fromUtf8(""));
+        btnBold->setStyleSheet(QLatin1String("background-color: qlineargradient(spread:pad, x1:0, y1:1, x2:0, y2:0, stop:0 rgb(240,240,240), stop:1 rgb(255, 255, 255));\n"
+"border-radius:3px;\n"
+"border: 1px solid #C4C1BD;\n"
+"color: #4C4C4C;\n"
+"padding: 4px 8px;\n"
+"margin: 0px 6px 0px 0px;"));
+        btnBold->setShortcut(QStringLiteral(""));
         btnBold->setCheckable(true);
 
         horizontalLayout_5->addWidget(btnBold);
 
         txtChatNick = new QLineEdit(OverviewPage);
-        txtChatNick->setObjectName(QString::fromUtf8("txtChatNick"));
-        txtChatNick->setMaximumSize(QSize(150, 16777215));
-        txtChatNick->setFont(font3);
-        txtChatNick->setStyleSheet(QString::fromUtf8("background-color: rgb(245, 245, 245);"));
+        txtChatNick->setObjectName(QStringLiteral("txtChatNick"));
+        txtChatNick->setMaximumSize(QSize(999, 27));
+        txtChatNick->setFont(font4);
+        txtChatNick->setStyleSheet(QLatin1String("background-color: rgb(255,255,255);\n"
+"border-radius:3px;\n"
+"border: 1px solid #C4C1BD;\n"
+"color: #4C4C4C;\n"
+"padding: 4px;\n"
+"margin: 0px 6px 0px 0px;"));
         txtChatNick->setMaxLength(20);
 
         horizontalLayout_5->addWidget(txtChatNick);
 
         txtChatMsg = new QLineEdit(OverviewPage);
-        txtChatMsg->setObjectName(QString::fromUtf8("txtChatMsg"));
-        txtChatMsg->setFont(font2);
-        txtChatMsg->setStyleSheet(QString::fromUtf8("background-color: rgb(245, 245, 245);"));
+        txtChatMsg->setObjectName(QStringLiteral("txtChatMsg"));
+        txtChatMsg->setMaximumSize(QSize(999, 27));
+        QFont font5;
+        font5.setPointSize(11);
+        txtChatMsg->setFont(font5);
+        txtChatMsg->setStyleSheet(QLatin1String("background-color: rgb(255,255,255);\n"
+"border-radius:3px;\n"
+"border: 1px solid #C4C1BD;\n"
+"color: #4C4C4C;\n"
+"padding: 4px;\n"
+"margin: 0px 6px 0px 0px;"));
         txtChatMsg->setMaxLength(140);
 
         horizontalLayout_5->addWidget(txtChatMsg);
 
         btnSmiley = new QPushButton(OverviewPage);
-        btnSmiley->setObjectName(QString::fromUtf8("btnSmiley"));
-        btnSmiley->setFont(font2);
+        btnSmiley->setObjectName(QStringLiteral("btnSmiley"));
+        btnSmiley->setMaximumSize(QSize(32, 27));
+        btnSmiley->setFont(font3);
+        btnSmiley->setStyleSheet(QLatin1String("background-color: qlineargradient(spread:pad, x1:0, y1:1, x2:0, y2:0, stop:0 rgb(240,240,240), stop:1 rgb(255, 255, 255));\n"
+"border-radius:3px;\n"
+"border: 1px solid #C4C1BD;\n"
+"color: #4C4C4C;\n"
+"padding: 4px 8px;\n"
+"margin: 0px 6px 0px 0px;"));
         QIcon icon;
-        icon.addFile(QString::fromUtf8(":/icons/smiley-button"), QSize(), QIcon::Normal, QIcon::Off);
+        icon.addFile(QStringLiteral(":/icons/smiley-button"), QSize(), QIcon::Normal, QIcon::Off);
         btnSmiley->setIcon(icon);
 
         horizontalLayout_5->addWidget(btnSmiley);
 
         btnChatSend = new QPushButton(OverviewPage);
-        btnChatSend->setObjectName(QString::fromUtf8("btnChatSend"));
-        btnChatSend->setFont(font2);
+        btnChatSend->setObjectName(QStringLiteral("btnChatSend"));
+        btnChatSend->setMaximumSize(QSize(70, 27));
+        btnChatSend->setFont(font5);
+        btnChatSend->setStyleSheet(QLatin1String("background-color: qlineargradient(spread:pad, x1:0, y1:1, x2:0, y2:0, stop:0 rgb(240,240,240), stop:1 rgb(255, 255, 255));\n"
+"border-radius:3px;\n"
+"border: 1px solid #C4C1BD;\n"
+"color: #4C4C4C;\n"
+"padding: 4px 12px;"));
 
         horizontalLayout_5->addWidget(btnChatSend);
 
@@ -536,54 +622,55 @@ public:
 
     void retranslateUi(QWidget *OverviewPage)
     {
-        OverviewPage->setWindowTitle(QApplication::translate("OverviewPage", "Form", 0, QApplication::UnicodeUTF8));
-        label_5->setText(QApplication::translate("OverviewPage", "Wallet", 0, QApplication::UnicodeUTF8));
+        OverviewPage->setWindowTitle(QApplication::translate("OverviewPage", "Form", 0));
+        label_5->setText(QApplication::translate("OverviewPage", "Wallet", 0));
 #ifndef QT_NO_TOOLTIP
-        labelWalletStatus->setToolTip(QApplication::translate("OverviewPage", "The displayed information may be out of date. Your wallet automatically synchronizes with the NavajoAnonBeta/NavajoAnonBeta network after a connection is established, but this process has not completed yet.", 0, QApplication::UnicodeUTF8));
+        labelWalletStatus->setToolTip(QApplication::translate("OverviewPage", "The displayed information may be out of date. Your wallet automatically synchronizes with the NavajoAnonBeta/NavajoAnonBeta network after a connection is established, but this process has not completed yet.", 0));
 #endif // QT_NO_TOOLTIP
-        label->setText(QApplication::translate("OverviewPage", "Spendable:", 0, QApplication::UnicodeUTF8));
+        label->setText(QApplication::translate("OverviewPage", "Spendable:", 0));
 #ifndef QT_NO_TOOLTIP
-        labelBalance->setToolTip(QApplication::translate("OverviewPage", "Your current spendable balance", 0, QApplication::UnicodeUTF8));
+        labelBalance->setToolTip(QApplication::translate("OverviewPage", "Your current spendable balance", 0));
 #endif // QT_NO_TOOLTIP
-        label_6->setText(QApplication::translate("OverviewPage", "Stake:", 0, QApplication::UnicodeUTF8));
+        label_6->setText(QApplication::translate("OverviewPage", "Stake:", 0));
 #ifndef QT_NO_TOOLTIP
-        labelStake->setToolTip(QApplication::translate("OverviewPage", "Total of coins that was staked, and do not yet count toward the current balance", 0, QApplication::UnicodeUTF8));
+        labelStake->setToolTip(QApplication::translate("OverviewPage", "Total of coins that was staked, and do not yet count toward the current balance", 0));
 #endif // QT_NO_TOOLTIP
-        label_3->setText(QApplication::translate("OverviewPage", "Unconfirmed:", 0, QApplication::UnicodeUTF8));
+        label_3->setText(QApplication::translate("OverviewPage", "Unconfirmed:", 0));
 #ifndef QT_NO_TOOLTIP
-        labelUnconfirmed->setToolTip(QApplication::translate("OverviewPage", "Total of transactions that have yet to be confirmed, and do not yet count toward the current balance", 0, QApplication::UnicodeUTF8));
+        labelUnconfirmed->setToolTip(QApplication::translate("OverviewPage", "Total of transactions that have yet to be confirmed, and do not yet count toward the current balance", 0));
 #endif // QT_NO_TOOLTIP
-        labelImmatureText->setText(QApplication::translate("OverviewPage", "Immature:", 0, QApplication::UnicodeUTF8));
+        labelImmatureText->setText(QApplication::translate("OverviewPage", "Immature:", 0));
 #ifndef QT_NO_TOOLTIP
-        labelImmature->setToolTip(QApplication::translate("OverviewPage", "Mined balance that has not yet matured", 0, QApplication::UnicodeUTF8));
+        labelImmature->setToolTip(QApplication::translate("OverviewPage", "Mined balance that has not yet matured", 0));
 #endif // QT_NO_TOOLTIP
-        labelTotalText->setText(QApplication::translate("OverviewPage", "Total:", 0, QApplication::UnicodeUTF8));
+        labelTotalText->setText(QApplication::translate("OverviewPage", "Total:", 0));
 #ifndef QT_NO_TOOLTIP
-        labelTotal->setToolTip(QApplication::translate("OverviewPage", "Your current total balance", 0, QApplication::UnicodeUTF8));
+        labelTotal->setToolTip(QApplication::translate("OverviewPage", "Your current total balance", 0));
 #endif // QT_NO_TOOLTIP
+        label_icon_title->setText(QApplication::translate("OverviewPage", "Navajocoin - The Unbreakable Code", 0));
         label_2->setText(QString());
-        label_4->setText(QApplication::translate("OverviewPage", "<b>Recent transactions</b>", 0, QApplication::UnicodeUTF8));
+        label_4->setText(QApplication::translate("OverviewPage", "<b>Recent transactions</b>", 0));
 #ifndef QT_NO_TOOLTIP
-        labelTransactionsStatus->setToolTip(QApplication::translate("OverviewPage", "The displayed information may be out of date. Your wallet automatically synchronizes with the NavajoAnonBeta/NavajoAnonBeta network after a connection is established, but this process has not completed yet.", 0, QApplication::UnicodeUTF8));
+        labelTransactionsStatus->setToolTip(QApplication::translate("OverviewPage", "The displayed information may be out of date. Your wallet automatically synchronizes with the NavajoAnonBeta/NavajoAnonBeta network after a connection is established, but this process has not completed yet.", 0));
 #endif // QT_NO_TOOLTIP
 #ifndef QT_NO_TOOLTIP
         unlockWalletButton->setToolTip(QString());
 #endif // QT_NO_TOOLTIP
-        unlockWalletButton->setText(QApplication::translate("OverviewPage", "wallet unlock button", 0, QApplication::UnicodeUTF8));
+        unlockWalletButton->setText(QApplication::translate("OverviewPage", "wallet unlock button", 0));
         rbLang_en->setText(QString());
         rbLang_ru->setText(QString());
         rbLang_cn->setText(QString());
-        btnBold->setText(QApplication::translate("OverviewPage", "B", 0, QApplication::UnicodeUTF8));
+        btnBold->setText(QApplication::translate("OverviewPage", "B", 0));
         txtChatNick->setInputMask(QString());
         txtChatNick->setText(QString());
         txtChatMsg->setText(QString());
 #ifndef QT_NO_TOOLTIP
-        btnSmiley->setToolTip(QApplication::translate("OverviewPage", "List of emoticons", 0, QApplication::UnicodeUTF8));
+        btnSmiley->setToolTip(QApplication::translate("OverviewPage", "List of emoticons", 0));
 #endif // QT_NO_TOOLTIP
 #ifndef QT_NO_TOOLTIP
-        btnChatSend->setToolTip(QApplication::translate("OverviewPage", "1 CHAT", 0, QApplication::UnicodeUTF8));
+        btnChatSend->setToolTip(QApplication::translate("OverviewPage", "1 CHAT", 0));
 #endif // QT_NO_TOOLTIP
-        btnChatSend->setText(QApplication::translate("OverviewPage", "Send", 0, QApplication::UnicodeUTF8));
+        btnChatSend->setText(QApplication::translate("OverviewPage", "Send", 0));
     } // retranslateUi
 
 };
