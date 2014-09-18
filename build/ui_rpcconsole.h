@@ -77,7 +77,7 @@ public:
     {
         if (RPCConsole->objectName().isEmpty())
             RPCConsole->setObjectName(QStringLiteral("RPCConsole"));
-        RPCConsole->resize(740, 450);
+        RPCConsole->resize(740, 491);
         verticalLayout_2 = new QVBoxLayout(RPCConsole);
         verticalLayout_2->setObjectName(QStringLiteral("verticalLayout_2"));
         tabWidget = new QTabWidget(RPCConsole);
@@ -249,6 +249,11 @@ public:
 
         openDebugLogfileButton = new QPushButton(tab_info);
         openDebugLogfileButton->setObjectName(QStringLiteral("openDebugLogfileButton"));
+        openDebugLogfileButton->setStyleSheet(QLatin1String("background-color: qlineargradient(spread:pad, x1:0, y1:1, x2:0, y2:0, stop:0 rgb(240,240,240), stop:1 rgb(255, 255, 255));\n"
+"border-radius:3px;\n"
+"border: 1px solid #C4C1BD;\n"
+"color: #4C4C4C;\n"
+"padding: 4px 12px;"));
         openDebugLogfileButton->setAutoDefault(false);
 
         gridLayout->addWidget(openDebugLogfileButton, 15, 0, 1, 1);
@@ -261,6 +266,11 @@ public:
 
         showCLOptionsButton = new QPushButton(tab_info);
         showCLOptionsButton->setObjectName(QStringLiteral("showCLOptionsButton"));
+        showCLOptionsButton->setStyleSheet(QLatin1String("background-color: qlineargradient(spread:pad, x1:0, y1:1, x2:0, y2:0, stop:0 rgb(240,240,240), stop:1 rgb(255, 255, 255));\n"
+"border-radius:3px;\n"
+"border: 1px solid #C4C1BD;\n"
+"color: #4C4C4C;\n"
+"padding: 4px 12px;"));
         showCLOptionsButton->setAutoDefault(false);
 
         gridLayout->addWidget(showCLOptionsButton, 17, 0, 1, 1);
@@ -296,12 +306,24 @@ public:
 
         lineEdit = new QLineEdit(tab_console);
         lineEdit->setObjectName(QStringLiteral("lineEdit"));
+        lineEdit->setStyleSheet(QLatin1String("background-color: rgb(255,255,255);\n"
+"border-radius:3px;\n"
+"border: 1px solid #C4C1BD;\n"
+"color: #4C4C4C;\n"
+"padding: 4px;\n"
+"margin: 0px 6px 0px 0px;"));
 
         horizontalLayout->addWidget(lineEdit);
 
         clearButton = new QPushButton(tab_console);
         clearButton->setObjectName(QStringLiteral("clearButton"));
         clearButton->setMaximumSize(QSize(24, 24));
+        clearButton->setStyleSheet(QLatin1String("background-color: qlineargradient(spread:pad, x1:0, y1:1, x2:0, y2:0, stop:0 rgb(240,240,240), stop:1 rgb(255, 255, 255));\n"
+"border-radius:3px;\n"
+"border: 1px solid #C4C1BD;\n"
+"color: #4C4C4C;\n"
+"padding: 4px 8px;\n"
+""));
         QIcon icon;
         icon.addFile(QStringLiteral(":/icons/remove"), QSize(), QIcon::Normal, QIcon::Off);
         clearButton->setIcon(icon);

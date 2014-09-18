@@ -87,8 +87,8 @@ public:
         centralwidget->setObjectName(QStringLiteral("centralwidget"));
         verticalLayout = new QVBoxLayout(centralwidget);
         verticalLayout->setSpacing(0);
-        verticalLayout->setContentsMargins(0, 0, 0, 0);
         verticalLayout->setObjectName(QStringLiteral("verticalLayout"));
+        verticalLayout->setContentsMargins(0, 0, 0, 0);
         mainFrame = new QFrame(centralwidget);
         mainFrame->setObjectName(QStringLiteral("mainFrame"));
         mainFrame->setFrameShape(QFrame::StyledPanel);
@@ -96,7 +96,7 @@ public:
         verticalLayout_2->setObjectName(QStringLiteral("verticalLayout_2"));
         stackedWidget = new QStackedWidget(mainFrame);
         stackedWidget->setObjectName(QStringLiteral("stackedWidget"));
-        stackedWidget->setStyleSheet(QStringLiteral("background-image: url(:/images2/2);"));
+        stackedWidget->setStyleSheet(QStringLiteral("background-image:url(:/images/res/images/nav-bg.jpg)"));
         chatPage = new QWidget();
         chatPage->setObjectName(QStringLiteral("chatPage"));
         gridLayout = new QGridLayout(chatPage);
@@ -154,8 +154,7 @@ public:
         sizePolicy.setHeightForWidth(loginFrame->sizePolicy().hasHeightForWidth());
         loginFrame->setSizePolicy(sizePolicy);
         loginFrame->setMinimumSize(QSize(300, 0));
-        loginFrame->setStyleSheet(QLatin1String("background-color: rgb(255, 170, 0);\n"
-"background-image: url(:/images2/2);"));
+        loginFrame->setStyleSheet(QStringLiteral(""));
         loginFrame->setFrameShape(QFrame::StyledPanel);
         gridLayout_2 = new QGridLayout(loginFrame);
         gridLayout_2->setSpacing(20);

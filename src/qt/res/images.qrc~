@@ -1,0 +1,8 @@
+<!--
+Resource File
+-->
+<RCC>
+  <qresource prefix="/" >
+    <file>user.png</file>
+  </qresource>
+</RCC>
