@@ -70,7 +70,7 @@ public:
         if (SignVerifyMessageDialog->objectName().isEmpty())
             SignVerifyMessageDialog->setObjectName(QStringLiteral("SignVerifyMessageDialog"));
         SignVerifyMessageDialog->resize(700, 380);
-        SignVerifyMessageDialog->setStyleSheet(QStringLiteral("background-image: url(:/images2/8);"));
+        SignVerifyMessageDialog->setStyleSheet(QStringLiteral(""));
         SignVerifyMessageDialog->setModal(true);
         verticalLayout = new QVBoxLayout(SignVerifyMessageDialog);
         verticalLayout->setObjectName(QStringLiteral("verticalLayout"));
@@ -92,12 +92,25 @@ public:
         horizontalLayout_1_SM->setObjectName(QStringLiteral("horizontalLayout_1_SM"));
         addressIn_SM = new QValidatedLineEdit(tabSignMessage);
         addressIn_SM->setObjectName(QStringLiteral("addressIn_SM"));
+        addressIn_SM->setStyleSheet(QLatin1String("background-color: rgb(255,255,255);\n"
+"border-radius:3px;\n"
+"border: 1px solid #C4C1BD;\n"
+"color: #4C4C4C;\n"
+"padding: 4px;\n"
+"margin: 0px 6px 0px 0px;"));
         addressIn_SM->setMaxLength(34);
 
         horizontalLayout_1_SM->addWidget(addressIn_SM);
 
         addressBookButton_SM = new QPushButton(tabSignMessage);
         addressBookButton_SM->setObjectName(QStringLiteral("addressBookButton_SM"));
+        addressBookButton_SM->setStyleSheet(QLatin1String("background-color: qlineargradient(spread:pad, x1:0, y1:1, x2:0, y2:0, stop:0 rgb(240,240,240), stop:1 rgb(255, 255, 255));\n"
+"border-radius:3px;\n"
+"border: 1px solid #C4C1BD;\n"
+"color: #4C4C4C;\n"
+"padding: 4px;\n"
+"margin: 0px 6px 0px 0px;\n"
+""));
         QIcon icon;
         icon.addFile(QStringLiteral(":/icons/address-book"), QSize(), QIcon::Normal, QIcon::Off);
         addressBookButton_SM->setIcon(icon);
@@ -107,6 +120,12 @@ public:
 
         pasteButton_SM = new QPushButton(tabSignMessage);
         pasteButton_SM->setObjectName(QStringLiteral("pasteButton_SM"));
+        pasteButton_SM->setStyleSheet(QLatin1String("background-color: qlineargradient(spread:pad, x1:0, y1:1, x2:0, y2:0, stop:0 rgb(240,240,240), stop:1 rgb(255, 255, 255));\n"
+"border-radius:3px;\n"
+"border: 1px solid #C4C1BD;\n"
+"color: #4C4C4C;\n"
+"padding: 4px;\n"
+""));
         QIcon icon1;
         icon1.addFile(QStringLiteral(":/icons/editpaste"), QSize(), QIcon::Normal, QIcon::Off);
         pasteButton_SM->setIcon(icon1);
@@ -119,6 +138,11 @@ public:
 
         messageIn_SM = new QPlainTextEdit(tabSignMessage);
         messageIn_SM->setObjectName(QStringLiteral("messageIn_SM"));
+        messageIn_SM->setStyleSheet(QLatin1String("background-color: rgb(255,255,255);\n"
+"border-radius:3px;\n"
+"border: 1px solid #C4C1BD;\n"
+"color: #4C4C4C;\n"
+"padding: 4px;"));
 
         verticalLayout_SM->addWidget(messageIn_SM);
 
@@ -130,6 +154,12 @@ public:
         QFont font;
         font.setItalic(true);
         signatureOut_SM->setFont(font);
+        signatureOut_SM->setStyleSheet(QLatin1String("background-color: rgb(255,255,255);\n"
+"border-radius:3px;\n"
+"border: 1px solid #C4C1BD;\n"
+"color: #4C4C4C;\n"
+"padding: 4px;\n"
+"margin: 0px 6px 0px 0px;"));
         signatureOut_SM->setReadOnly(true);
 
         horizontalLayout_2_SM->addWidget(signatureOut_SM);
@@ -150,6 +180,12 @@ public:
         horizontalLayout_3_SM->setObjectName(QStringLiteral("horizontalLayout_3_SM"));
         signMessageButton_SM = new QPushButton(tabSignMessage);
         signMessageButton_SM->setObjectName(QStringLiteral("signMessageButton_SM"));
+        signMessageButton_SM->setStyleSheet(QLatin1String("background-color: qlineargradient(spread:pad, x1:0, y1:1, x2:0, y2:0, stop:0 rgb(240,240,240), stop:1 rgb(255, 255, 255));\n"
+"border-radius:3px;\n"
+"border: 1px solid #C4C1BD;\n"
+"color: #4C4C4C;\n"
+"padding: 4px 12px;\n"
+"margin: 0px 6px 0px 0px;"));
         QIcon icon3;
         icon3.addFile(QStringLiteral(":/icons/edit"), QSize(), QIcon::Normal, QIcon::Off);
         signMessageButton_SM->setIcon(icon3);
@@ -159,6 +195,11 @@ public:
 
         clearButton_SM = new QPushButton(tabSignMessage);
         clearButton_SM->setObjectName(QStringLiteral("clearButton_SM"));
+        clearButton_SM->setStyleSheet(QLatin1String("background-color: qlineargradient(spread:pad, x1:0, y1:1, x2:0, y2:0, stop:0 rgb(240,240,240), stop:1 rgb(255, 255, 255));\n"
+"border-radius:3px;\n"
+"border: 1px solid #C4C1BD;\n"
+"color: #4C4C4C;\n"
+"padding: 4px 12px;"));
         QIcon icon4;
         icon4.addFile(QStringLiteral(":/icons/remove"), QSize(), QIcon::Normal, QIcon::Off);
         clearButton_SM->setIcon(icon4);
@@ -205,12 +246,25 @@ public:
         horizontalLayout_1_VM->setObjectName(QStringLiteral("horizontalLayout_1_VM"));
         addressIn_VM = new QValidatedLineEdit(tabVerifyMessage);
         addressIn_VM->setObjectName(QStringLiteral("addressIn_VM"));
+        addressIn_VM->setStyleSheet(QLatin1String("background-color: rgb(255,255,255);\n"
+"border-radius:3px;\n"
+"border: 1px solid #C4C1BD;\n"
+"color: #4C4C4C;\n"
+"padding: 4px;\n"
+"margin: 0px 6px 0px 0px;"));
         addressIn_VM->setMaxLength(34);
 
         horizontalLayout_1_VM->addWidget(addressIn_VM);
 
         addressBookButton_VM = new QPushButton(tabVerifyMessage);
         addressBookButton_VM->setObjectName(QStringLiteral("addressBookButton_VM"));
+        addressBookButton_VM->setStyleSheet(QLatin1String("background-color: qlineargradient(spread:pad, x1:0, y1:1, x2:0, y2:0, stop:0 rgb(240,240,240), stop:1 rgb(255, 255, 255));\n"
+"border-radius:3px;\n"
+"border: 1px solid #C4C1BD;\n"
+"color: #4C4C4C;\n"
+"padding: 4px;\n"
+"margin: 0px 0px 0px 6px;\n"
+""));
         addressBookButton_VM->setIcon(icon);
         addressBookButton_VM->setAutoDefault(false);
 
@@ -221,11 +275,21 @@ public:
 
         messageIn_VM = new QPlainTextEdit(tabVerifyMessage);
         messageIn_VM->setObjectName(QStringLiteral("messageIn_VM"));
+        messageIn_VM->setStyleSheet(QLatin1String("background-color: rgb(255,255,255);\n"
+"border-radius:3px;\n"
+"border: 1px solid #C4C1BD;\n"
+"color: #4C4C4C;\n"
+"padding: 4px;"));
 
         verticalLayout_VM->addWidget(messageIn_VM);
 
         signatureIn_VM = new QValidatedLineEdit(tabVerifyMessage);
         signatureIn_VM->setObjectName(QStringLiteral("signatureIn_VM"));
+        signatureIn_VM->setStyleSheet(QLatin1String("background-color: rgb(255,255,255);\n"
+"border-radius:3px;\n"
+"border: 1px solid #C4C1BD;\n"
+"color: #4C4C4C;\n"
+"padding: 4px;"));
 
         verticalLayout_VM->addWidget(signatureIn_VM);
 
@@ -233,6 +297,13 @@ public:
         horizontalLayout_2_VM->setObjectName(QStringLiteral("horizontalLayout_2_VM"));
         verifyMessageButton_VM = new QPushButton(tabVerifyMessage);
         verifyMessageButton_VM->setObjectName(QStringLiteral("verifyMessageButton_VM"));
+        verifyMessageButton_VM->setStyleSheet(QLatin1String("background-color: qlineargradient(spread:pad, x1:0, y1:1, x2:0, y2:0, stop:0 rgb(240,240,240), stop:1 rgb(255, 255, 255));\n"
+"border-radius:3px;\n"
+"border: 1px solid #C4C1BD;\n"
+"color: #4C4C4C;\n"
+"padding: 4px 12px;\n"
+"margin: 0px 6px 0px 0px;\n"
+""));
         QIcon icon5;
         icon5.addFile(QStringLiteral(":/icons/transaction_0"), QSize(), QIcon::Normal, QIcon::Off);
         verifyMessageButton_VM->setIcon(icon5);
@@ -242,6 +313,11 @@ public:
 
         clearButton_VM = new QPushButton(tabVerifyMessage);
         clearButton_VM->setObjectName(QStringLiteral("clearButton_VM"));
+        clearButton_VM->setStyleSheet(QLatin1String("background-color: qlineargradient(spread:pad, x1:0, y1:1, x2:0, y2:0, stop:0 rgb(240,240,240), stop:1 rgb(255, 255, 255));\n"
+"border-radius:3px;\n"
+"border: 1px solid #C4C1BD;\n"
+"color: #4C4C4C;\n"
+"padding: 4px 12px;"));
         clearButton_VM->setIcon(icon4);
         clearButton_VM->setAutoDefault(false);
 
@@ -272,7 +348,7 @@ public:
 
         retranslateUi(SignVerifyMessageDialog);
 
-        tabWidget->setCurrentIndex(1);
+        tabWidget->setCurrentIndex(0);
 
 
         QMetaObject::connectSlotsByName(SignVerifyMessageDialog);
