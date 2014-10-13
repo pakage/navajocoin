@@ -21,7 +21,11 @@ class ChatWindow : public QMainWindow, public Ui::ChatWindow
 
         void connected();
 
-    private:
+        void on_roomTextEdit_textChanged();
+
+        void on_logoutButton_clicked();
+
+private:
 
         QTcpSocket *socket;
 };

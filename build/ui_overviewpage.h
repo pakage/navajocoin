@@ -195,6 +195,7 @@ public:
 
         line = new QFrame(frame);
         line->setObjectName(QStringLiteral("line"));
+        line->setAutoFillBackground(false);
         line->setFrameShape(QFrame::HLine);
         line->setFrameShadow(QFrame::Sunken);
 

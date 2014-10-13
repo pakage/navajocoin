@@ -50,6 +50,7 @@
         <file alias="flag_ru">res/icons/flags/flag_ru.png</file>
         <file alias="flag_cn">res/icons/flags/flag_cn.png</file>
         <file alias="chat">res/icons/chat.png</file>
+        <file>res/icons/power.png</file>
     </qresource>
     <qresource prefix="/smileys">
         <file alias="icon_smile">res/icons/smileys/icon_smile.png</file>

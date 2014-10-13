@@ -105,14 +105,64 @@ padding: 4px;
                <number>3</number>
               </property>
               <item>
-               <widget class="QLabel" name="label_3">
+               <widget class="QWidget" name="horizontalWidget" native="true">
                 <property name="styleSheet">
-                 <string notr="true">border:none;
+                 <string notr="true">border:none;</string>
+                </property>
+                <layout class="QHBoxLayout" name="horizontalLayout_2">
+                 <property name="spacing">
+                  <number>0</number>
+                 </property>
+                 <property name="leftMargin">
+                  <number>0</number>
+                 </property>
+                 <property name="topMargin">
+                  <number>0</number>
+                 </property>
+                 <property name="rightMargin">
+                  <number>0</number>
+                 </property>
+                 <property name="bottomMargin">
+                  <number>0</number>
+                 </property>
+                 <item>
+                  <widget class="QLabel" name="label_3">
+                   <property name="styleSheet">
+                    <string notr="true">border:none;
 padding: 0 0 6px 0;</string>
-                </property>
-                <property name="text">
-                 <string>User list</string>
-                </property>
+                   </property>
+                   <property name="text">
+                    <string>User list</string>
+                   </property>
+                  </widget>
+                 </item>
+                 <item>
+                  <widget class="QPushButton" name="logoutButton">
+                   <property name="maximumSize">
+                    <size>
+                     <width>20</width>
+                     <height>16777215</height>
+                    </size>
+                   </property>
+                   <property name="styleSheet">
+                    <string notr="true">background: none;
+background-color: qlineargradient(spread:pad, x1:0, y1:1, x2:0, y2:0, stop:0 rgb(240,240,240), stop:1 rgb(255, 255, 255));
+border-radius:3px;
+border: 1px solid #C4C1BD;
+color: #4C4C4C;
+padding: 0;
+margin-bottom: 4px;</string>
+                   </property>
+                   <property name="text">
+                    <string/>
+                   </property>
+                   <property name="icon">
+                    <iconset resource="../bitcoin.qrc">
+                     <normaloff>:/icons/res/icons/power.png</normaloff>:/icons/res/icons/power.png</iconset>
+                   </property>
+                  </widget>
+                 </item>
+                </layout>
                </widget>
               </item>
               <item>
@@ -509,7 +559,9 @@ padding: 4px 12px;</string>
   <tabstop>userLineEdit</tabstop>
   <tabstop>loginButton</tabstop>
  </tabstops>
- <resources/>
+ <resources>
+  <include location="../bitcoin.qrc"/>
+ </resources>
  <connections>
   <connection>
    <sender>serverLineEdit</sender>

@@ -42,7 +42,10 @@ public:
     QGridLayout *gridLayout;
     QFrame *verticalFrame;
     QVBoxLayout *verticalLayout_3;
+    QWidget *horizontalWidget;
+    QHBoxLayout *horizontalLayout_2;
     QLabel *label_3;
+    QPushButton *logoutButton;
     QListWidget *userListWidget;
     QFrame *verticalFrame1;
     QVBoxLayout *verticalLayout_4;
@@ -127,12 +130,38 @@ public:
         verticalLayout_3->setSpacing(0);
         verticalLayout_3->setObjectName(QStringLiteral("verticalLayout_3"));
         verticalLayout_3->setContentsMargins(3, 0, 3, 3);
-        label_3 = new QLabel(verticalFrame);
+        horizontalWidget = new QWidget(verticalFrame);
+        horizontalWidget->setObjectName(QStringLiteral("horizontalWidget"));
+        horizontalWidget->setStyleSheet(QStringLiteral("border:none;"));
+        horizontalLayout_2 = new QHBoxLayout(horizontalWidget);
+        horizontalLayout_2->setSpacing(0);
+        horizontalLayout_2->setObjectName(QStringLiteral("horizontalLayout_2"));
+        horizontalLayout_2->setContentsMargins(0, 0, 0, 0);
+        label_3 = new QLabel(horizontalWidget);
         label_3->setObjectName(QStringLiteral("label_3"));
         label_3->setStyleSheet(QLatin1String("border:none;\n"
 "padding: 0 0 6px 0;"));
 
-        verticalLayout_3->addWidget(label_3);
+        horizontalLayout_2->addWidget(label_3);
+
+        logoutButton = new QPushButton(horizontalWidget);
+        logoutButton->setObjectName(QStringLiteral("logoutButton"));
+        logoutButton->setMaximumSize(QSize(20, 16777215));
+        logoutButton->setStyleSheet(QLatin1String("background: none;\n"
+"background-color: qlineargradient(spread:pad, x1:0, y1:1, x2:0, y2:0, stop:0 rgb(240,240,240), stop:1 rgb(255, 255, 255));\n"
+"border-radius:3px;\n"
+"border: 1px solid #C4C1BD;\n"
+"color: #4C4C4C;\n"
+"padding: 0;\n"
+"margin-bottom: 4px;"));
+        QIcon icon;
+        icon.addFile(QStringLiteral(":/icons/res/icons/power.png"), QSize(), QIcon::Normal, QIcon::Off);
+        logoutButton->setIcon(icon);
+
+        horizontalLayout_2->addWidget(logoutButton);
+
+
+        verticalLayout_3->addWidget(horizontalWidget);
 
         userListWidget = new QListWidget(verticalFrame);
         userListWidget->setObjectName(QStringLiteral("userListWidget"));
@@ -189,7 +218,8 @@ public:
         horizontalLayout->setContentsMargins(0, 0, 0, 0);
         label_5 = new QLabel(horizontalFrame);
         label_5->setObjectName(QStringLiteral("label_5"));
-        label_5->setMaximumSize(QSize(90, 29));
+        label_5->setMaximumSize(QSize(90, 16777215));
+        label_5->setBaseSize(QSize(0, 0));
         label_5->setStyleSheet(QLatin1String("background: none;\n"
 "background-color: #F2F1F0;\n"
 "border-radius:3px;\n"
@@ -359,7 +389,7 @@ public:
         QObject::connect(serverLineEdit, SIGNAL(returnPressed()), userLineEdit, SLOT(setFocus()));
         QObject::connect(userLineEdit, SIGNAL(returnPressed()), loginButton, SLOT(animateClick()));
 
-        stackedWidget->setCurrentIndex(1);
+        stackedWidget->setCurrentIndex(0);
 
 
         QMetaObject::connectSlotsByName(ChatWindow);
@@ -369,6 +399,7 @@ public:
     {
         ChatWindow->setWindowTitle(QApplication::translate("ChatWindow", "ChatWindow", 0));
         label_3->setText(QApplication::translate("ChatWindow", "User list", 0));
+        logoutButton->setText(QString());
         label_4->setText(QApplication::translate("ChatWindow", "Chat history", 0));
         label_5->setText(QApplication::translate("ChatWindow", "Message", 0));
         sayButton->setText(QApplication::translate("ChatWindow", "Send", 0));

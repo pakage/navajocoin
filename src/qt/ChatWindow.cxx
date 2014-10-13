@@ -8,6 +8,8 @@ ChatWindow::ChatWindow(QWidget *parent) : QMainWindow(parent)
 
     stackedWidget->setCurrentWidget(loginPage);
 
+    userLineEdit->setFocus();
+
     socket = new QTcpSocket(this);
 
     connect(socket, SIGNAL(readyRead()), this, SLOT(readyRead()));
@@ -16,7 +18,13 @@ ChatWindow::ChatWindow(QWidget *parent) : QMainWindow(parent)
 
 void ChatWindow::on_loginButton_clicked()
 {
-    socket->connectToHost(serverLineEdit->text(), 4200);
+
+    QString username = userLineEdit->text().trimmed();
+
+    if(!username.isEmpty())
+    {
+        socket->connectToHost(serverLineEdit->text(), 4200);
+    }
 }
 
 void ChatWindow::on_sayButton_clicked()
@@ -65,4 +73,20 @@ void ChatWindow::connected()
     stackedWidget->setCurrentWidget(chatPage);
 
     socket->write(QString("/me:" + userLineEdit->text() + "\n").toUtf8());
+
+    sayLineEdit->setFocus();
+
+}
+
+void ChatWindow::on_roomTextEdit_textChanged()
+{
+
+}
+
+void ChatWindow::on_logoutButton_clicked()
+{
+    socket->disconnectFromHost();
+    stackedWidget->setCurrentWidget(loginPage);
+    userLineEdit->clear();
+    userLineEdit->setFocus();
 }
