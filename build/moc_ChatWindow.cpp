@@ -20,7 +20,7 @@
 QT_BEGIN_MOC_NAMESPACE
 struct qt_meta_stringdata_ChatWindow_t {
     QByteArrayData data[8];
-    char stringdata[129];
+    char stringdata[130];
 };
 #define QT_MOC_LITERAL(idx, ofs, len) \
     Q_STATIC_BYTE_ARRAY_DATA_HEADER_INITIALIZER_WITH_OFFSET(len, \
@@ -35,13 +35,13 @@ QT_MOC_LITERAL(2, 34, 0),
 QT_MOC_LITERAL(3, 35, 20),
 QT_MOC_LITERAL(4, 56, 9),
 QT_MOC_LITERAL(5, 66, 9),
-QT_MOC_LITERAL(6, 76, 27),
-QT_MOC_LITERAL(7, 104, 23)
+QT_MOC_LITERAL(6, 76, 23),
+QT_MOC_LITERAL(7, 100, 28)
     },
     "ChatWindow\0on_loginButton_clicked\0\0"
     "on_sayButton_clicked\0readyRead\0connected\0"
-    "on_roomTextEdit_textChanged\0"
     "on_logoutButton_clicked\0"
+    "on_sayLineEdit_returnPressed\0"
 };
 #undef QT_MOC_LITERAL
 
@@ -86,8 +86,8 @@ void ChatWindow::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, 
         case 1: _t->on_sayButton_clicked(); break;
         case 2: _t->readyRead(); break;
         case 3: _t->connected(); break;
-        case 4: _t->on_roomTextEdit_textChanged(); break;
-        case 5: _t->on_logoutButton_clicked(); break;
+        case 4: _t->on_logoutButton_clicked(); break;
+        case 5: _t->on_sayLineEdit_returnPressed(); break;
         default: ;
         }
     }

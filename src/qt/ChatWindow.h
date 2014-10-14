@@ -1,6 +1,7 @@
 #include <QMainWindow>
 #include <QTcpSocket>
-  
+#include <QBasicTimer>
+
 #include "ui_ChatWindow.h"
 
 class ChatWindow : public QMainWindow, public Ui::ChatWindow
@@ -21,11 +22,24 @@ class ChatWindow : public QMainWindow, public Ui::ChatWindow
 
         void connected();
 
-        void on_roomTextEdit_textChanged();
-
         void on_logoutButton_clicked();
 
-private:
+        void on_sayLineEdit_returnPressed();
+
+    protected:
+
+        void timerEvent(QTimerEvent *event);
+
+        void postMessage();
+
+    private:
 
         QTcpSocket *socket;
+
+        QBasicTimer timer;
+
+        bool messageAllowed = true;
+
+        int messageTimeout = 3000;
+
 };

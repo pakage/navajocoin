@@ -245,6 +245,7 @@ public:
 "color: #4C4C4C;\n"
 "padding: 4px;\n"
 "margin-right:6px;"));
+        sayLineEdit->setMaxLength(300);
 
         horizontalLayout->addWidget(sayLineEdit);
 
