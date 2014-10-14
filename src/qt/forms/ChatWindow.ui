@@ -304,6 +304,9 @@ color: #4C4C4C;
 padding: 4px;
 margin-right:6px;</string>
                 </property>
+                <property name="maxLength">
+                 <number>300</number>
+                </property>
                </widget>
               </item>
               <item>

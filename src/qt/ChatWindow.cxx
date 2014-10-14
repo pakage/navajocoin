@@ -29,16 +29,7 @@ void ChatWindow::on_loginButton_clicked()
 
 void ChatWindow::on_sayButton_clicked()
 {
-    QString message = sayLineEdit->text().trimmed();
-
-    if(!message.isEmpty())
-    {
-        socket->write(QString(message + "\n").toUtf8());
-    }
-
-    sayLineEdit->clear();
-
-    sayLineEdit->setFocus();
+    this->postMessage();
 }
 
 void ChatWindow::readyRead()
@@ -78,15 +69,49 @@ void ChatWindow::connected()
 
 }
 
-void ChatWindow::on_roomTextEdit_textChanged()
-{
-
-}
-
 void ChatWindow::on_logoutButton_clicked()
 {
     socket->disconnectFromHost();
     stackedWidget->setCurrentWidget(loginPage);
     userLineEdit->clear();
     userLineEdit->setFocus();
+}
+
+void ChatWindow::on_sayLineEdit_returnPressed()
+{
+    this->postMessage();
+}
+
+void ChatWindow::postMessage()
+{
+
+    if(messageAllowed){
+
+        //start the timer and disable the button style
+        timer.start(messageTimeout, this);
+        messageAllowed = false;
+        sayButton->setStyleSheet("background: none;\nbackground-color: rgb(255,255,255);\nborder-radius:3px;\nborder: 1px solid #C4C1BD;\ncolor: #AAAAAA;\npadding: 4px 12px;");
+
+        QString message = sayLineEdit->text().trimmed();
+
+        if(!message.isEmpty())
+        {
+            socket->write(QString(message + "\n").toUtf8());
+        }
+
+        sayLineEdit->clear();
+
+        sayLineEdit->setFocus();
+
+    }//message allowed
+
+}
+
+void ChatWindow::timerEvent(QTimerEvent *event){
+
+    //stop the timer and reset the button style
+    sayButton->setStyleSheet("background: none;\nbackground-color: qlineargradient(spread:pad, x1:0, y1:1, x2:0, y2:0, stop:0 rgb(240,240,240), stop:1 rgb(255, 255, 255));\nborder-radius:3px;\nborder: 1px solid #C4C1BD;\ncolor: #4C4C4C;\npadding: 4px 12px;");
+    timer.stop();
+    messageAllowed = true;
+
 }
