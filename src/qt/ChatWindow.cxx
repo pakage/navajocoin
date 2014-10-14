@@ -1,6 +1,8 @@
 #include "ChatWindow.h"
-
+#include <QCheckBox>
 #include <QRegExp>
+#include <QSettings>
+#include <QTime>
 
 ChatWindow::ChatWindow(QWidget *parent) : QMainWindow(parent)
 {
@@ -8,7 +10,18 @@ ChatWindow::ChatWindow(QWidget *parent) : QMainWindow(parent)
 
     stackedWidget->setCurrentWidget(loginPage);
 
-    userLineEdit->setFocus();
+    QSettings settings("navajocoin","wallet");
+
+    //qDebug() << settings.value("username").toString();
+
+    QString username = settings.value("username").toString();
+
+    if(username != ""){
+        userLineEdit->setText(username);
+        rememberCheckBox->setChecked(true);
+    }else{
+        userLineEdit->setFocus();
+    }
 
     socket = new QTcpSocket(this);
 
@@ -23,6 +36,18 @@ void ChatWindow::on_loginButton_clicked()
 
     if(!username.isEmpty())
     {
+
+        isChecked = rememberCheckBox->checkState();
+
+        QSettings settings("navajocoin","wallet");
+
+        if(isChecked)
+        {
+            settings.setValue("username",username);
+        }else{
+            settings.setValue("username","");
+        }
+
         socket->connectToHost(serverLineEdit->text(), 4200);
     }
 }
@@ -54,7 +79,14 @@ void ChatWindow::readyRead()
             QString user = messageRegex.cap(1);
             QString message = messageRegex.cap(2);
 
-            roomTextEdit->append("<b>" + user + "</b>: " + message);
+            QTime time;
+            QTime currentTime = time.currentTime();
+
+            //qDebug() << currentTime.toString();
+
+            message += " <a href='http://www.google.com' target='_blank'>www.google.com</a>";
+
+            roomTextEdit->append("("+currentTime.toString()+") <b>" + user + "</b>: " + message);
         }
     }
 }
@@ -73,8 +105,10 @@ void ChatWindow::on_logoutButton_clicked()
 {
     socket->disconnectFromHost();
     stackedWidget->setCurrentWidget(loginPage);
-    userLineEdit->clear();
-    userLineEdit->setFocus();
+    if(!isChecked){
+        userLineEdit->clear();
+        userLineEdit->setFocus();
+    }
 }
 
 void ChatWindow::on_sayLineEdit_returnPressed()
@@ -85,7 +119,8 @@ void ChatWindow::on_sayLineEdit_returnPressed()
 void ChatWindow::postMessage()
 {
 
-    if(messageAllowed){
+    if(messageAllowed)
+    {
 
         //start the timer and disable the button style
         timer.start(messageTimeout, this);
@@ -107,7 +142,8 @@ void ChatWindow::postMessage()
 
 }
 
-void ChatWindow::timerEvent(QTimerEvent *event){
+void ChatWindow::timerEvent(QTimerEvent *event)
+{
 
     //stop the timer and reset the button style
     sayButton->setStyleSheet("background: none;\nbackground-color: qlineargradient(spread:pad, x1:0, y1:1, x2:0, y2:0, stop:0 rgb(240,240,240), stop:1 rgb(255, 255, 255));\nborder-radius:3px;\nborder: 1px solid #C4C1BD;\ncolor: #4C4C4C;\npadding: 4px 12px;");

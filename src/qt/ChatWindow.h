@@ -42,4 +42,6 @@ class ChatWindow : public QMainWindow, public Ui::ChatWindow
 
         int messageTimeout = 3000;
 
+        bool isChecked;
+
 };

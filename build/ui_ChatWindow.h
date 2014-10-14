@@ -13,6 +13,7 @@
 #include <QtWidgets/QAction>
 #include <QtWidgets/QApplication>
 #include <QtWidgets/QButtonGroup>
+#include <QtWidgets/QCheckBox>
 #include <QtWidgets/QFrame>
 #include <QtWidgets/QGridLayout>
 #include <QtWidgets/QHBoxLayout>
@@ -40,6 +41,11 @@ public:
     QStackedWidget *stackedWidget;
     QWidget *chatPage;
     QGridLayout *gridLayout;
+    QFrame *horizontalFrame;
+    QHBoxLayout *horizontalLayout;
+    QLabel *label_5;
+    QLineEdit *sayLineEdit;
+    QPushButton *sayButton;
     QFrame *verticalFrame;
     QVBoxLayout *verticalLayout_3;
     QWidget *horizontalWidget;
@@ -51,11 +57,6 @@ public:
     QVBoxLayout *verticalLayout_4;
     QLabel *label_4;
     QTextEdit *roomTextEdit;
-    QFrame *horizontalFrame;
-    QHBoxLayout *horizontalLayout;
-    QLabel *label_5;
-    QLineEdit *sayLineEdit;
-    QPushButton *sayButton;
     QWidget *loginPage;
     QGridLayout *gridLayout_3;
     QSpacerItem *horizontalSpacer_2;
@@ -70,6 +71,7 @@ public:
     QLabel *label_2;
     QLineEdit *userLineEdit;
     QPushButton *loginButton;
+    QCheckBox *rememberCheckBox;
 
     void setupUi(QMainWindow *ChatWindow)
     {
@@ -117,97 +119,6 @@ public:
         chatPage->setObjectName(QStringLiteral("chatPage"));
         gridLayout = new QGridLayout(chatPage);
         gridLayout->setObjectName(QStringLiteral("gridLayout"));
-        verticalFrame = new QFrame(chatPage);
-        verticalFrame->setObjectName(QStringLiteral("verticalFrame"));
-        verticalFrame->setStyleSheet(QLatin1String("background: none;\n"
-"background-color: #F2F1F0;\n"
-"border-radius:3px;\n"
-"border: 1px solid #C4C1BD;\n"
-"color: #4C4C4C;\n"
-"padding: 4px;\n"
-""));
-        verticalLayout_3 = new QVBoxLayout(verticalFrame);
-        verticalLayout_3->setSpacing(0);
-        verticalLayout_3->setObjectName(QStringLiteral("verticalLayout_3"));
-        verticalLayout_3->setContentsMargins(3, 0, 3, 3);
-        horizontalWidget = new QWidget(verticalFrame);
-        horizontalWidget->setObjectName(QStringLiteral("horizontalWidget"));
-        horizontalWidget->setStyleSheet(QStringLiteral("border:none;"));
-        horizontalLayout_2 = new QHBoxLayout(horizontalWidget);
-        horizontalLayout_2->setSpacing(0);
-        horizontalLayout_2->setObjectName(QStringLiteral("horizontalLayout_2"));
-        horizontalLayout_2->setContentsMargins(0, 0, 0, 0);
-        label_3 = new QLabel(horizontalWidget);
-        label_3->setObjectName(QStringLiteral("label_3"));
-        label_3->setStyleSheet(QLatin1String("border:none;\n"
-"padding: 0 0 6px 0;"));
-
-        horizontalLayout_2->addWidget(label_3);
-
-        logoutButton = new QPushButton(horizontalWidget);
-        logoutButton->setObjectName(QStringLiteral("logoutButton"));
-        logoutButton->setMaximumSize(QSize(20, 16777215));
-        logoutButton->setStyleSheet(QLatin1String("background: none;\n"
-"background-color: qlineargradient(spread:pad, x1:0, y1:1, x2:0, y2:0, stop:0 rgb(240,240,240), stop:1 rgb(255, 255, 255));\n"
-"border-radius:3px;\n"
-"border: 1px solid #C4C1BD;\n"
-"color: #4C4C4C;\n"
-"padding: 0;\n"
-"margin-bottom: 4px;"));
-        QIcon icon;
-        icon.addFile(QStringLiteral(":/icons/res/icons/power.png"), QSize(), QIcon::Normal, QIcon::Off);
-        logoutButton->setIcon(icon);
-
-        horizontalLayout_2->addWidget(logoutButton);
-
-
-        verticalLayout_3->addWidget(horizontalWidget);
-
-        userListWidget = new QListWidget(verticalFrame);
-        userListWidget->setObjectName(QStringLiteral("userListWidget"));
-        userListWidget->setStyleSheet(QStringLiteral("background-color: #FFF;"));
-
-        verticalLayout_3->addWidget(userListWidget);
-
-
-        gridLayout->addWidget(verticalFrame, 0, 3, 2, 2);
-
-        verticalFrame1 = new QFrame(chatPage);
-        verticalFrame1->setObjectName(QStringLiteral("verticalFrame1"));
-        verticalFrame1->setStyleSheet(QLatin1String("background: none;\n"
-"background-color: #F2F1F0;\n"
-"border-radius:3px;\n"
-"border: 1px solid #C4C1BD;\n"
-"color: #4C4C4C;\n"
-"padding: 4px;\n"
-""));
-        verticalLayout_4 = new QVBoxLayout(verticalFrame1);
-        verticalLayout_4->setSpacing(0);
-        verticalLayout_4->setObjectName(QStringLiteral("verticalLayout_4"));
-        verticalLayout_4->setContentsMargins(3, 0, 3, 3);
-        label_4 = new QLabel(verticalFrame1);
-        label_4->setObjectName(QStringLiteral("label_4"));
-        label_4->setStyleSheet(QLatin1String("border:none;\n"
-"padding: 0 0 6px 0;"));
-
-        verticalLayout_4->addWidget(label_4);
-
-        roomTextEdit = new QTextEdit(verticalFrame1);
-        roomTextEdit->setObjectName(QStringLiteral("roomTextEdit"));
-        roomTextEdit->setStyleSheet(QLatin1String("background: none;\n"
-"background-color: #FFF;\n"
-"border-radius:3px;\n"
-"border: 1px solid #C4C1BD;\n"
-"color: #4C4C4C;\n"
-"padding: 4px;\n"
-""));
-        roomTextEdit->setReadOnly(true);
-
-        verticalLayout_4->addWidget(roomTextEdit);
-
-
-        gridLayout->addWidget(verticalFrame1, 0, 0, 2, 3);
-
         horizontalFrame = new QFrame(chatPage);
         horizontalFrame->setObjectName(QStringLiteral("horizontalFrame"));
         horizontalFrame->setMaximumSize(QSize(16777215, 29));
@@ -268,6 +179,99 @@ public:
 
 
         gridLayout->addWidget(horizontalFrame, 2, 0, 1, 5);
+
+        verticalFrame = new QFrame(chatPage);
+        verticalFrame->setObjectName(QStringLiteral("verticalFrame"));
+        verticalFrame->setMaximumSize(QSize(200, 16777215));
+        verticalFrame->setStyleSheet(QLatin1String("background: none;\n"
+"background-color: #F2F1F0;\n"
+"border-radius:3px;\n"
+"border: 1px solid #C4C1BD;\n"
+"color: #4C4C4C;\n"
+"padding: 4px;\n"
+""));
+        verticalLayout_3 = new QVBoxLayout(verticalFrame);
+        verticalLayout_3->setSpacing(0);
+        verticalLayout_3->setObjectName(QStringLiteral("verticalLayout_3"));
+        verticalLayout_3->setContentsMargins(3, 0, 3, 3);
+        horizontalWidget = new QWidget(verticalFrame);
+        horizontalWidget->setObjectName(QStringLiteral("horizontalWidget"));
+        horizontalWidget->setStyleSheet(QStringLiteral("border:none;"));
+        horizontalLayout_2 = new QHBoxLayout(horizontalWidget);
+        horizontalLayout_2->setSpacing(0);
+        horizontalLayout_2->setObjectName(QStringLiteral("horizontalLayout_2"));
+        horizontalLayout_2->setContentsMargins(0, 0, 0, 0);
+        label_3 = new QLabel(horizontalWidget);
+        label_3->setObjectName(QStringLiteral("label_3"));
+        label_3->setStyleSheet(QLatin1String("border:none;\n"
+"padding: 0 0 6px 0;"));
+
+        horizontalLayout_2->addWidget(label_3);
+
+        logoutButton = new QPushButton(horizontalWidget);
+        logoutButton->setObjectName(QStringLiteral("logoutButton"));
+        logoutButton->setMaximumSize(QSize(20, 16777215));
+        logoutButton->setStyleSheet(QLatin1String("background: none;\n"
+"background-color: qlineargradient(spread:pad, x1:0, y1:1, x2:0, y2:0, stop:0 rgb(240,240,240), stop:1 rgb(255, 255, 255));\n"
+"border-radius:3px;\n"
+"border: 1px solid #C4C1BD;\n"
+"color: #4C4C4C;\n"
+"padding: 0;\n"
+"margin-bottom: 4px;"));
+        QIcon icon;
+        icon.addFile(QStringLiteral(":/icons/res/icons/power.png"), QSize(), QIcon::Normal, QIcon::Off);
+        logoutButton->setIcon(icon);
+
+        horizontalLayout_2->addWidget(logoutButton);
+
+
+        verticalLayout_3->addWidget(horizontalWidget);
+
+        userListWidget = new QListWidget(verticalFrame);
+        userListWidget->setObjectName(QStringLiteral("userListWidget"));
+        userListWidget->setStyleSheet(QStringLiteral("background-color: #FFF;"));
+
+        verticalLayout_3->addWidget(userListWidget);
+
+
+        gridLayout->addWidget(verticalFrame, 0, 4, 2, 1);
+
+        verticalFrame1 = new QFrame(chatPage);
+        verticalFrame1->setObjectName(QStringLiteral("verticalFrame1"));
+        verticalFrame1->setStyleSheet(QLatin1String("background: none;\n"
+"background-color: #F2F1F0;\n"
+"border-radius:3px;\n"
+"border: 1px solid #C4C1BD;\n"
+"color: #4C4C4C;\n"
+"padding: 4px;\n"
+""));
+        verticalLayout_4 = new QVBoxLayout(verticalFrame1);
+        verticalLayout_4->setSpacing(0);
+        verticalLayout_4->setObjectName(QStringLiteral("verticalLayout_4"));
+        verticalLayout_4->setContentsMargins(3, 0, 3, 3);
+        label_4 = new QLabel(verticalFrame1);
+        label_4->setObjectName(QStringLiteral("label_4"));
+        label_4->setStyleSheet(QLatin1String("border:none;\n"
+"padding: 0 0 6px 0;"));
+
+        verticalLayout_4->addWidget(label_4);
+
+        roomTextEdit = new QTextEdit(verticalFrame1);
+        roomTextEdit->setObjectName(QStringLiteral("roomTextEdit"));
+        roomTextEdit->setStyleSheet(QLatin1String("background: none;\n"
+"background-color: #FFF;\n"
+"border-radius:3px;\n"
+"border: 1px solid #C4C1BD;\n"
+"color: #4C4C4C;\n"
+"padding: 4px;\n"
+""));
+        roomTextEdit->setReadOnly(true);
+        roomTextEdit->setTextInteractionFlags(Qt::TextBrowserInteraction);
+
+        verticalLayout_4->addWidget(roomTextEdit);
+
+
+        gridLayout->addWidget(verticalFrame1, 0, 0, 2, 4);
 
         stackedWidget->addWidget(chatPage);
         loginPage = new QWidget();
@@ -357,6 +361,7 @@ public:
 "padding: 4px;\n"
 "margin: 0px 6px 0px 0px;\n"
 "color: #4C4C4C;"));
+        userLineEdit->setMaxLength(20);
 
         gridLayout_2->addWidget(userLineEdit, 1, 1, 1, 1);
 
@@ -370,7 +375,12 @@ public:
 "color: #4C4C4C;\n"
 "padding: 4px 12px;"));
 
-        gridLayout_2->addWidget(loginButton, 2, 1, 1, 1);
+        gridLayout_2->addWidget(loginButton, 3, 1, 1, 1);
+
+        rememberCheckBox = new QCheckBox(loginFrame);
+        rememberCheckBox->setObjectName(QStringLiteral("rememberCheckBox"));
+
+        gridLayout_2->addWidget(rememberCheckBox, 2, 1, 1, 1);
 
 
         gridLayout_3->addWidget(loginFrame, 2, 2, 1, 1);
@@ -384,7 +394,6 @@ public:
 
         ChatWindow->setCentralWidget(centralwidget);
         QWidget::setTabOrder(serverLineEdit, userLineEdit);
-        QWidget::setTabOrder(userLineEdit, loginButton);
 
         retranslateUi(ChatWindow);
         QObject::connect(serverLineEdit, SIGNAL(returnPressed()), userLineEdit, SLOT(setFocus()));
@@ -399,16 +408,17 @@ public:
     void retranslateUi(QMainWindow *ChatWindow)
     {
         ChatWindow->setWindowTitle(QApplication::translate("ChatWindow", "ChatWindow", 0));
+        label_5->setText(QApplication::translate("ChatWindow", "Message", 0));
+        sayButton->setText(QApplication::translate("ChatWindow", "Send", 0));
         label_3->setText(QApplication::translate("ChatWindow", "User list", 0));
         logoutButton->setText(QString());
         label_4->setText(QApplication::translate("ChatWindow", "Chat history", 0));
-        label_5->setText(QApplication::translate("ChatWindow", "Message", 0));
-        sayButton->setText(QApplication::translate("ChatWindow", "Send", 0));
         titleLabel->setText(QApplication::translate("ChatWindow", "TALK IN CODE! ", 0));
         label->setText(QApplication::translate("ChatWindow", "Base Camp:", 0));
         serverLineEdit->setText(QApplication::translate("ChatWindow", "talkincode.servehttp.com", 0));
         label_2->setText(QApplication::translate("ChatWindow", "Username:", 0));
         loginButton->setText(QApplication::translate("ChatWindow", "Login", 0));
+        rememberCheckBox->setText(QApplication::translate("ChatWindow", "remember me", 0));
     } // retranslateUi
 
 };
