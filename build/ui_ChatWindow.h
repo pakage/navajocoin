@@ -25,7 +25,7 @@
 #include <QtWidgets/QPushButton>
 #include <QtWidgets/QSpacerItem>
 #include <QtWidgets/QStackedWidget>
-#include <QtWidgets/QTextEdit>
+#include <QtWidgets/QTextBrowser>
 #include <QtWidgets/QVBoxLayout>
 #include <QtWidgets/QWidget>
 
@@ -56,7 +56,7 @@ public:
     QFrame *verticalFrame1;
     QVBoxLayout *verticalLayout_4;
     QLabel *label_4;
-    QTextEdit *roomTextEdit;
+    QTextBrowser *roomTextBrowser;
     QWidget *loginPage;
     QGridLayout *gridLayout_3;
     QSpacerItem *horizontalSpacer_2;
@@ -256,19 +256,19 @@ public:
 
         verticalLayout_4->addWidget(label_4);
 
-        roomTextEdit = new QTextEdit(verticalFrame1);
-        roomTextEdit->setObjectName(QStringLiteral("roomTextEdit"));
-        roomTextEdit->setStyleSheet(QLatin1String("background: none;\n"
+        roomTextBrowser = new QTextBrowser(verticalFrame1);
+        roomTextBrowser->setObjectName(QStringLiteral("roomTextBrowser"));
+        roomTextBrowser->setStyleSheet(QLatin1String("background: none;\n"
 "background-color: #FFF;\n"
 "border-radius:3px;\n"
 "border: 1px solid #C4C1BD;\n"
 "color: #4C4C4C;\n"
 "padding: 4px;\n"
 ""));
-        roomTextEdit->setReadOnly(true);
-        roomTextEdit->setTextInteractionFlags(Qt::TextBrowserInteraction);
+        roomTextBrowser->setReadOnly(true);
+        roomTextBrowser->setTextInteractionFlags(Qt::TextSelectableByMouse);
 
-        verticalLayout_4->addWidget(roomTextEdit);
+        verticalLayout_4->addWidget(roomTextBrowser);
 
 
         gridLayout->addWidget(verticalFrame1, 0, 0, 2, 4);

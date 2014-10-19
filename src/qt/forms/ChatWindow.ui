@@ -327,7 +327,7 @@ padding: 0 0 6px 0;</string>
                </widget>
               </item>
               <item>
-               <widget class="QTextEdit" name="roomTextEdit">
+               <widget class="QTextBrowser" name="roomTextBrowser">
                 <property name="styleSheet">
                  <string notr="true">background: none;
 background-color: #FFF;
@@ -341,7 +341,7 @@ padding: 4px;
                  <bool>true</bool>
                 </property>
                 <property name="textInteractionFlags">
-                 <set>Qt::TextBrowserInteraction</set>
+                 <set>Qt::TextSelectableByMouse</set>
                 </property>
                </widget>
               </item>

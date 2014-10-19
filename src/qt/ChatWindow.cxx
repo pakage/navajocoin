@@ -3,6 +3,7 @@
 #include <QRegExp>
 #include <QSettings>
 #include <QTime>
+#include <QTextBrowser>
 
 ChatWindow::ChatWindow(QWidget *parent) : QMainWindow(parent)
 {
@@ -13,6 +14,8 @@ ChatWindow::ChatWindow(QWidget *parent) : QMainWindow(parent)
     QSettings settings("navajocoin","wallet");
 
     //qDebug() << settings.value("username").toString();
+
+    //qDebug() << "TEST";
 
     QString username = settings.value("username").toString();
 
@@ -49,6 +52,9 @@ void ChatWindow::on_loginButton_clicked()
         }
 
         socket->connectToHost(serverLineEdit->text(), 4200);
+
+
+
     }
 }
 
@@ -84,9 +90,12 @@ void ChatWindow::readyRead()
 
             //qDebug() << currentTime.toString();
 
-            message += " <a href='http://www.google.com' target='_blank'>www.google.com</a>";
+            message += " <a href=\"http://www.google.com\">www.google.com</a>";
 
-            roomTextEdit->append("("+currentTime.toString()+") <b>" + user + "</b>: " + message);
+            QString newText = "("+currentTime.toString()+") <b>" + user + "</b>: " + message;
+
+            roomTextBrowser->append(newText);
+
         }
     }
 }
@@ -98,6 +107,10 @@ void ChatWindow::connected()
     socket->write(QString("/me:" + userLineEdit->text() + "\n").toUtf8());
 
     sayLineEdit->setFocus();
+
+    roomTextBrowser->setOpenLinks(true);
+    roomTextBrowser->setOpenExternalLinks(true);
+    roomTextBrowser->setText("<a href=\"http://www.google.com\">www.google.com</a> \n");
 
 }
 
@@ -150,4 +163,9 @@ void ChatWindow::timerEvent(QTimerEvent *event)
     timer.stop();
     messageAllowed = true;
 
+}
+
+void ChatWindow::on_roomTextBrowser_anchorClicked(const QUrl &arg1)
+{
+    //qDebug() << "Anchor Clicked";
 }
