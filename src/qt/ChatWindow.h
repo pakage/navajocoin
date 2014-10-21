@@ -26,7 +26,9 @@ class ChatWindow : public QMainWindow, public Ui::ChatWindow
 
         void on_sayLineEdit_returnPressed();
 
-    protected:
+        void on_roomTextBrowser_anchorClicked(const QUrl &arg1);
+
+protected:
 
         void timerEvent(QTimerEvent *event);
 
@@ -41,5 +43,7 @@ class ChatWindow : public QMainWindow, public Ui::ChatWindow
         bool messageAllowed = true;
 
         int messageTimeout = 3000;
+
+        bool isChecked;
 
 };
