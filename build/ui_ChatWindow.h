@@ -266,7 +266,7 @@ public:
 "padding: 4px;\n"
 ""));
         roomTextBrowser->setReadOnly(true);
-        roomTextBrowser->setTextInteractionFlags(Qt::TextSelectableByMouse);
+        roomTextBrowser->setTextInteractionFlags(Qt::LinksAccessibleByMouse|Qt::TextSelectableByMouse);
 
         verticalLayout_4->addWidget(roomTextBrowser);
 
@@ -413,6 +413,11 @@ public:
         label_3->setText(QApplication::translate("ChatWindow", "User list", 0));
         logoutButton->setText(QString());
         label_4->setText(QApplication::translate("ChatWindow", "Chat history", 0));
+        roomTextBrowser->setHtml(QApplication::translate("ChatWindow", "<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.0//EN\" \"http://www.w3.org/TR/REC-html40/strict.dtd\">\n"
+"<html><head><meta name=\"qrichtext\" content=\"1\" /><style type=\"text/css\">\n"
+"p, li { white-space: pre-wrap; }\n"
+"</style></head><body style=\" font-family:'Ubuntu'; font-size:11pt; font-weight:400; font-style:normal;\">\n"
+"<p style=\"-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><br /></p></body></html>", 0));
         titleLabel->setText(QApplication::translate("ChatWindow", "TALK IN CODE! ", 0));
         label->setText(QApplication::translate("ChatWindow", "Base Camp:", 0));
         serverLineEdit->setText(QApplication::translate("ChatWindow", "talkincode.servehttp.com", 0));

@@ -26,7 +26,7 @@ class ChatWindow : public QMainWindow, public Ui::ChatWindow
 
         void on_sayLineEdit_returnPressed();
 
-        void on_roomTextBrowser_anchorClicked(const QUrl &arg1);
+        void on_roomTextBrowser_anchorClicked(QUrl url);
 
 protected:
 

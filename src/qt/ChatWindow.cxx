@@ -4,6 +4,8 @@
 #include <QSettings>
 #include <QTime>
 #include <QTextBrowser>
+#include <QDesktopServices>
+#include <QUrl>
 
 ChatWindow::ChatWindow(QWidget *parent) : QMainWindow(parent)
 {
@@ -30,6 +32,7 @@ ChatWindow::ChatWindow(QWidget *parent) : QMainWindow(parent)
 
     connect(socket, SIGNAL(readyRead()), this, SLOT(readyRead()));
     connect(socket, SIGNAL(connected()), this, SLOT(connected()));
+
 }
 
 void ChatWindow::on_loginButton_clicked()
@@ -65,6 +68,9 @@ void ChatWindow::on_sayButton_clicked()
 
 void ChatWindow::readyRead()
 {
+
+    QRegExp regExp("((([A-Za-z]{3,9}:(?:\\/\\/)?)(?:[\\-;:&=\\+\\$,\\w]+@)?[A-Za-z0-9\\.\\-]+|(?:www\\.|[\\-;:&=\\+\\$,\\w]+@)[A-Za-z0-9\\.\\-]+)((?:\\/[\\+~%\\/\\.\\w\\-]*)?\\??(?:[\\-\\+=&;%@\\.\\w]*)#?(?:[\\.\\!\\/\\\\\\w]*))?)");
+
     while(socket->canReadLine())
     {
         QString line = QString::fromUtf8(socket->readLine()).trimmed();
@@ -85,14 +91,12 @@ void ChatWindow::readyRead()
             QString user = messageRegex.cap(1);
             QString message = messageRegex.cap(2);
 
+            QString anchorMessage = message.replace(regExp, "<a href='\\1'>\\1</a>" );
+
             QTime time;
             QTime currentTime = time.currentTime();
 
-            //qDebug() << currentTime.toString();
-
-            message += " <a href=\"http://www.google.com\">www.google.com</a>";
-
-            QString newText = "("+currentTime.toString()+") <b>" + user + "</b>: " + message;
+            QString newText = "("+currentTime.toString()+") <b>" + user + "</b>: " + anchorMessage;
 
             roomTextBrowser->append(newText);
 
@@ -108,9 +112,8 @@ void ChatWindow::connected()
 
     sayLineEdit->setFocus();
 
-    roomTextBrowser->setOpenLinks(true);
-    roomTextBrowser->setOpenExternalLinks(true);
-    roomTextBrowser->setText("<a href=\"http://www.google.com\">www.google.com</a> \n");
+    roomTextBrowser->setOpenExternalLinks(false);
+    roomTextBrowser->setOpenLinks(false);
 
 }
 
@@ -165,7 +168,14 @@ void ChatWindow::timerEvent(QTimerEvent *event)
 
 }
 
-void ChatWindow::on_roomTextBrowser_anchorClicked(const QUrl &arg1)
+void ChatWindow::on_roomTextBrowser_anchorClicked(QUrl url)
 {
-    //qDebug() << "Anchor Clicked";
+    QString urlString = url.toString();
+
+    if(!urlString.startsWith("http") && urlString.indexOf("://") == -1){
+        urlString = "http://"+urlString;
+    }
+
+    QDesktopServices::openUrl(QUrl(urlString, QUrl::TolerantMode));
+
 }
