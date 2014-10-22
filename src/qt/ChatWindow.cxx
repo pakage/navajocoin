@@ -6,18 +6,18 @@
 #include <QTextBrowser>
 #include <QDesktopServices>
 #include <QUrl>
+#include <bitcoingui.h>
+
+
 
 ChatWindow::ChatWindow(QWidget *parent) : QMainWindow(parent)
 {
+
     setupUi(this);
 
     stackedWidget->setCurrentWidget(loginPage);
 
     QSettings settings("navajocoin","wallet");
-
-    //qDebug() << settings.value("username").toString();
-
-    //qDebug() << "TEST";
 
     QString username = settings.value("username").toString();
 
@@ -100,9 +100,13 @@ void ChatWindow::readyRead()
 
             roomTextBrowser->append(newText);
 
+            BitcoinGUI gui;
+
+            gui->chatUpdated();
         }
     }
 }
+
 
 void ChatWindow::connected()
 {

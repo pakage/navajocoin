@@ -65,6 +65,8 @@ extern int64_t nLastCoinStakeSearchInterval;
 extern unsigned int nTargetSpacing;
 double GetPoSKernelPS();
 
+QString currentPage;
+
 BitcoinGUI::BitcoinGUI(QWidget *parent):
     QMainWindow(parent),
     clientModel(0),
@@ -774,6 +776,10 @@ void BitcoinGUI::incomingTransaction(const QModelIndex & parent, int start, int 
 
 void BitcoinGUI::gotoOverviewPage()
 {
+    currentPage = "OVERVIEW";
+
+    qDebug() << "gotoOverviewPage";
+
     overviewAction->setChecked(true);
     centralWidget->setCurrentWidget(overviewPage);
 
@@ -783,6 +789,8 @@ void BitcoinGUI::gotoOverviewPage()
 
 void BitcoinGUI::gotoHistoryPage()
 {
+    currentPage = "HISTORY";
+
     historyAction->setChecked(true);
     centralWidget->setCurrentWidget(transactionsPage);
 
@@ -793,6 +801,8 @@ void BitcoinGUI::gotoHistoryPage()
 
 void BitcoinGUI::gotoAddressBookPage()
 {
+    currentPage = "ADDRESS_BOOK";
+
     addressBookAction->setChecked(true);
     centralWidget->setCurrentWidget(addressBookPage);
 
@@ -803,6 +813,8 @@ void BitcoinGUI::gotoAddressBookPage()
 
 void BitcoinGUI::gotoReceiveCoinsPage()
 {
+    currentPage = "RECEIVE_COINS";
+
     receiveCoinsAction->setChecked(true);
     centralWidget->setCurrentWidget(receiveCoinsPage);
 
@@ -813,6 +825,8 @@ void BitcoinGUI::gotoReceiveCoinsPage()
 
 void BitcoinGUI::gotoSendCoinsPage()
 {
+    currentPage = "SEND_COINS";
+
     sendCoinsAction->setChecked(true);
     centralWidget->setCurrentWidget(sendCoinsPage);
 
@@ -822,7 +836,13 @@ void BitcoinGUI::gotoSendCoinsPage()
 
 void BitcoinGUI::gotoChatWindow()
 {
+
+    qDebug() << "gotoChatWindow";
+
+    currentPage = "CHAT_WINDOW";
+
     chatAction->setChecked(true);
+
     centralWidget->setCurrentWidget(chatWindow);
 
     exportAction->setEnabled(false);
@@ -831,6 +851,8 @@ void BitcoinGUI::gotoChatWindow()
 
 void BitcoinGUI::gotoSignMessageTab(QString addr)
 {
+    currentPage = "SIGN_MESSAGE";
+
     // call show() in showTab_SM()
     signVerifyMessageDialog->showTab_SM(true);
 
@@ -840,6 +862,9 @@ void BitcoinGUI::gotoSignMessageTab(QString addr)
 
 void BitcoinGUI::gotoVerifyMessageTab(QString addr)
 {
+
+    currentPage = "VERIFY_MESSAGE";
+
     // call show() in showTab_VM()
     signVerifyMessageDialog->showTab_VM(true);
 
@@ -1049,4 +1074,17 @@ void BitcoinGUI::updateStakingIcon()
         else
             labelStakingIcon->setToolTip(tr("Not staking"));
     }
+}
+
+void BitcoinGUI::chatUpdated(){
+
+    qDebug() << "chatUpdated";
+    qDebug() << currentPage;
+
+    qDebug() << centralWidget->currentWidget();
+
+    if(currentPage != "CHAT_WINDOW"){
+        qDebug() << "showMessageIcon";
+    }
+
 }

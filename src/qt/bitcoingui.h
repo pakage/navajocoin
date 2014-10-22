@@ -143,6 +143,8 @@ public slots:
     void askFee(qint64 nFeeRequired, bool *payFee);
     void handleURI(QString strURI);
 
+    void chatUpdated();
+
 private slots:
     /** Switch to overview (home) page */
     void gotoOverviewPage();
