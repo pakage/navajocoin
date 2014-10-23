@@ -100,11 +100,15 @@ void ChatWindow::readyRead()
 
             roomTextBrowser->append(newText);
 
-            BitcoinGUI gui;
+            bitcoinGUI->chatUpdated();
 
-            gui->chatUpdated();
+
         }
     }
+}
+
+void ChatWindow::setGUI(BitcoinGUI* gui){
+    bitcoinGUI = gui;
 }
 
 

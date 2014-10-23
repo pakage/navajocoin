@@ -1,6 +1,7 @@
 #include <QMainWindow>
 #include <QTcpSocket>
 #include <QBasicTimer>
+#include <bitcoingui.h>
 
 #include "ui_ChatWindow.h"
 
@@ -11,6 +12,8 @@ class ChatWindow : public QMainWindow, public Ui::ChatWindow
     public:
 
         ChatWindow(QWidget *parent=0);
+
+        void setGUI(BitcoinGUI* const);
 
     private slots:
 
@@ -27,6 +30,8 @@ class ChatWindow : public QMainWindow, public Ui::ChatWindow
         void on_sayLineEdit_returnPressed();
 
         void on_roomTextBrowser_anchorClicked(QUrl url);
+
+
 
 protected:
 
@@ -45,5 +50,7 @@ protected:
         int messageTimeout = 3000;
 
         bool isChecked;
+
+        BitcoinGUI* bitcoinGUI;
 
 };

@@ -48,6 +48,8 @@ public:
     */
     void setWalletModel(WalletModel *walletModel);
 
+    void chatUpdated();
+
 protected:
     void changeEvent(QEvent *e);
     void closeEvent(QCloseEvent *event);
@@ -142,8 +144,6 @@ public slots:
     */
     void askFee(qint64 nFeeRequired, bool *payFee);
     void handleURI(QString strURI);
-
-    void chatUpdated();
 
 private slots:
     /** Switch to overview (home) page */
