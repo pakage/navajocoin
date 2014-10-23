@@ -25,7 +25,7 @@
 #include <QtWidgets/QPushButton>
 #include <QtWidgets/QSpacerItem>
 #include <QtWidgets/QStackedWidget>
-#include <QtWidgets/QTextBrowser>
+#include <QtWidgets/QTabWidget>
 #include <QtWidgets/QVBoxLayout>
 #include <QtWidgets/QWidget>
 
@@ -43,7 +43,6 @@ public:
     QGridLayout *gridLayout;
     QFrame *horizontalFrame;
     QHBoxLayout *horizontalLayout;
-    QLabel *label_5;
     QLineEdit *sayLineEdit;
     QPushButton *sayButton;
     QFrame *verticalFrame;
@@ -55,8 +54,7 @@ public:
     QListWidget *userListWidget;
     QFrame *verticalFrame1;
     QVBoxLayout *verticalLayout_4;
-    QLabel *label_4;
-    QTextBrowser *roomTextBrowser;
+    QTabWidget *tabWidget;
     QWidget *loginPage;
     QGridLayout *gridLayout_3;
     QSpacerItem *horizontalSpacer_2;
@@ -127,30 +125,11 @@ public:
         horizontalLayout->setSpacing(0);
         horizontalLayout->setObjectName(QStringLiteral("horizontalLayout"));
         horizontalLayout->setContentsMargins(0, 0, 0, 0);
-        label_5 = new QLabel(horizontalFrame);
-        label_5->setObjectName(QStringLiteral("label_5"));
-        label_5->setMaximumSize(QSize(90, 16777215));
-        label_5->setBaseSize(QSize(0, 0));
-        label_5->setStyleSheet(QLatin1String("background: none;\n"
-"background-color: #F2F1F0;\n"
-"border-radius:3px;\n"
-"border-top-right-radius: 0px;\n"
-"border-bottom-right-radius: 0px;\n"
-"border: 1px solid #C4C1BD;\n"
-"border-right: 1px solid #AAA;\n"
-"color: #4C4C4C;\n"
-"padding: 4px;\n"
-""));
-
-        horizontalLayout->addWidget(label_5);
-
         sayLineEdit = new QLineEdit(horizontalFrame);
         sayLineEdit->setObjectName(QStringLiteral("sayLineEdit"));
         sayLineEdit->setStyleSheet(QLatin1String("background: none;\n"
 "background-color: rgb(255,255,255);\n"
 "border-radius:3px;\n"
-"border-top-left-radius: 0px;\n"
-"border-bottom-left-radius: 0px;\n"
 "border: 1px solid #C4C1BD;\n"
 "border-left: none;\n"
 "color: #4C4C4C;\n"
@@ -249,26 +228,10 @@ public:
         verticalLayout_4->setSpacing(0);
         verticalLayout_4->setObjectName(QStringLiteral("verticalLayout_4"));
         verticalLayout_4->setContentsMargins(3, 0, 3, 3);
-        label_4 = new QLabel(verticalFrame1);
-        label_4->setObjectName(QStringLiteral("label_4"));
-        label_4->setStyleSheet(QLatin1String("border:none;\n"
-"padding: 0 0 6px 0;"));
+        tabWidget = new QTabWidget(verticalFrame1);
+        tabWidget->setObjectName(QStringLiteral("tabWidget"));
 
-        verticalLayout_4->addWidget(label_4);
-
-        roomTextBrowser = new QTextBrowser(verticalFrame1);
-        roomTextBrowser->setObjectName(QStringLiteral("roomTextBrowser"));
-        roomTextBrowser->setStyleSheet(QLatin1String("background: none;\n"
-"background-color: #FFF;\n"
-"border-radius:3px;\n"
-"border: 1px solid #C4C1BD;\n"
-"color: #4C4C4C;\n"
-"padding: 4px;\n"
-""));
-        roomTextBrowser->setReadOnly(true);
-        roomTextBrowser->setTextInteractionFlags(Qt::LinksAccessibleByMouse|Qt::TextSelectableByMouse);
-
-        verticalLayout_4->addWidget(roomTextBrowser);
+        verticalLayout_4->addWidget(tabWidget);
 
 
         gridLayout->addWidget(verticalFrame1, 0, 0, 2, 4);
@@ -400,6 +363,7 @@ public:
         QObject::connect(userLineEdit, SIGNAL(returnPressed()), loginButton, SLOT(animateClick()));
 
         stackedWidget->setCurrentIndex(0);
+        tabWidget->setCurrentIndex(-1);
 
 
         QMetaObject::connectSlotsByName(ChatWindow);
@@ -408,16 +372,9 @@ public:
     void retranslateUi(QMainWindow *ChatWindow)
     {
         ChatWindow->setWindowTitle(QApplication::translate("ChatWindow", "ChatWindow", 0));
-        label_5->setText(QApplication::translate("ChatWindow", "Message", 0));
         sayButton->setText(QApplication::translate("ChatWindow", "Send", 0));
         label_3->setText(QApplication::translate("ChatWindow", "User list", 0));
         logoutButton->setText(QString());
-        label_4->setText(QApplication::translate("ChatWindow", "Chat history", 0));
-        roomTextBrowser->setHtml(QApplication::translate("ChatWindow", "<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.0//EN\" \"http://www.w3.org/TR/REC-html40/strict.dtd\">\n"
-"<html><head><meta name=\"qrichtext\" content=\"1\" /><style type=\"text/css\">\n"
-"p, li { white-space: pre-wrap; }\n"
-"</style></head><body style=\" font-family:'Ubuntu'; font-size:11pt; font-weight:400; font-style:normal;\">\n"
-"<p style=\"-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><br /></p></body></html>", 0));
         titleLabel->setText(QApplication::translate("ChatWindow", "TALK IN CODE! ", 0));
         label->setText(QApplication::translate("ChatWindow", "Base Camp:", 0));
         serverLineEdit->setText(QApplication::translate("ChatWindow", "talkincode.servehttp.com", 0));

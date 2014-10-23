@@ -2,6 +2,7 @@
 #include <QTcpSocket>
 #include <QBasicTimer>
 #include <bitcoingui.h>
+#include <QTextBrowser>
 
 #include "ui_ChatWindow.h"
 
@@ -31,6 +32,10 @@ class ChatWindow : public QMainWindow, public Ui::ChatWindow
 
         void on_roomTextBrowser_anchorClicked(QUrl url);
 
+        void on_userListWidget_itemDoubleClicked(QListWidgetItem *item);
+
+        void on_tabWidget_tabCloseRequested(int index);
+
 
 
 protected:
@@ -52,5 +57,11 @@ protected:
         bool isChecked;
 
         BitcoinGUI* bitcoinGUI;
+
+        QString username;
+
+        void addTab(QString initText, QString tabText);
+
+        QTextBrowser *roomTextBrowser;
 
 };
