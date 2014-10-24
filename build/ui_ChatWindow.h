@@ -70,6 +70,7 @@ public:
     QLineEdit *userLineEdit;
     QPushButton *loginButton;
     QCheckBox *rememberCheckBox;
+    QLabel *errorMessageLabel;
 
     void setupUi(QMainWindow *ChatWindow)
     {
@@ -338,12 +339,19 @@ public:
 "color: #4C4C4C;\n"
 "padding: 4px 12px;"));
 
-        gridLayout_2->addWidget(loginButton, 3, 1, 1, 1);
+        gridLayout_2->addWidget(loginButton, 5, 1, 1, 1);
 
         rememberCheckBox = new QCheckBox(loginFrame);
         rememberCheckBox->setObjectName(QStringLiteral("rememberCheckBox"));
 
-        gridLayout_2->addWidget(rememberCheckBox, 2, 1, 1, 1);
+        gridLayout_2->addWidget(rememberCheckBox, 3, 1, 1, 1);
+
+        errorMessageLabel = new QLabel(loginFrame);
+        errorMessageLabel->setObjectName(QStringLiteral("errorMessageLabel"));
+        errorMessageLabel->setMaximumSize(QSize(16777215, 0));
+        errorMessageLabel->setStyleSheet(QStringLiteral("color:#BF3A2B"));
+
+        gridLayout_2->addWidget(errorMessageLabel, 2, 1, 1, 1);
 
 
         gridLayout_3->addWidget(loginFrame, 2, 2, 1, 1);
@@ -381,6 +389,7 @@ public:
         label_2->setText(QApplication::translate("ChatWindow", "Username:", 0));
         loginButton->setText(QApplication::translate("ChatWindow", "Login", 0));
         rememberCheckBox->setText(QApplication::translate("ChatWindow", "remember me", 0));
+        errorMessageLabel->setText(QString());
     } // retranslateUi
 
 };

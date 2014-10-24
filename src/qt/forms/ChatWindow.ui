@@ -480,7 +480,7 @@ color: #4C4C4C;</string>
                 </property>
                </widget>
               </item>
-              <item row="3" column="1">
+              <item row="5" column="1">
                <widget class="QPushButton" name="loginButton">
                 <property name="sizePolicy">
                  <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
@@ -500,10 +500,26 @@ padding: 4px 12px;</string>
                 </property>
                </widget>
               </item>
-              <item row="2" column="1">
+              <item row="3" column="1">
                <widget class="QCheckBox" name="rememberCheckBox">
                 <property name="text">
                  <string>remember me</string>
+                </property>
+               </widget>
+              </item>
+              <item row="2" column="1">
+               <widget class="QLabel" name="errorMessageLabel">
+                <property name="maximumSize">
+                 <size>
+                  <width>16777215</width>
+                  <height>0</height>
+                 </size>
+                </property>
+                <property name="styleSheet">
+                 <string notr="true">color:#BF3A2B</string>
+                </property>
+                <property name="text">
+                 <string/>
                 </property>
                </widget>
               </item>

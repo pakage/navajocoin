@@ -43,20 +43,32 @@ void ChatWindow::on_loginButton_clicked()
 
     if(!username.isEmpty())
     {
+        QRegExp invalidChars("[&\"\'*]");
 
-        isChecked = rememberCheckBox->checkState();
+        if(username.toLower() == "chat" || username.toLower() == "server"){
+            errorMessageLabel->setText("Invalid Username");
+            errorMessageLabel->setMaximumHeight(17);
 
-        QSettings settings("navajocoin","wallet");
+        }else if(invalidChars.indexIn(username) != -1){
+            errorMessageLabel->setText("Invalid Characters");
+            errorMessageLabel->setMaximumHeight(17);
 
-        if(isChecked)
-        {
-            settings.setValue("username",username);
         }else{
-            settings.setValue("username","");
+            errorMessageLabel->setText("");
+            errorMessageLabel->setMaximumHeight(0);
+            isChecked = rememberCheckBox->checkState();
+
+            QSettings settings("navajocoin","wallet");
+
+            if(isChecked)
+            {
+                settings.setValue("username",username);
+            }else{
+                settings.setValue("username","");
+            }
+
+            socket->connectToHost(serverLineEdit->text(), 4200);
         }
-
-        socket->connectToHost(serverLineEdit->text(), 4200);
-
     }
 }
 
@@ -82,9 +94,33 @@ void ChatWindow::readyRead()
         {
             QStringList users = usersRegex.cap(1).split(",");
             userListWidget->clear();
+
+            int numMatches = 0;
+
             foreach(QString user, users){
+
+                if(user == username){
+                    numMatches++;
+                }
+
                 new QListWidgetItem(QPixmap(":/res/icons/user.png"), user, userListWidget);
             }
+
+            //if first user list received, check for multiple users
+            if(!userChecked){
+
+                if(numMatches > 1){
+                    on_logoutButton_clicked();
+                    errorMessageLabel->setText("Username already in use");
+                    errorMessageLabel->setMaximumHeight(17);
+                }else{
+                    stackedWidget->setCurrentWidget(chatPage);
+                    userChecked = true;
+                    errorMessageLabel->setText("");
+                    errorMessageLabel->setMaximumHeight(0);
+                }
+
+            }//if userChecked
 
         }
         else if(messageRegex.indexIn(line) != -1)
@@ -123,8 +159,6 @@ void ChatWindow::readyRead()
                 }else{
                     newText = "("+currentTime.toString()+") <b>" + from + "</b>: " + anchorMessage;
                 }
-
-
 
                 if(to == "Chat"){
                     roomTextBrowser->append(newText);
@@ -171,6 +205,10 @@ void ChatWindow::readyRead()
                             addTab(initText, from);
                         }
 
+                        if(tabIndex != tabWidget->currentIndex()){
+                            tabWidget->tabBar()->setTabTextColor(tabIndex, QColor(191,58,43,255));
+                        }
+
                     }//to me
 
                 }//is json object
@@ -192,19 +230,35 @@ void ChatWindow::setGUI(BitcoinGUI* gui){
 
 void ChatWindow::connected()
 {
-    stackedWidget->setCurrentWidget(chatPage);
+    //stackedWidget->setCurrentWidget(chatPage);
 
     //configure chat tab
 
-    roomTextBrowser = new QTextBrowser(tabWidget);
-    tabWidget->addTab(roomTextBrowser, "Chat");
-    roomTextBrowser->setGeometry(-10,-5,542,481);
-    roomTextBrowser->setStyleSheet("background: none; background-color: #FFF; border-radius:3px; border: 1px solid #C4C1BD; color: #4C4C4C; padding: 4px;");
-    roomTextBrowser->setOpenExternalLinks(false);
-    roomTextBrowser->setOpenLinks(false);
-    connect(roomTextBrowser, SIGNAL(anchorClicked(QUrl)), this, SLOT(on_roomTextBrowser_anchorClicked(QUrl)));
-    tabWidget->setTabsClosable(true);
-    tabWidget->tabBar()->tabButton(0, QTabBar::RightSide)->resize(0,0);
+    int numTabs = tabWidget->count();
+
+    int tabIndex = -1;
+
+    for(int i = 0; i < numTabs; i++){
+
+        if(tabWidget->tabText(i) == "Chat"){
+            tabIndex = i;
+        }
+
+    }
+
+    if(tabIndex == -1){
+
+        roomTextBrowser = new QTextBrowser(tabWidget);
+        tabWidget->addTab(roomTextBrowser, "Chat");
+        roomTextBrowser->setGeometry(-10,-5,542,481);
+        roomTextBrowser->setStyleSheet("background: none; background-color: #FFF; border-radius:3px; border: 1px solid #C4C1BD; color: #4C4C4C; padding: 4px;");
+        roomTextBrowser->setOpenExternalLinks(false);
+        roomTextBrowser->setOpenLinks(false);
+        connect(roomTextBrowser, SIGNAL(anchorClicked(QUrl)), this, SLOT(on_roomTextBrowser_anchorClicked(QUrl)));
+        tabWidget->setTabsClosable(true);
+        tabWidget->tabBar()->tabButton(0, QTabBar::RightSide)->resize(0,0);
+
+    }
 
     sayLineEdit->setFocus();
 
@@ -216,11 +270,23 @@ void ChatWindow::connected()
 void ChatWindow::on_logoutButton_clicked()
 {
     socket->disconnectFromHost();
+
+    int numTabs = tabWidget->count();
+
+    for(int i = 1; i < numTabs; i++){
+        tabWidget->removeTab(i);
+    }
+
+    QTextBrowser *chatTab = tabWidget->widget(0);
+    chatTab->clear();
+
     stackedWidget->setCurrentWidget(loginPage);
     if(!isChecked){
         userLineEdit->clear();
         userLineEdit->setFocus();
     }
+
+    userChecked = false;
 }
 
 void ChatWindow::on_sayLineEdit_returnPressed()
@@ -353,5 +419,12 @@ void ChatWindow::on_tabWidget_tabCloseRequested(int index)
     socket->write(stripped.toUtf8());
 
     tabWidget->removeTab(index);
+
+}
+
+void ChatWindow::on_tabWidget_tabBarClicked(int index)
+{
+    //reset color of tab
+    tabWidget->tabBar()->setTabTextColor(tabWidget->currentIndex(), QColor(76,76,76,255));
 
 }

@@ -38,6 +38,8 @@ class ChatWindow : public QMainWindow, public Ui::ChatWindow
 
 
 
+        void on_tabWidget_tabBarClicked(int index);
+
 protected:
 
         void timerEvent(QTimerEvent *event);
@@ -63,5 +65,7 @@ protected:
         void addTab(QString initText, QString tabText);
 
         QTextBrowser *roomTextBrowser;
+
+        bool userChecked = false;
 
 };

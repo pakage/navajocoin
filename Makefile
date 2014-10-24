@@ -731,133 +731,133 @@ compiler_rcc_clean:
 	-$(DEL_FILE) qrc_bitcoin.cpp
 qrc_bitcoin.cpp: src/qt/bitcoin.qrc \
 		src/qt/res/movies/update_spinner.mng \
-		src/qt/res/images/p2p.png \
+		src/qt/res/images/Wallet_Logo.png \
 		src/qt/res/images/background.jpg \
 		src/qt/res/images/splash.png \
 		src/qt/res/images/chatback.jpg \
 		src/qt/res/images/about.png \
-		src/qt/res/images/Wallet_Logo.png \
+		src/qt/res/images/p2p.png \
 		src/qt/res/images/nav-bg.jpg \
-		src/qt/locale/bitcoin_eo.qm \
-		src/qt/locale/bitcoin_pl.qm \
-		src/qt/locale/bitcoin_es_DO.qm \
-		src/qt/locale/bitcoin_es.qm \
-		src/qt/locale/bitcoin_ja.qm \
-		src/qt/locale/bitcoin_ru.qm \
-		src/qt/locale/bitcoin_nl.qm \
-		src/qt/locale/bitcoin_ko_KR.qm \
-		src/qt/locale/bitcoin_cs.qm \
-		src/qt/locale/bitcoin_pt_PT.qm \
-		src/qt/locale/bitcoin_ar.qm \
-		src/qt/locale/bitcoin_ca_ES.qm \
-		src/qt/locale/bitcoin_he.qm \
-		src/qt/locale/bitcoin_fa.qm \
-		src/qt/locale/bitcoin_lt.qm \
-		src/qt/locale/bitcoin_zh_CN.qm \
-		src/qt/locale/bitcoin_zh_TW.qm \
-		src/qt/locale/bitcoin_da.qm \
-		src/qt/locale/bitcoin_uk.qm \
-		src/qt/locale/bitcoin_fi.qm \
-		src/qt/locale/bitcoin_de.qm \
-		src/qt/locale/bitcoin_sk.qm \
-		src/qt/locale/bitcoin_hr.qm \
-		src/qt/locale/bitcoin_hu.qm \
-		src/qt/locale/bitcoin_fr.qm \
-		src/qt/locale/bitcoin_es_CL.qm \
-		src/qt/locale/bitcoin_ka.qm \
-		src/qt/locale/bitcoin_sv.qm \
-		src/qt/locale/bitcoin_pam.qm \
-		src/qt/locale/bitcoin_ro_RO.qm \
-		src/qt/locale/bitcoin_fr_CA.qm \
-		src/qt/locale/bitcoin_pt_BR.qm \
-		src/qt/locale/bitcoin_gl.qm \
-		src/qt/locale/bitcoin_it.qm \
-		src/qt/locale/bitcoin_sl_SI.qm \
-		src/qt/locale/bitcoin_nb.qm \
-		src/qt/locale/bitcoin_tr.qm \
-		src/qt/locale/bitcoin_el_GR.qm \
-		src/qt/locale/bitcoin_en.qm \
-		src/qt/res/images/images2/10.jpg \
-		src/qt/res/images/images2/11.jpg \
-		src/qt/res/images/images2/12.jpg \
-		src/qt/res/images/images2/navajo.jpg \
-		src/qt/res/images/images2/13.jpg \
-		src/qt/res/images/images2/Medal_of_Honor.jpg \
 		src/qt/res/images/images2/patterns.jpg \
+		src/qt/res/images/images2/Medal_of_Honor.jpg \
 		src/qt/res/images/images2/1.jpg \
+		src/qt/res/images/images2/coins.jpg \
 		src/qt/res/images/images2/2.jpg \
-		src/qt/res/images/images2/coins2.jpg \
 		src/qt/res/images/images2/3.jpg \
 		src/qt/res/images/images2/4.jpg \
-		src/qt/res/images/images2/coins.jpg \
 		src/qt/res/images/images2/5.jpg \
 		src/qt/res/images/images2/6.jpg \
 		src/qt/res/images/images2/7.jpg \
 		src/qt/res/images/images2/8.jpg \
 		src/qt/res/images/images2/9.jpg \
-		src/qt/res/icons/smileys/icon_surprised.png \
-		src/qt/res/icons/smileys/icon_wink.png \
-		src/qt/res/icons/smileys/icon_confused.png \
-		src/qt/res/icons/smileys/icon_mad.png \
-		src/qt/res/icons/smileys/icon_sad.png \
-		src/qt/res/icons/smileys/icon_biggrin.png \
-		src/qt/res/icons/smileys/icon_neutral.png \
-		src/qt/res/icons/smileys/icon_razz.png \
-		src/qt/res/icons/smileys/icon_eek.png \
-		src/qt/res/icons/smileys/icon_smile.png \
-		src/qt/res/icons/smileys/icon_cool.png \
-		src/qt/res/icons/flags/flag_en.png \
-		src/qt/res/icons/chat-bubble.png \
-		src/qt/res/icons/history.png \
-		src/qt/res/icons/quit.png \
-		src/qt/res/icons/editpaste.png \
-		src/qt/res/icons/user.png \
-		src/qt/res/icons/remove.png \
-		src/qt/res/icons/flags/flag_cn.png \
-		src/qt/res/icons/smiley-button.png \
-		src/qt/res/icons/flags/flag_ru.png \
-		src/qt/res/icons/toolbar.png \
-		src/qt/res/icons/qrcode.png \
-		src/qt/res/icons/receive.png \
-		src/qt/res/icons/tx_input.png \
-		src/qt/res/icons/tx_mined.png \
-		src/qt/res/icons/bitcoin_testnet.png \
-		src/qt/res/icons/synced.png \
-		src/qt/res/icons/staking_on.png \
-		src/qt/res/icons/tx_output.png \
-		src/qt/res/icons/transaction2.png \
-		src/qt/res/icons/lock_closed.png \
-		src/qt/res/icons/configure.png \
-		src/qt/res/icons/export.png \
-		src/qt/res/icons/staking_off.png \
+		src/qt/res/images/images2/10.jpg \
+		src/qt/res/images/images2/11.jpg \
+		src/qt/res/images/images2/12.jpg \
+		src/qt/res/images/images2/13.jpg \
+		src/qt/res/images/images2/coins2.jpg \
+		src/qt/res/images/images2/navajo.jpg \
 		src/qt/res/icons/edit.png \
-		src/qt/res/icons/transaction_conflicted.png \
-		src/qt/res/icons/filesave.png \
-		src/qt/res/icons/bitcoin.png \
-		src/qt/res/icons/lock_open.png \
-		src/qt/res/icons/chat_alt.png \
-		src/qt/res/icons/address-book.png \
-		src/qt/res/icons/add.png \
-		src/qt/res/icons/editcopy.png \
-		src/qt/res/icons/overview.png \
-		src/qt/res/icons/transaction0.png \
-		src/qt/res/icons/clock1.png \
-		src/qt/res/icons/tx_inout.png \
-		src/qt/res/icons/clock2.png \
-		src/qt/res/icons/key.png \
-		src/qt/res/icons/clock3.png \
-		src/qt/res/icons/chat.png \
-		src/qt/res/icons/send.png \
-		src/qt/res/icons/debugwindow.png \
-		src/qt/res/icons/clock4.png \
-		src/qt/res/icons/clock5.png \
+		src/qt/res/icons/tx_mined.png \
+		src/qt/res/icons/smiley-button.png \
+		src/qt/res/icons/transaction2.png \
+		src/qt/res/icons/remove.png \
+		src/qt/res/icons/receive.png \
 		src/qt/res/icons/connect0_16.png \
 		src/qt/res/icons/connect1_16.png \
 		src/qt/res/icons/connect2_16.png \
 		src/qt/res/icons/connect3_16.png \
-		src/qt/res/icons/toolbar_testnet.png \
+		src/qt/res/icons/debugwindow.png \
 		src/qt/res/icons/connect4_16.png \
-		src/qt/res/icons/power.png
+		src/qt/res/icons/staking_on.png \
+		src/qt/res/icons/qrcode.png \
+		src/qt/res/icons/editpaste.png \
+		src/qt/res/icons/filesave.png \
+		src/qt/res/icons/staking_off.png \
+		src/qt/res/icons/chat-bubble.png \
+		src/qt/res/icons/flags/flag_en.png \
+		src/qt/res/icons/chat_alt.png \
+		src/qt/res/icons/chat.png \
+		src/qt/res/icons/send.png \
+		src/qt/res/icons/flags/flag_cn.png \
+		src/qt/res/icons/toolbar_testnet.png \
+		src/qt/res/icons/synced.png \
+		src/qt/res/icons/address-book.png \
+		src/qt/res/icons/bitcoin.png \
+		src/qt/res/icons/flags/flag_ru.png \
+		src/qt/res/icons/editcopy.png \
+		src/qt/res/icons/transaction_conflicted.png \
+		src/qt/res/icons/toolbar.png \
+		src/qt/res/icons/quit.png \
+		src/qt/res/icons/user.png \
+		src/qt/res/icons/export.png \
+		src/qt/res/icons/tx_inout.png \
+		src/qt/res/icons/tx_output.png \
+		src/qt/res/icons/add.png \
+		src/qt/res/icons/lock_closed.png \
+		src/qt/res/icons/transaction0.png \
+		src/qt/res/icons/bitcoin_testnet.png \
+		src/qt/res/icons/clock1.png \
+		src/qt/res/icons/configure.png \
+		src/qt/res/icons/clock2.png \
+		src/qt/res/icons/clock3.png \
+		src/qt/res/icons/clock4.png \
+		src/qt/res/icons/clock5.png \
+		src/qt/res/icons/lock_open.png \
+		src/qt/res/icons/history.png \
+		src/qt/res/icons/key.png \
+		src/qt/res/icons/tx_input.png \
+		src/qt/res/icons/overview.png \
+		src/qt/res/icons/power.png \
+		src/qt/locale/bitcoin_hu.qm \
+		src/qt/locale/bitcoin_pt_PT.qm \
+		src/qt/locale/bitcoin_fr.qm \
+		src/qt/locale/bitcoin_ca_ES.qm \
+		src/qt/locale/bitcoin_ka.qm \
+		src/qt/locale/bitcoin_sv.qm \
+		src/qt/locale/bitcoin_zh_CN.qm \
+		src/qt/locale/bitcoin_zh_TW.qm \
+		src/qt/locale/bitcoin_es_CL.qm \
+		src/qt/locale/bitcoin_gl.qm \
+		src/qt/locale/bitcoin_ro_RO.qm \
+		src/qt/locale/bitcoin_it.qm \
+		src/qt/locale/bitcoin_fr_CA.qm \
+		src/qt/locale/bitcoin_nb.qm \
+		src/qt/locale/bitcoin_pt_BR.qm \
+		src/qt/locale/bitcoin_tr.qm \
+		src/qt/locale/bitcoin_en.qm \
+		src/qt/locale/bitcoin_eo.qm \
+		src/qt/locale/bitcoin_pl.qm \
+		src/qt/locale/bitcoin_es.qm \
+		src/qt/locale/bitcoin_ja.qm \
+		src/qt/locale/bitcoin_pam.qm \
+		src/qt/locale/bitcoin_ru.qm \
+		src/qt/locale/bitcoin_nl.qm \
+		src/qt/locale/bitcoin_cs.qm \
+		src/qt/locale/bitcoin_ar.qm \
+		src/qt/locale/bitcoin_he.qm \
+		src/qt/locale/bitcoin_fa.qm \
+		src/qt/locale/bitcoin_sl_SI.qm \
+		src/qt/locale/bitcoin_el_GR.qm \
+		src/qt/locale/bitcoin_lt.qm \
+		src/qt/locale/bitcoin_da.qm \
+		src/qt/locale/bitcoin_uk.qm \
+		src/qt/locale/bitcoin_es_DO.qm \
+		src/qt/locale/bitcoin_fi.qm \
+		src/qt/locale/bitcoin_de.qm \
+		src/qt/locale/bitcoin_sk.qm \
+		src/qt/locale/bitcoin_hr.qm \
+		src/qt/locale/bitcoin_ko_KR.qm \
+		src/qt/res/icons/smileys/icon_surprised.png \
+		src/qt/res/icons/smileys/icon_mad.png \
+		src/qt/res/icons/smileys/icon_cool.png \
+		src/qt/res/icons/smileys/icon_sad.png \
+		src/qt/res/icons/smileys/icon_wink.png \
+		src/qt/res/icons/smileys/icon_eek.png \
+		src/qt/res/icons/smileys/icon_confused.png \
+		src/qt/res/icons/smileys/icon_smile.png \
+		src/qt/res/icons/smileys/icon_biggrin.png \
+		src/qt/res/icons/smileys/icon_neutral.png \
+		src/qt/res/icons/smileys/icon_razz.png
 	/usr/lib/x86_64-linux-gnu/qt5/bin/rcc -name bitcoin src/qt/bitcoin.qrc -o qrc_bitcoin.cpp
 
 compiler_moc_header_make_all: build/moc_bitcoingui.cpp build/moc_transactiontablemodel.cpp build/moc_addresstablemodel.cpp build/moc_optionsdialog.cpp build/moc_coincontroldialog.cpp build/moc_coincontroltreewidget.cpp build/moc_sendcoinsdialog.cpp build/moc_addressbookpage.cpp build/moc_signverifymessagedialog.cpp build/moc_aboutdialog.cpp build/moc_editaddressdialog.cpp build/moc_bitcoinaddressvalidator.cpp build/moc_clientmodel.cpp build/moc_guiutil.cpp build/moc_optionsmodel.cpp build/moc_monitoreddatamapper.cpp build/moc_transactiondesc.cpp build/moc_transactiondescdialog.cpp build/moc_bitcoinamountfield.cpp build/moc_transactionfilterproxy.cpp build/moc_transactionview.cpp build/moc_walletmodel.cpp build/moc_overviewpage.cpp build/moc_ChatWindow.cpp build/moc_csvmodelwriter.cpp build/moc_sendcoinsentry.cpp build/moc_qvalidatedlineedit.cpp build/moc_qvaluecombobox.cpp build/moc_askpassphrasedialog.cpp build/moc_notificator.cpp build/moc_rpcconsole.cpp
@@ -3248,6 +3248,16 @@ build/moc_ChatWindow.cpp: /usr/include/qt5/QtWidgets/QMainWindow \
 		src/qt/bitcoingui.h \
 		/usr/include/qt5/QtWidgets/QSystemTrayIcon \
 		/usr/include/qt5/QtWidgets/qsystemtrayicon.h \
+		/usr/include/qt5/QtWidgets/QTextBrowser \
+		/usr/include/qt5/QtWidgets/qtextbrowser.h \
+		/usr/include/qt5/QtWidgets/qtextedit.h \
+		/usr/include/qt5/QtWidgets/qabstractscrollarea.h \
+		/usr/include/qt5/QtWidgets/qframe.h \
+		/usr/include/qt5/QtGui/qtextdocument.h \
+		/usr/include/qt5/QtGui/qtextoption.h \
+		/usr/include/qt5/QtGui/qtextcursor.h \
+		/usr/include/qt5/QtGui/qtextformat.h \
+		/usr/include/qt5/QtGui/qpen.h \
 		build/ui_ChatWindow.h \
 		/usr/include/qt5/QtCore/QVariant \
 		/usr/include/qt5/QtWidgets/QAction \
@@ -3266,7 +3276,6 @@ build/moc_ChatWindow.cpp: /usr/include/qt5/QtWidgets/QMainWindow \
 		/usr/include/qt5/QtWidgets/qcheckbox.h \
 		/usr/include/qt5/QtWidgets/qabstractbutton.h \
 		/usr/include/qt5/QtWidgets/QFrame \
-		/usr/include/qt5/QtWidgets/qframe.h \
 		/usr/include/qt5/QtWidgets/QGridLayout \
 		/usr/include/qt5/QtWidgets/qgridlayout.h \
 		/usr/include/qt5/QtWidgets/qlayout.h \
@@ -3276,7 +3285,6 @@ build/moc_ChatWindow.cpp: /usr/include/qt5/QtWidgets/QMainWindow \
 		/usr/include/qt5/QtWidgets/QHeaderView \
 		/usr/include/qt5/QtWidgets/qheaderview.h \
 		/usr/include/qt5/QtWidgets/qabstractitemview.h \
-		/usr/include/qt5/QtWidgets/qabstractscrollarea.h \
 		/usr/include/qt5/QtCore/qabstractitemmodel.h \
 		/usr/include/qt5/QtCore/qitemselectionmodel.h \
 		/usr/include/qt5/QtWidgets/qabstractitemdelegate.h \
@@ -3293,10 +3301,6 @@ build/moc_ChatWindow.cpp: /usr/include/qt5/QtWidgets/QMainWindow \
 		/usr/include/qt5/QtWidgets/qlabel.h \
 		/usr/include/qt5/QtWidgets/QLineEdit \
 		/usr/include/qt5/QtWidgets/qlineedit.h \
-		/usr/include/qt5/QtGui/qtextcursor.h \
-		/usr/include/qt5/QtGui/qtextformat.h \
-		/usr/include/qt5/QtGui/qpen.h \
-		/usr/include/qt5/QtGui/qtextoption.h \
 		/usr/include/qt5/QtWidgets/QListWidget \
 		/usr/include/qt5/QtWidgets/qlistwidget.h \
 		/usr/include/qt5/QtWidgets/qlistview.h \
@@ -3305,10 +3309,7 @@ build/moc_ChatWindow.cpp: /usr/include/qt5/QtWidgets/QMainWindow \
 		/usr/include/qt5/QtWidgets/QSpacerItem \
 		/usr/include/qt5/QtWidgets/QStackedWidget \
 		/usr/include/qt5/QtWidgets/qstackedwidget.h \
-		/usr/include/qt5/QtWidgets/QTextBrowser \
-		/usr/include/qt5/QtWidgets/qtextbrowser.h \
-		/usr/include/qt5/QtWidgets/qtextedit.h \
-		/usr/include/qt5/QtGui/qtextdocument.h \
+		/usr/include/qt5/QtWidgets/QTabWidget \
 		/usr/include/qt5/QtWidgets/QVBoxLayout \
 		/usr/include/qt5/QtWidgets/QWidget \
 		src/qt/ChatWindow.h
@@ -5819,6 +5820,16 @@ build/bitcoingui.o: src/qt/bitcoingui.cpp src/qt/bitcoingui.h \
 		/usr/include/qt5/QtNetwork/qabstractsocket.h \
 		/usr/include/qt5/QtCore/QBasicTimer \
 		/usr/include/qt5/QtCore/qbasictimer.h \
+		/usr/include/qt5/QtWidgets/QTextBrowser \
+		/usr/include/qt5/QtWidgets/qtextbrowser.h \
+		/usr/include/qt5/QtWidgets/qtextedit.h \
+		/usr/include/qt5/QtWidgets/qabstractscrollarea.h \
+		/usr/include/qt5/QtWidgets/qframe.h \
+		/usr/include/qt5/QtGui/qtextdocument.h \
+		/usr/include/qt5/QtGui/qtextoption.h \
+		/usr/include/qt5/QtGui/qtextcursor.h \
+		/usr/include/qt5/QtGui/qtextformat.h \
+		/usr/include/qt5/QtGui/qpen.h \
 		build/ui_ChatWindow.h \
 		/usr/include/qt5/QtCore/QVariant \
 		/usr/include/qt5/QtWidgets/QAction \
@@ -5837,7 +5848,6 @@ build/bitcoingui.o: src/qt/bitcoingui.cpp src/qt/bitcoingui.h \
 		/usr/include/qt5/QtWidgets/qcheckbox.h \
 		/usr/include/qt5/QtWidgets/qabstractbutton.h \
 		/usr/include/qt5/QtWidgets/QFrame \
-		/usr/include/qt5/QtWidgets/qframe.h \
 		/usr/include/qt5/QtWidgets/QGridLayout \
 		/usr/include/qt5/QtWidgets/qgridlayout.h \
 		/usr/include/qt5/QtWidgets/qlayout.h \
@@ -5847,7 +5857,6 @@ build/bitcoingui.o: src/qt/bitcoingui.cpp src/qt/bitcoingui.h \
 		/usr/include/qt5/QtWidgets/QHeaderView \
 		/usr/include/qt5/QtWidgets/qheaderview.h \
 		/usr/include/qt5/QtWidgets/qabstractitemview.h \
-		/usr/include/qt5/QtWidgets/qabstractscrollarea.h \
 		/usr/include/qt5/QtCore/qitemselectionmodel.h \
 		/usr/include/qt5/QtWidgets/qabstractitemdelegate.h \
 		/usr/include/qt5/QtWidgets/qstyleoption.h \
@@ -5863,10 +5872,6 @@ build/bitcoingui.o: src/qt/bitcoingui.cpp src/qt/bitcoingui.h \
 		/usr/include/qt5/QtWidgets/qlabel.h \
 		/usr/include/qt5/QtWidgets/QLineEdit \
 		/usr/include/qt5/QtWidgets/qlineedit.h \
-		/usr/include/qt5/QtGui/qtextcursor.h \
-		/usr/include/qt5/QtGui/qtextformat.h \
-		/usr/include/qt5/QtGui/qpen.h \
-		/usr/include/qt5/QtGui/qtextoption.h \
 		/usr/include/qt5/QtWidgets/QListWidget \
 		/usr/include/qt5/QtWidgets/qlistwidget.h \
 		/usr/include/qt5/QtWidgets/qlistview.h \
@@ -5875,10 +5880,7 @@ build/bitcoingui.o: src/qt/bitcoingui.cpp src/qt/bitcoingui.h \
 		/usr/include/qt5/QtWidgets/QSpacerItem \
 		/usr/include/qt5/QtWidgets/QStackedWidget \
 		/usr/include/qt5/QtWidgets/qstackedwidget.h \
-		/usr/include/qt5/QtWidgets/QTextBrowser \
-		/usr/include/qt5/QtWidgets/qtextbrowser.h \
-		/usr/include/qt5/QtWidgets/qtextedit.h \
-		/usr/include/qt5/QtGui/qtextdocument.h \
+		/usr/include/qt5/QtWidgets/QTabWidget \
 		/usr/include/qt5/QtWidgets/QVBoxLayout \
 		src/qt/bitcoinunits.h \
 		src/qt/guiconstants.h \
@@ -5934,7 +5936,6 @@ build/bitcoingui.o: src/qt/bitcoingui.cpp src/qt/bitcoingui.h \
 		/usr/include/qt5/QtWidgets/qmenubar.h \
 		/usr/include/qt5/QtWidgets/qmenu.h \
 		/usr/include/qt5/QtWidgets/QMenu \
-		/usr/include/qt5/QtWidgets/QTabWidget \
 		/usr/include/qt5/QtWidgets/QToolBar \
 		/usr/include/qt5/QtWidgets/qtoolbar.h \
 		/usr/include/qt5/QtWidgets/QStatusBar \
@@ -10871,6 +10872,16 @@ build/ChatWindow.o: src/qt/ChatWindow.cxx src/qt/ChatWindow.h \
 		src/qt/bitcoingui.h \
 		/usr/include/qt5/QtWidgets/QSystemTrayIcon \
 		/usr/include/qt5/QtWidgets/qsystemtrayicon.h \
+		/usr/include/qt5/QtWidgets/QTextBrowser \
+		/usr/include/qt5/QtWidgets/qtextbrowser.h \
+		/usr/include/qt5/QtWidgets/qtextedit.h \
+		/usr/include/qt5/QtWidgets/qabstractscrollarea.h \
+		/usr/include/qt5/QtWidgets/qframe.h \
+		/usr/include/qt5/QtGui/qtextdocument.h \
+		/usr/include/qt5/QtGui/qtextoption.h \
+		/usr/include/qt5/QtGui/qtextcursor.h \
+		/usr/include/qt5/QtGui/qtextformat.h \
+		/usr/include/qt5/QtGui/qpen.h \
 		build/ui_ChatWindow.h \
 		/usr/include/qt5/QtCore/QVariant \
 		/usr/include/qt5/QtWidgets/QAction \
@@ -10889,7 +10900,6 @@ build/ChatWindow.o: src/qt/ChatWindow.cxx src/qt/ChatWindow.h \
 		/usr/include/qt5/QtWidgets/qcheckbox.h \
 		/usr/include/qt5/QtWidgets/qabstractbutton.h \
 		/usr/include/qt5/QtWidgets/QFrame \
-		/usr/include/qt5/QtWidgets/qframe.h \
 		/usr/include/qt5/QtWidgets/QGridLayout \
 		/usr/include/qt5/QtWidgets/qgridlayout.h \
 		/usr/include/qt5/QtWidgets/qlayout.h \
@@ -10899,7 +10909,6 @@ build/ChatWindow.o: src/qt/ChatWindow.cxx src/qt/ChatWindow.h \
 		/usr/include/qt5/QtWidgets/QHeaderView \
 		/usr/include/qt5/QtWidgets/qheaderview.h \
 		/usr/include/qt5/QtWidgets/qabstractitemview.h \
-		/usr/include/qt5/QtWidgets/qabstractscrollarea.h \
 		/usr/include/qt5/QtCore/qabstractitemmodel.h \
 		/usr/include/qt5/QtCore/qitemselectionmodel.h \
 		/usr/include/qt5/QtWidgets/qabstractitemdelegate.h \
@@ -10916,10 +10925,6 @@ build/ChatWindow.o: src/qt/ChatWindow.cxx src/qt/ChatWindow.h \
 		/usr/include/qt5/QtWidgets/qlabel.h \
 		/usr/include/qt5/QtWidgets/QLineEdit \
 		/usr/include/qt5/QtWidgets/qlineedit.h \
-		/usr/include/qt5/QtGui/qtextcursor.h \
-		/usr/include/qt5/QtGui/qtextformat.h \
-		/usr/include/qt5/QtGui/qpen.h \
-		/usr/include/qt5/QtGui/qtextoption.h \
 		/usr/include/qt5/QtWidgets/QListWidget \
 		/usr/include/qt5/QtWidgets/qlistwidget.h \
 		/usr/include/qt5/QtWidgets/qlistview.h \
@@ -10928,10 +10933,7 @@ build/ChatWindow.o: src/qt/ChatWindow.cxx src/qt/ChatWindow.h \
 		/usr/include/qt5/QtWidgets/QSpacerItem \
 		/usr/include/qt5/QtWidgets/QStackedWidget \
 		/usr/include/qt5/QtWidgets/qstackedwidget.h \
-		/usr/include/qt5/QtWidgets/QTextBrowser \
-		/usr/include/qt5/QtWidgets/qtextbrowser.h \
-		/usr/include/qt5/QtWidgets/qtextedit.h \
-		/usr/include/qt5/QtGui/qtextdocument.h \
+		/usr/include/qt5/QtWidgets/QTabWidget \
 		/usr/include/qt5/QtWidgets/QVBoxLayout \
 		/usr/include/qt5/QtWidgets/QWidget \
 		/usr/include/qt5/QtCore/QRegExp \
@@ -10942,7 +10944,12 @@ build/ChatWindow.o: src/qt/ChatWindow.cxx src/qt/ChatWindow.h \
 		/usr/include/qt5/QtGui/QDesktopServices \
 		/usr/include/qt5/QtGui/qdesktopservices.h \
 		/usr/include/qt5/QtCore/qstandardpaths.h \
-		/usr/include/qt5/QtCore/QUrl
+		/usr/include/qt5/QtCore/QUrl \
+		/usr/include/qt5/QtCore/QJsonObject \
+		/usr/include/qt5/QtCore/qjsonobject.h \
+		/usr/include/qt5/QtCore/qjsonvalue.h \
+		/usr/include/qt5/QtCore/QJsonDocument \
+		/usr/include/qt5/QtCore/qjsondocument.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o build/ChatWindow.o src/qt/ChatWindow.cxx
 
 build/csvmodelwriter.o: src/qt/csvmodelwriter.cpp src/qt/csvmodelwriter.h \
