@@ -26,6 +26,8 @@ class ChatWindow : public QMainWindow, public Ui::ChatWindow
 
         void connected();
 
+        void disconnected();
+
         void on_logoutButton_clicked();
 
         void on_sayLineEdit_returnPressed();
@@ -62,7 +64,7 @@ protected:
 
         QString username;
 
-        void addTab(QString initText, QString tabText);
+        int addTab(QString initText, QString tabText);
 
         QTextBrowser *roomTextBrowser;
 

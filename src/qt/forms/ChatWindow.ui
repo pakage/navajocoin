@@ -284,6 +284,15 @@ padding: 4px;
               </property>
               <item>
                <widget class="QTabWidget" name="tabWidget">
+                <property name="styleSheet">
+                 <string notr="true">
+background: none;
+background-color: #FFF;
+border-radius:3px;
+border: 1px solid #C4C1BD;
+color: #4C4C4C;
+padding: 4px;</string>
+                </property>
                 <property name="currentIndex">
                  <number>-1</number>
                 </property>

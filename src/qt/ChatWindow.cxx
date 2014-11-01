@@ -33,6 +33,7 @@ ChatWindow::ChatWindow(QWidget *parent) : QMainWindow(parent)
 
     connect(socket, SIGNAL(readyRead()), this, SLOT(readyRead()));
     connect(socket, SIGNAL(connected()), this, SLOT(connected()));
+    connect(socket, SIGNAL(disconnected()), this, SLOT(disconnected()));
 
 }
 
@@ -43,7 +44,7 @@ void ChatWindow::on_loginButton_clicked()
 
     if(!username.isEmpty())
     {
-        QRegExp invalidChars("[&\"\'*]");
+        QRegExp invalidChars("[&\"\'*<>]");
 
         if(username.toLower() == "chat" || username.toLower() == "server"){
             errorMessageLabel->setText("Invalid Username");
@@ -197,17 +198,25 @@ void ChatWindow::readyRead()
 
                         }
 
+                        qDebug() << isServer;
+
                         if(tabIndex != -1){
+
                             QTextBrowser *tab = tabWidget->widget(tabIndex);
                             tab->append(newText);
-                        }else{
+
+                        }else if(isServer == "FALSE"){
+
                             QString initText = "("+currentTime.toString()+") <b>" + from + "</b>: " + anchorMessage;
-                            addTab(initText, from);
+                            tabIndex = addTab(initText, from);
+                            tabWidget->tabBar()->setTabTextColor(tabIndex, QColor(191,58,43,255));
+
                         }
 
                         if(tabIndex != tabWidget->currentIndex()){
                             tabWidget->tabBar()->setTabTextColor(tabIndex, QColor(191,58,43,255));
                         }
+
 
                     }//to me
 
@@ -227,6 +236,19 @@ void ChatWindow::setGUI(BitcoinGUI* gui){
     bitcoinGUI = gui;
 }
 
+void ChatWindow::disconnected(){
+
+    stackedWidget->setCurrentWidget(loginPage);
+    if(!isChecked){
+        userLineEdit->clear();
+        userLineEdit->setFocus();
+    }
+
+    userChecked = false;
+
+    errorMessageLabel->setText("Connection Lost");
+    errorMessageLabel->setMaximumHeight(17);
+}
 
 void ChatWindow::connected()
 {
@@ -251,16 +273,80 @@ void ChatWindow::connected()
         roomTextBrowser = new QTextBrowser(tabWidget);
         tabWidget->addTab(roomTextBrowser, "Chat");
         roomTextBrowser->setGeometry(-10,-5,542,481);
-        roomTextBrowser->setStyleSheet("background: none; background-color: #FFF; border-radius:3px; border: 1px solid #C4C1BD; color: #4C4C4C; padding: 4px;");
         roomTextBrowser->setOpenExternalLinks(false);
         roomTextBrowser->setOpenLinks(false);
         connect(roomTextBrowser, SIGNAL(anchorClicked(QUrl)), this, SLOT(on_roomTextBrowser_anchorClicked(QUrl)));
         tabWidget->setTabsClosable(true);
         tabWidget->tabBar()->tabButton(0, QTabBar::RightSide)->resize(0,0);
 
+        roomTextBrowser->setStyleSheet(QString::fromUtf8(
+       /*    "background: none;"
+           "background-color: #FFF;"
+           "border-radius:3px;"
+           "border: 1px solid #C4C1BD;"
+           "color: #4C4C4C;"
+           "padding: 4px;"
+        */
+            "QScrollBar:vertical {"
+            "    border: 1px solid #C4C1BD;"
+            "    background: #FFF;"
+            "    width: 15px;"
+            "    margin: 22px 0 22px 0;"
+            "}"
+            "QScrollBar::handle:vertical {"
+            "    background: #FFF;"
+            "    min-height: 20px;"
+            "}"
+            "QScrollBar::add-line:vertical {"
+            "    border: 2px solid grey;"
+            "    background: #C4C1BD;"
+            "    height: 20px;"
+            "    subcontrol-position: bottom;"
+            "    subcontrol-origin: margin;"
+            "}"
+            "QScrollBar::sub-line:vertical {"
+            "    border: 2px solid grey;"
+            "    background: #32CC99;"
+            "    height: 20px;"
+            "    subcontrol-position: top;"
+            "    subcontrol-origin: margin;"
+            "}"
+            "QScrollBar::up-arrow:vertical, QScrollBar::down-arrow:vertical {"
+            "    border: 2px solid grey;"
+            "    width: 3px;"
+            "    height: 3px;"
+            "    background: white;"
+            "}"
+            "QScrollBar::add-page:vertical, QScrollBar::sub-page:vertical {"
+            "    background: none;"
+            "}"
+        ));
+
     }
 
     sayLineEdit->setFocus();
+
+    /*
+
+    roomTextBrowser->setStyleSheet(
+
+         "QScrollBar::add-line:vertical {"
+         "    background: qlineargradient(x1:0, y1:0, x2:1, y2:0,"
+         "    stop: 0  rgb(32, 47, 130), stop: 0.5 rgb(32, 47, 130),  stop:1 rgb(32, 47, 130));"
+         "    height: px;"
+         "    subcontrol-position: bottom;"
+         "    subcontrol-origin: margin;"
+         "}"
+         "QScrollBar::sub-line:vertical {"
+         "    background: qlineargradient(x1:0, y1:0, x2:1, y2:0,"
+         "    stop: 0  rgb(32, 47, 130), stop: 0.5 rgb(32, 47, 130),  stop:1 rgb(32, 47, 130));"
+         "    height: 0px;"
+         "    subcontrol-position: top;"
+         "    subcontrol-origin: margin;"
+         "}"
+         );
+
+         */
 
     socket->write(QString("/me:" + userLineEdit->text() + "\n").toUtf8());
 
@@ -316,7 +402,7 @@ void ChatWindow::postMessage()
         jsonMessage["to"] = tabWidget->tabText(currentTab);
         jsonMessage["from"] = username;
         jsonMessage["is_server"] = QString("FALSE");
-        jsonMessage["message"] = message + "\n";
+        jsonMessage["message"] = message.toHtmlEscaped() + "\n";
 
         QJsonDocument *jsonDocument = new QJsonDocument(jsonMessage);
 
@@ -389,17 +475,24 @@ void ChatWindow::on_userListWidget_itemDoubleClicked(QListWidgetItem *item)
 
 }
 
-void ChatWindow::addTab(QString initText, QString tabText){
+int ChatWindow::addTab(QString initText, QString tabText){
 
     QTextBrowser *pmTextBrowser = new QTextBrowser(tabWidget);
+
+    connect(pmTextBrowser, SIGNAL(anchorClicked(QUrl)), this, SLOT(on_roomTextBrowser_anchorClicked(QUrl)));
 
     pmTextBrowser->setGeometry(-10,-5,542,481);
 
     pmTextBrowser->setStyleSheet("background: none; background-color: #FFF; border-radius:3px; border: 1px solid #C4C1BD; color: #4C4C4C; padding: 4px;");
 
+    pmTextBrowser->setOpenExternalLinks(false);
+    pmTextBrowser->setOpenLinks(false);
+
     pmTextBrowser->setText(initText);
 
-    tabWidget->addTab(pmTextBrowser, tabText);
+
+
+    return tabWidget->addTab(pmTextBrowser, tabText);
 }
 
 void ChatWindow::on_tabWidget_tabCloseRequested(int index)
