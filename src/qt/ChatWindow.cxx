@@ -238,6 +238,10 @@ void ChatWindow::setGUI(BitcoinGUI* gui){
 
 void ChatWindow::disconnected(){
 
+    qDebug() << "DISCONNECTED";
+
+    heartBeatTimer.stop();
+
     stackedWidget->setCurrentWidget(loginPage);
     if(!isChecked){
         userLineEdit->clear();
@@ -322,6 +326,8 @@ void ChatWindow::connected()
             "}"
         ));
 
+
+
     }
 
     sayLineEdit->setFocus();
@@ -350,12 +356,15 @@ void ChatWindow::connected()
 
     socket->write(QString("/me:" + userLineEdit->text() + "\n").toUtf8());
 
+    heartBeatTimer.start(heartBeatInterval, this);
 
 }
 
 void ChatWindow::on_logoutButton_clicked()
 {
     socket->disconnectFromHost();
+
+    heartBeatTimer.stop();
 
     int numTabs = tabWidget->count();
 
@@ -425,10 +434,23 @@ void ChatWindow::postMessage()
 void ChatWindow::timerEvent(QTimerEvent *event)
 {
 
-    //stop the timer and reset the button style
-    sayButton->setStyleSheet("background: none;\nbackground-color: qlineargradient(spread:pad, x1:0, y1:1, x2:0, y2:0, stop:0 rgb(240,240,240), stop:1 rgb(255, 255, 255));\nborder-radius:3px;\nborder: 1px solid #C4C1BD;\ncolor: #4C4C4C;\npadding: 4px 12px;");
-    timer.stop();
-    messageAllowed = true;
+    if(event->timerId() == heartBeatTimer.timerId()){
+        //qDebug() << "heartbeat";
+        qDebug() << socket->state();
+        if(socket->state() == QAbstractSocket::UnconnectedState){
+            qDebug("QAbstractSocket::UnconnectedState");
+        }
+
+    }
+
+    if(event->timerId() == timer.timerId()){
+        //stop the timer and reset the button style
+        sayButton->setStyleSheet("background: none;\nbackground-color: qlineargradient(spread:pad, x1:0, y1:1, x2:0, y2:0, stop:0 rgb(240,240,240), stop:1 rgb(255, 255, 255));\nborder-radius:3px;\nborder: 1px solid #C4C1BD;\ncolor: #4C4C4C;\npadding: 4px 12px;");
+        timer.stop();
+        messageAllowed = true;
+    }
+
+
 
 }
 

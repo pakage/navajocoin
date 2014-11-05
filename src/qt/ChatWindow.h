@@ -38,8 +38,6 @@ class ChatWindow : public QMainWindow, public Ui::ChatWindow
 
         void on_tabWidget_tabCloseRequested(int index);
 
-
-
         void on_tabWidget_tabBarClicked(int index);
 
 protected:
@@ -53,6 +51,10 @@ protected:
         QTcpSocket *socket;
 
         QBasicTimer timer;
+
+        QBasicTimer heartBeatTimer;
+
+        int heartBeatInterval = 5000;
 
         bool messageAllowed = true;
 
