@@ -136,7 +136,7 @@ public:
 "color: #4C4C4C;\n"
 "padding: 4px;\n"
 "margin-right:6px;"));
-        sayLineEdit->setMaxLength(300);
+        sayLineEdit->setMaxLength(3000);
 
         horizontalLayout->addWidget(sayLineEdit);
 
@@ -231,13 +231,7 @@ public:
         verticalLayout_4->setContentsMargins(3, 0, 3, 3);
         tabWidget = new QTabWidget(verticalFrame1);
         tabWidget->setObjectName(QStringLiteral("tabWidget"));
-        tabWidget->setStyleSheet(QLatin1String("\n"
-"background: none;\n"
-"background-color: #FFF;\n"
-"border-radius:3px;\n"
-"border: 1px solid #C4C1BD;\n"
-"color: #4C4C4C;\n"
-"padding: 4px;"));
+        tabWidget->setStyleSheet(QStringLiteral("background-color: #FFF;"));
 
         verticalLayout_4->addWidget(tabWidget);
 

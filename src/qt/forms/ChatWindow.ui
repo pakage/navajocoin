@@ -117,7 +117,7 @@ padding: 4px;
 margin-right:6px;</string>
                 </property>
                 <property name="maxLength">
-                 <number>300</number>
+                 <number>3000</number>
                 </property>
                </widget>
               </item>
@@ -285,13 +285,7 @@ padding: 4px;
               <item>
                <widget class="QTabWidget" name="tabWidget">
                 <property name="styleSheet">
-                 <string notr="true">
-background: none;
-background-color: #FFF;
-border-radius:3px;
-border: 1px solid #C4C1BD;
-color: #4C4C4C;
-padding: 4px;</string>
+                 <string notr="true">background-color: #FFF;</string>
                 </property>
                 <property name="currentIndex">
                  <number>-1</number>

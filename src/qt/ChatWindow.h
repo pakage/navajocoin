@@ -3,8 +3,10 @@
 #include <QBasicTimer>
 #include <bitcoingui.h>
 #include <QTextBrowser>
+#include "simplecrypt.h"
 
 #include "ui_ChatWindow.h"
+
 
 class ChatWindow : public QMainWindow, public Ui::ChatWindow
 {

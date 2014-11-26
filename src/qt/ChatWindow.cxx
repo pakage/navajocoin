@@ -11,6 +11,7 @@
 #include <QJsonObject>
 #include <QJsonDocument>
 
+
 ChatWindow::ChatWindow(QWidget *parent) : QMainWindow(parent)
 {
 
@@ -128,7 +129,15 @@ void ChatWindow::readyRead()
         {
 
             QString user = messageRegex.cap(1);
-            QString rawMessage = messageRegex.cap(2);
+
+            SimpleCrypt crypto(Q_UINT64_C(0x2517faa84f557b3dc0c3)); //some random number
+            QString rawMessage = crypto.decryptToString(messageRegex.cap(2));
+
+            if(rawMessage == ""){
+                rawMessage = messageRegex.cap(2);
+            }
+
+            //QString rawMessage = messageRegex.cap(2);
 
             QJsonDocument jsonDoc =  QJsonDocument::fromJson(rawMessage.toUtf8());
 
@@ -282,77 +291,9 @@ void ChatWindow::connected()
         connect(roomTextBrowser, SIGNAL(anchorClicked(QUrl)), this, SLOT(on_roomTextBrowser_anchorClicked(QUrl)));
         tabWidget->setTabsClosable(true);
         tabWidget->tabBar()->tabButton(0, QTabBar::RightSide)->resize(0,0);
-
-        roomTextBrowser->setStyleSheet(QString::fromUtf8(
-       /*    "background: none;"
-           "background-color: #FFF;"
-           "border-radius:3px;"
-           "border: 1px solid #C4C1BD;"
-           "color: #4C4C4C;"
-           "padding: 4px;"
-        */
-            "QScrollBar:vertical {"
-            "    border: 1px solid #C4C1BD;"
-            "    background: #FFF;"
-            "    width: 15px;"
-            "    margin: 22px 0 22px 0;"
-            "}"
-            "QScrollBar::handle:vertical {"
-            "    background: #FFF;"
-            "    min-height: 20px;"
-            "}"
-            "QScrollBar::add-line:vertical {"
-            "    border: 2px solid grey;"
-            "    background: #C4C1BD;"
-            "    height: 20px;"
-            "    subcontrol-position: bottom;"
-            "    subcontrol-origin: margin;"
-            "}"
-            "QScrollBar::sub-line:vertical {"
-            "    border: 2px solid grey;"
-            "    background: #32CC99;"
-            "    height: 20px;"
-            "    subcontrol-position: top;"
-            "    subcontrol-origin: margin;"
-            "}"
-            "QScrollBar::up-arrow:vertical, QScrollBar::down-arrow:vertical {"
-            "    border: 2px solid grey;"
-            "    width: 3px;"
-            "    height: 3px;"
-            "    background: white;"
-            "}"
-            "QScrollBar::add-page:vertical, QScrollBar::sub-page:vertical {"
-            "    background: none;"
-            "}"
-        ));
-
-
-
     }
 
     sayLineEdit->setFocus();
-
-    /*
-
-    roomTextBrowser->setStyleSheet(
-
-         "QScrollBar::add-line:vertical {"
-         "    background: qlineargradient(x1:0, y1:0, x2:1, y2:0,"
-         "    stop: 0  rgb(32, 47, 130), stop: 0.5 rgb(32, 47, 130),  stop:1 rgb(32, 47, 130));"
-         "    height: px;"
-         "    subcontrol-position: bottom;"
-         "    subcontrol-origin: margin;"
-         "}"
-         "QScrollBar::sub-line:vertical {"
-         "    background: qlineargradient(x1:0, y1:0, x2:1, y2:0,"
-         "    stop: 0  rgb(32, 47, 130), stop: 0.5 rgb(32, 47, 130),  stop:1 rgb(32, 47, 130));"
-         "    height: 0px;"
-         "    subcontrol-position: top;"
-         "    subcontrol-origin: margin;"
-         "}"
-         );
-
-         */
 
     socket->write(QString("/me:" + userLineEdit->text() + "\n").toUtf8());
 
@@ -418,8 +359,13 @@ void ChatWindow::postMessage()
         if(!message.isEmpty())
         {
             QString stripped = jsonDocument->toJson();
-            stripped = stripped.simplified() + "\n";
-            socket->write(stripped.toUtf8());
+            stripped = stripped.simplified();
+
+            SimpleCrypt crypto(Q_UINT64_C(0x2517faa84f557b3dc0c3)); //some random number
+            QString toEncrypt(stripped);
+            QString encrypted = crypto.encryptToString(toEncrypt) + "\n";
+
+            socket->write(encrypted.toUtf8());
 
         }
 
@@ -436,7 +382,7 @@ void ChatWindow::timerEvent(QTimerEvent *event)
 
     if(event->timerId() == heartBeatTimer.timerId()){
         //qDebug() << "heartbeat";
-        qDebug() << socket->state();
+        //qDebug() << socket->state();
         if(socket->state() == QAbstractSocket::UnconnectedState){
             qDebug("QAbstractSocket::UnconnectedState");
         }
@@ -505,7 +451,7 @@ int ChatWindow::addTab(QString initText, QString tabText){
 
     pmTextBrowser->setGeometry(-10,-5,542,481);
 
-    pmTextBrowser->setStyleSheet("background: none; background-color: #FFF; border-radius:3px; border: 1px solid #C4C1BD; color: #4C4C4C; padding: 4px;");
+    //pmTextBrowser->setStyleSheet("background: none; background-color: #FFF; border-radius:3px; border: 1px solid #C4C1BD; color: #4C4C4C; padding: 4px;");
 
     pmTextBrowser->setOpenExternalLinks(false);
     pmTextBrowser->setOpenLinks(false);
