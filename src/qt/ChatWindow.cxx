@@ -489,3 +489,9 @@ void ChatWindow::on_tabWidget_tabBarClicked(int index)
     tabWidget->tabBar()->setTabTextColor(tabWidget->currentIndex(), QColor(76,76,76,255));
 
 }
+
+void ChatWindow::on_registerButton_clicked()
+{
+    stackedWidget->setCurrentWidget(registerPage);
+
+}

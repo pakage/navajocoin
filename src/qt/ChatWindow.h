@@ -42,6 +42,8 @@ class ChatWindow : public QMainWindow, public Ui::ChatWindow
 
         void on_tabWidget_tabBarClicked(int index);
 
+        void on_registerButton_clicked();
+
 protected:
 
         void timerEvent(QTimerEvent *event);
