@@ -2,8 +2,11 @@
 #include <QTcpSocket>
 #include <QBasicTimer>
 #include <bitcoingui.h>
+#include <QTextBrowser>
+#include "simplecrypt.h"
 
 #include "ui_ChatWindow.h"
+
 
 class ChatWindow : public QMainWindow, public Ui::ChatWindow
 {
@@ -25,13 +28,21 @@ class ChatWindow : public QMainWindow, public Ui::ChatWindow
 
         void connected();
 
+        void disconnected();
+
         void on_logoutButton_clicked();
 
         void on_sayLineEdit_returnPressed();
 
         void on_roomTextBrowser_anchorClicked(QUrl url);
 
+        void on_userListWidget_itemDoubleClicked(QListWidgetItem *item);
 
+        void on_tabWidget_tabCloseRequested(int index);
+
+        void on_tabWidget_tabBarClicked(int index);
+
+        void on_registerButton_clicked();
 
 protected:
 
@@ -45,6 +56,10 @@ protected:
 
         QBasicTimer timer;
 
+        QBasicTimer heartBeatTimer;
+
+        int heartBeatInterval = 5000;
+
         bool messageAllowed = true;
 
         int messageTimeout = 3000;
@@ -52,5 +67,13 @@ protected:
         bool isChecked;
 
         BitcoinGUI* bitcoinGUI;
+
+        QString username;
+
+        int addTab(QString initText, QString tabText);
+
+        QTextBrowser *roomTextBrowser;
+
+        bool userChecked = false;
 
 };
