@@ -20,13 +20,13 @@
 #include <QtWidgets/QHeaderView>
 #include <QtWidgets/QLabel>
 #include <QtWidgets/QLineEdit>
-#include <QtWidgets/QListView>
 #include <QtWidgets/QListWidget>
 #include <QtWidgets/QMainWindow>
 #include <QtWidgets/QPushButton>
 #include <QtWidgets/QSpacerItem>
 #include <QtWidgets/QStackedWidget>
 #include <QtWidgets/QTabWidget>
+#include <QtWidgets/QTableView>
 #include <QtWidgets/QVBoxLayout>
 #include <QtWidgets/QWidget>
 
@@ -91,16 +91,19 @@ public:
     QHBoxLayout *horizontalLayout_3;
     QFrame *gridFrame;
     QGridLayout *gridLayout_2;
-    QLabel *label_2;
     QHBoxLayout *horizontalLayout_8;
     QLineEdit *lineEdit;
     QSpacerItem *horizontalSpacer;
-    QListView *addressListView;
+    QLabel *label_2;
     QLabel *label;
     QHBoxLayout *horizontalLayout_9;
     QPushButton *pushButton;
     QLabel *registerError;
     QSpacerItem *horizontalSpacer_2;
+    QTableView *addressTableView;
+    QHBoxLayout *horizontalLayout_10;
+    QSpacerItem *horizontalSpacer_3;
+    QPushButton *pushButton_2;
     QSpacerItem *verticalSpacer;
 
     void setupUi(QMainWindow *ChatWindow)
@@ -277,11 +280,6 @@ public:
         stackedWidget->addWidget(loginPage1);
         loginPage = new QWidget();
         loginPage->setObjectName(QStringLiteral("loginPage"));
-        QSizePolicy sizePolicy1(QSizePolicy::Expanding, QSizePolicy::Expanding);
-        sizePolicy1.setHorizontalStretch(0);
-        sizePolicy1.setVerticalStretch(0);
-        sizePolicy1.setHeightForWidth(loginPage->sizePolicy().hasHeightForWidth());
-        loginPage->setSizePolicy(sizePolicy1);
         verticalLayoutWidget_2 = new QWidget(loginPage);
         verticalLayoutWidget_2->setObjectName(QStringLiteral("verticalLayoutWidget_2"));
         verticalLayoutWidget_2->setGeometry(QRect(0, 0, 781, 581));
@@ -297,11 +295,11 @@ public:
 
         label_5 = new QLabel(verticalLayoutWidget_2);
         label_5->setObjectName(QStringLiteral("label_5"));
-        QSizePolicy sizePolicy2(QSizePolicy::Fixed, QSizePolicy::Preferred);
-        sizePolicy2.setHorizontalStretch(0);
-        sizePolicy2.setVerticalStretch(0);
-        sizePolicy2.setHeightForWidth(label_5->sizePolicy().hasHeightForWidth());
-        label_5->setSizePolicy(sizePolicy2);
+        QSizePolicy sizePolicy1(QSizePolicy::Fixed, QSizePolicy::Preferred);
+        sizePolicy1.setHorizontalStretch(0);
+        sizePolicy1.setVerticalStretch(0);
+        sizePolicy1.setHeightForWidth(label_5->sizePolicy().hasHeightForWidth());
+        label_5->setSizePolicy(sizePolicy1);
         label_5->setMinimumSize(QSize(320, 0));
         label_5->setBaseSize(QSize(0, 0));
         QFont font;
@@ -398,11 +396,11 @@ public:
         horizontalLayout_6->setContentsMargins(-1, -1, 6, -1);
         loginButton = new QPushButton(loginFrame);
         loginButton->setObjectName(QStringLiteral("loginButton"));
-        QSizePolicy sizePolicy3(QSizePolicy::Expanding, QSizePolicy::Fixed);
-        sizePolicy3.setHorizontalStretch(0);
-        sizePolicy3.setVerticalStretch(0);
-        sizePolicy3.setHeightForWidth(loginButton->sizePolicy().hasHeightForWidth());
-        loginButton->setSizePolicy(sizePolicy3);
+        QSizePolicy sizePolicy2(QSizePolicy::Expanding, QSizePolicy::Fixed);
+        sizePolicy2.setHorizontalStretch(0);
+        sizePolicy2.setVerticalStretch(0);
+        sizePolicy2.setHeightForWidth(loginButton->sizePolicy().hasHeightForWidth());
+        loginButton->setSizePolicy(sizePolicy2);
         loginButton->setStyleSheet(QLatin1String("background-color: qlineargradient(spread:pad, x1:0, y1:1, x2:0, y2:0, stop:0 rgb(240,240,240), stop:1 rgb(255, 255, 255));\n"
 "border-radius:3px;\n"
 "border: 1px solid #C4C1BD;\n"
@@ -417,8 +415,8 @@ public:
 
         registerButton = new QPushButton(loginFrame);
         registerButton->setObjectName(QStringLiteral("registerButton"));
-        sizePolicy3.setHeightForWidth(registerButton->sizePolicy().hasHeightForWidth());
-        registerButton->setSizePolicy(sizePolicy3);
+        sizePolicy2.setHeightForWidth(registerButton->sizePolicy().hasHeightForWidth());
+        registerButton->setSizePolicy(sizePolicy2);
         registerButton->setStyleSheet(QLatin1String("background-color: qlineargradient(spread:pad, x1:0, y1:1, x2:0, y2:0, stop:0 rgb(240,240,240), stop:1 rgb(255, 255, 255));\n"
 "border-radius:3px;\n"
 "border: 1px solid #C4C1BD;\n"
@@ -447,8 +445,6 @@ public:
         stackedWidget->addWidget(loginPage);
         registerPage = new QWidget();
         registerPage->setObjectName(QStringLiteral("registerPage"));
-        sizePolicy1.setHeightForWidth(registerPage->sizePolicy().hasHeightForWidth());
-        registerPage->setSizePolicy(sizePolicy1);
         verticalLayoutWidget = new QWidget(registerPage);
         verticalLayoutWidget->setObjectName(QStringLiteral("verticalLayoutWidget"));
         verticalLayoutWidget->setGeometry(QRect(0, 0, 781, 581));
@@ -464,8 +460,8 @@ public:
 
         label_4 = new QLabel(verticalLayoutWidget);
         label_4->setObjectName(QStringLiteral("label_4"));
-        sizePolicy2.setHeightForWidth(label_4->sizePolicy().hasHeightForWidth());
-        label_4->setSizePolicy(sizePolicy2);
+        sizePolicy1.setHeightForWidth(label_4->sizePolicy().hasHeightForWidth());
+        label_4->setSizePolicy(sizePolicy1);
         label_4->setMinimumSize(QSize(320, 0));
         label_4->setBaseSize(QSize(0, 0));
         label_4->setFont(font);
@@ -490,6 +486,7 @@ public:
         horizontalLayout_3->setContentsMargins(6, 6, 6, 6);
         gridFrame = new QFrame(verticalLayoutWidget);
         gridFrame->setObjectName(QStringLiteral("gridFrame"));
+        gridFrame->setMinimumSize(QSize(600, 0));
         gridFrame->setStyleSheet(QLatin1String("background: none;\n"
 "background-color: #F2F1F0;\n"
 "border-radius: 3px;\n"
@@ -497,11 +494,6 @@ public:
         gridLayout_2 = new QGridLayout(gridFrame);
         gridLayout_2->setObjectName(QStringLiteral("gridLayout_2"));
         gridLayout_2->setContentsMargins(6, 6, 6, 6);
-        label_2 = new QLabel(gridFrame);
-        label_2->setObjectName(QStringLiteral("label_2"));
-
-        gridLayout_2->addWidget(label_2, 2, 0, 1, 1);
-
         horizontalLayout_8 = new QHBoxLayout();
         horizontalLayout_8->setObjectName(QStringLiteral("horizontalLayout_8"));
         lineEdit = new QLineEdit(gridFrame);
@@ -520,33 +512,27 @@ public:
         horizontalLayout_8->addItem(horizontalSpacer);
 
 
-        gridLayout_2->addLayout(horizontalLayout_8, 4, 0, 1, 1);
+        gridLayout_2->addLayout(horizontalLayout_8, 4, 1, 1, 1);
 
-        addressListView = new QListView(gridFrame);
-        addressListView->setObjectName(QStringLiteral("addressListView"));
-        addressListView->setStyleSheet(QLatin1String("background-color: rgb(255,255,255);\n"
-"border-radius:3px;\n"
-"border: 1px solid #C4C1BD;\n"
-"color: #4C4C4C;\n"
-"padding: 4px;\n"
-"color: #4C4C4C;"));
+        label_2 = new QLabel(gridFrame);
+        label_2->setObjectName(QStringLiteral("label_2"));
 
-        gridLayout_2->addWidget(addressListView, 1, 0, 1, 1);
+        gridLayout_2->addWidget(label_2, 2, 1, 1, 1);
 
         label = new QLabel(gridFrame);
         label->setObjectName(QStringLiteral("label"));
 
-        gridLayout_2->addWidget(label, 0, 0, 1, 1);
+        gridLayout_2->addWidget(label, 0, 1, 1, 1);
 
         horizontalLayout_9 = new QHBoxLayout();
         horizontalLayout_9->setObjectName(QStringLiteral("horizontalLayout_9"));
         pushButton = new QPushButton(gridFrame);
         pushButton->setObjectName(QStringLiteral("pushButton"));
-        QSizePolicy sizePolicy4(QSizePolicy::Preferred, QSizePolicy::Fixed);
-        sizePolicy4.setHorizontalStretch(0);
-        sizePolicy4.setVerticalStretch(0);
-        sizePolicy4.setHeightForWidth(pushButton->sizePolicy().hasHeightForWidth());
-        pushButton->setSizePolicy(sizePolicy4);
+        QSizePolicy sizePolicy3(QSizePolicy::Preferred, QSizePolicy::Fixed);
+        sizePolicy3.setHorizontalStretch(0);
+        sizePolicy3.setVerticalStretch(0);
+        sizePolicy3.setHeightForWidth(pushButton->sizePolicy().hasHeightForWidth());
+        pushButton->setSizePolicy(sizePolicy3);
         pushButton->setStyleSheet(QLatin1String("background: none;\n"
 "background-color: qlineargradient(spread:pad, x1:0, y1:1, x2:0, y2:0, stop:0 rgb(240,240,240), stop:1 rgb(255, 255, 255));\n"
 "border-radius:3px;\n"
@@ -566,13 +552,47 @@ public:
         horizontalLayout_9->addItem(horizontalSpacer_2);
 
 
-        gridLayout_2->addLayout(horizontalLayout_9, 5, 0, 1, 1);
+        gridLayout_2->addLayout(horizontalLayout_9, 5, 1, 1, 1);
+
+        addressTableView = new QTableView(gridFrame);
+        addressTableView->setObjectName(QStringLiteral("addressTableView"));
+        addressTableView->setStyleSheet(QLatin1String("background-color: rgb(255,255,255);\n"
+"border-radius:3px;\n"
+"border: 1px solid #C4C1BD;\n"
+"color: #4C4C4C;\n"
+"padding: 4px;\n"
+"color: #4C4C4C;"));
+
+        gridLayout_2->addWidget(addressTableView, 1, 1, 1, 1);
 
 
         horizontalLayout_3->addWidget(gridFrame);
 
 
         verticalLayout_5->addLayout(horizontalLayout_3);
+
+        horizontalLayout_10 = new QHBoxLayout();
+        horizontalLayout_10->setObjectName(QStringLiteral("horizontalLayout_10"));
+        horizontalLayout_10->setContentsMargins(-1, -1, 6, -1);
+        horizontalSpacer_3 = new QSpacerItem(40, 20, QSizePolicy::Expanding, QSizePolicy::Minimum);
+
+        horizontalLayout_10->addItem(horizontalSpacer_3);
+
+        pushButton_2 = new QPushButton(verticalLayoutWidget);
+        pushButton_2->setObjectName(QStringLiteral("pushButton_2"));
+        sizePolicy3.setHeightForWidth(pushButton_2->sizePolicy().hasHeightForWidth());
+        pushButton_2->setSizePolicy(sizePolicy3);
+        pushButton_2->setStyleSheet(QLatin1String("background: none;\n"
+"background-color: qlineargradient(spread:pad, x1:0, y1:1, x2:0, y2:0, stop:0 rgb(240,240,240), stop:1 rgb(255, 255, 255));\n"
+"border-radius:3px;\n"
+"border: 1px solid #C4C1BD;\n"
+"color: #4C4C4C;\n"
+"padding: 4px 12px;"));
+
+        horizontalLayout_10->addWidget(pushButton_2);
+
+
+        verticalLayout_5->addLayout(horizontalLayout_10);
 
         verticalSpacer = new QSpacerItem(20, 40, QSizePolicy::Minimum, QSizePolicy::Expanding);
 
@@ -615,6 +635,7 @@ public:
         label->setText(QApplication::translate("ChatWindow", "Wallet address:", 0));
         pushButton->setText(QApplication::translate("ChatWindow", "Register", 0));
         registerError->setText(QApplication::translate("ChatWindow", "Already Registerd", 0));
+        pushButton_2->setText(QApplication::translate("ChatWindow", "Cancel", 0));
     } // retranslateUi
 
 };

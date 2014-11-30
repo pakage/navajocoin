@@ -7,6 +7,16 @@
 
 #include "ui_ChatWindow.h"
 
+class AddressTableModel;
+class OptionsModel;
+
+QT_BEGIN_NAMESPACE
+class QTableView;
+class QItemSelection;
+class QSortFilterProxyModel;
+class QMenu;
+class QModelIndex;
+QT_END_NAMESPACE
 
 class ChatWindow : public QMainWindow, public Ui::ChatWindow
 {
@@ -44,6 +54,8 @@ class ChatWindow : public QMainWindow, public Ui::ChatWindow
 
         void on_registerButton_clicked();
 
+        void on_pushButton_2_clicked();
+
 protected:
 
         void timerEvent(QTimerEvent *event);
@@ -51,6 +63,9 @@ protected:
         void postMessage();
 
     private:
+
+        AddressTableModel *model;
+        QSortFilterProxyModel *proxyModel;
 
         QTcpSocket *socket;
 

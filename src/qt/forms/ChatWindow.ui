@@ -301,12 +301,6 @@ padding: 4px;
           <layout class="QGridLayout" name="gridLayout_3"/>
          </widget>
          <widget class="QWidget" name="loginPage">
-          <property name="sizePolicy">
-           <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
-            <horstretch>0</horstretch>
-            <verstretch>0</verstretch>
-           </sizepolicy>
-          </property>
           <widget class="QWidget" name="verticalLayoutWidget_2">
            <property name="geometry">
             <rect>
@@ -622,12 +616,6 @@ padding: 4px 12px;</string>
           </widget>
          </widget>
          <widget class="QWidget" name="registerPage">
-          <property name="sizePolicy">
-           <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
-            <horstretch>0</horstretch>
-            <verstretch>0</verstretch>
-           </sizepolicy>
-          </property>
           <widget class="QWidget" name="verticalLayoutWidget">
            <property name="geometry">
             <rect>
@@ -727,6 +715,12 @@ padding: 5px 20px;</string>
               </property>
               <item>
                <widget class="QFrame" name="gridFrame">
+                <property name="minimumSize">
+                 <size>
+                  <width>600</width>
+                  <height>0</height>
+                 </size>
+                </property>
                 <property name="styleSheet">
                  <string notr="true">background: none;
 background-color: #F2F1F0;
@@ -746,14 +740,7 @@ color: #4C4C4C;</string>
                  <property name="bottomMargin">
                   <number>6</number>
                  </property>
-                 <item row="2" column="0">
-                  <widget class="QLabel" name="label_2">
-                   <property name="text">
-                    <string>Emaid Address (optional):</string>
-                   </property>
-                  </widget>
-                 </item>
-                 <item row="4" column="0">
+                 <item row="4" column="1">
                   <layout class="QHBoxLayout" name="horizontalLayout_8">
                    <item>
                     <widget class="QLineEdit" name="lineEdit">
@@ -782,26 +769,21 @@ color: #4C4C4C;</string>
                    </item>
                   </layout>
                  </item>
-                 <item row="1" column="0">
-                  <widget class="QListView" name="addressListView">
-                   <property name="styleSheet">
-                    <string notr="true">background-color: rgb(255,255,255);
-border-radius:3px;
-border: 1px solid #C4C1BD;
-color: #4C4C4C;
-padding: 4px;
-color: #4C4C4C;</string>
+                 <item row="2" column="1">
+                  <widget class="QLabel" name="label_2">
+                   <property name="text">
+                    <string>Emaid Address (optional):</string>
                    </property>
                   </widget>
                  </item>
-                 <item row="0" column="0">
+                 <item row="0" column="1">
                   <widget class="QLabel" name="label">
                    <property name="text">
                     <string>Wallet address:</string>
                    </property>
                   </widget>
                  </item>
-                 <item row="5" column="0">
+                 <item row="5" column="1">
                   <layout class="QHBoxLayout" name="horizontalLayout_9">
                    <item>
                     <widget class="QPushButton" name="pushButton">
@@ -846,7 +828,60 @@ padding: 4px 12px;</string>
                    </item>
                   </layout>
                  </item>
+                 <item row="1" column="1">
+                  <widget class="QTableView" name="addressTableView">
+                   <property name="styleSheet">
+                    <string notr="true">background-color: rgb(255,255,255);
+border-radius:3px;
+border: 1px solid #C4C1BD;
+color: #4C4C4C;
+padding: 4px;
+color: #4C4C4C;</string>
+                   </property>
+                  </widget>
+                 </item>
                 </layout>
+               </widget>
+              </item>
+             </layout>
+            </item>
+            <item>
+             <layout class="QHBoxLayout" name="horizontalLayout_10">
+              <property name="rightMargin">
+               <number>6</number>
+              </property>
+              <item>
+               <spacer name="horizontalSpacer_3">
+                <property name="orientation">
+                 <enum>Qt::Horizontal</enum>
+                </property>
+                <property name="sizeHint" stdset="0">
+                 <size>
+                  <width>40</width>
+                  <height>20</height>
+                 </size>
+                </property>
+               </spacer>
+              </item>
+              <item>
+               <widget class="QPushButton" name="pushButton_2">
+                <property name="sizePolicy">
+                 <sizepolicy hsizetype="Preferred" vsizetype="Fixed">
+                  <horstretch>0</horstretch>
+                  <verstretch>0</verstretch>
+                 </sizepolicy>
+                </property>
+                <property name="styleSheet">
+                 <string notr="true">background: none;
+background-color: qlineargradient(spread:pad, x1:0, y1:1, x2:0, y2:0, stop:0 rgb(240,240,240), stop:1 rgb(255, 255, 255));
+border-radius:3px;
+border: 1px solid #C4C1BD;
+color: #4C4C4C;
+padding: 4px 12px;</string>
+                </property>
+                <property name="text">
+                 <string>Cancel</string>
+                </property>
                </widget>
               </item>
              </layout>

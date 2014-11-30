@@ -10,7 +10,10 @@
 #include <QTabWidget>
 #include <QJsonObject>
 #include <QJsonDocument>
-
+#include <wallet.h>
+#include <walletmodel.h>
+#include <addresstablemodel.h>
+#include <QSortFilterProxyModel>
 
 ChatWindow::ChatWindow(QWidget *parent) : QMainWindow(parent)
 {
@@ -494,4 +497,27 @@ void ChatWindow::on_registerButton_clicked()
 {
     stackedWidget->setCurrentWidget(registerPage);
 
+    proxyModel = new QSortFilterProxyModel(this);
+    proxyModel->setSourceModel(model);
+    proxyModel->setDynamicSortFilter(true);
+    proxyModel->setSortCaseSensitivity(Qt::CaseInsensitive);
+    proxyModel->setFilterCaseSensitivity(Qt::CaseInsensitive);
+
+    proxyModel->setFilterRole(AddressTableModel::TypeRole);
+    proxyModel->setFilterFixedString(AddressTableModel::Receive);
+
+    addressTableView->setModel(proxyModel);
+    addressTableView->sortByColumn(0, Qt::AscendingOrder);
+
+    qDebug() << model->Address;
+    qDebug() << model->Label;
+
+    //addressTableView->horizontalHeader()->resizeSection(AddressTableModel::Address, 320);
+    //addressTableView->horizontalHeader()->setResizeMode(AddressTableModel::Label, QHeaderView::Stretch);
+
+}
+
+void ChatWindow::on_pushButton_2_clicked()
+{
+    stackedWidget->setCurrentWidget(loginPage);
 }

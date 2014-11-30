@@ -19,8 +19,8 @@
 
 QT_BEGIN_MOC_NAMESPACE
 struct qt_meta_stringdata_ChatWindow_t {
-    QByteArrayData data[18];
-    char stringdata[328];
+    QByteArrayData data[19];
+    char stringdata[352];
 };
 #define QT_MOC_LITERAL(idx, ofs, len) \
     Q_STATIC_BYTE_ARRAY_DATA_HEADER_INITIALIZER_WITH_OFFSET(len, \
@@ -46,7 +46,8 @@ QT_MOC_LITERAL(13, 232, 4),
 QT_MOC_LITERAL(14, 237, 30),
 QT_MOC_LITERAL(15, 268, 5),
 QT_MOC_LITERAL(16, 274, 26),
-QT_MOC_LITERAL(17, 301, 25)
+QT_MOC_LITERAL(17, 301, 25),
+QT_MOC_LITERAL(18, 327, 23)
     },
     "ChatWindow\0on_loginButton_clicked\0\0"
     "on_sayButton_clicked\0readyRead\0connected\0"
@@ -58,6 +59,7 @@ QT_MOC_LITERAL(17, 301, 25)
     "on_tabWidget_tabCloseRequested\0index\0"
     "on_tabWidget_tabBarClicked\0"
     "on_registerButton_clicked\0"
+    "on_pushButton_2_clicked\0"
 };
 #undef QT_MOC_LITERAL
 
@@ -67,7 +69,7 @@ static const uint qt_meta_data_ChatWindow[] = {
        7,       // revision
        0,       // classname
        0,    0, // classinfo
-      12,   14, // methods
+      13,   14, // methods
        0,    0, // properties
        0,    0, // enums/sets
        0,    0, // constructors
@@ -75,18 +77,19 @@ static const uint qt_meta_data_ChatWindow[] = {
        0,       // signalCount
 
  // slots: name, argc, parameters, tag, flags
-       1,    0,   74,    2, 0x08,
-       3,    0,   75,    2, 0x08,
-       4,    0,   76,    2, 0x08,
-       5,    0,   77,    2, 0x08,
-       6,    0,   78,    2, 0x08,
-       7,    0,   79,    2, 0x08,
-       8,    0,   80,    2, 0x08,
-       9,    1,   81,    2, 0x08,
-      11,    1,   84,    2, 0x08,
-      14,    1,   87,    2, 0x08,
-      16,    1,   90,    2, 0x08,
-      17,    0,   93,    2, 0x08,
+       1,    0,   79,    2, 0x08,
+       3,    0,   80,    2, 0x08,
+       4,    0,   81,    2, 0x08,
+       5,    0,   82,    2, 0x08,
+       6,    0,   83,    2, 0x08,
+       7,    0,   84,    2, 0x08,
+       8,    0,   85,    2, 0x08,
+       9,    1,   86,    2, 0x08,
+      11,    1,   89,    2, 0x08,
+      14,    1,   92,    2, 0x08,
+      16,    1,   95,    2, 0x08,
+      17,    0,   98,    2, 0x08,
+      18,    0,   99,    2, 0x08,
 
  // slots: parameters
     QMetaType::Void,
@@ -100,6 +103,7 @@ static const uint qt_meta_data_ChatWindow[] = {
     QMetaType::Void, 0x80000000 | 12,   13,
     QMetaType::Void, QMetaType::Int,   15,
     QMetaType::Void, QMetaType::Int,   15,
+    QMetaType::Void,
     QMetaType::Void,
 
        0        // eod
@@ -122,6 +126,7 @@ void ChatWindow::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, 
         case 9: _t->on_tabWidget_tabCloseRequested((*reinterpret_cast< int(*)>(_a[1]))); break;
         case 10: _t->on_tabWidget_tabBarClicked((*reinterpret_cast< int(*)>(_a[1]))); break;
         case 11: _t->on_registerButton_clicked(); break;
+        case 12: _t->on_pushButton_2_clicked(); break;
         default: ;
         }
     }
@@ -154,13 +159,13 @@ int ChatWindow::qt_metacall(QMetaObject::Call _c, int _id, void **_a)
     if (_id < 0)
         return _id;
     if (_c == QMetaObject::InvokeMetaMethod) {
-        if (_id < 12)
+        if (_id < 13)
             qt_static_metacall(this, _c, _id, _a);
-        _id -= 12;
+        _id -= 13;
     } else if (_c == QMetaObject::RegisterMethodArgumentMetaType) {
-        if (_id < 12)
+        if (_id < 13)
             *reinterpret_cast<int*>(_a[0]) = -1;
-        _id -= 12;
+        _id -= 13;
     }
     return _id;
 }
