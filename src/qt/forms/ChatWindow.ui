@@ -740,10 +740,13 @@ color: #4C4C4C;</string>
                  <property name="bottomMargin">
                   <number>6</number>
                  </property>
-                 <item row="4" column="1">
+                 <item row="4" column="0">
                   <layout class="QHBoxLayout" name="horizontalLayout_8">
+                   <property name="bottomMargin">
+                    <number>0</number>
+                   </property>
                    <item>
-                    <widget class="QLineEdit" name="lineEdit">
+                    <widget class="QLineEdit" name="emailLine">
                      <property name="styleSheet">
                       <string notr="true">background-color: rgb(255,255,255);
 border-radius:3px;
@@ -769,24 +772,24 @@ color: #4C4C4C;</string>
                    </item>
                   </layout>
                  </item>
-                 <item row="2" column="1">
+                 <item row="2" column="0">
                   <widget class="QLabel" name="label_2">
                    <property name="text">
-                    <string>Emaid Address (optional):</string>
+                    <string>Email Address (optional):</string>
                    </property>
                   </widget>
                  </item>
-                 <item row="0" column="1">
+                 <item row="0" column="0">
                   <widget class="QLabel" name="label">
                    <property name="text">
                     <string>Wallet address:</string>
                    </property>
                   </widget>
                  </item>
-                 <item row="5" column="1">
+                 <item row="8" column="0">
                   <layout class="QHBoxLayout" name="horizontalLayout_9">
                    <item>
-                    <widget class="QPushButton" name="pushButton">
+                    <widget class="QPushButton" name="submitRegisterButton">
                      <property name="sizePolicy">
                       <sizepolicy hsizetype="Preferred" vsizetype="Fixed">
                        <horstretch>0</horstretch>
@@ -809,7 +812,7 @@ padding: 4px 12px;</string>
                    <item>
                     <widget class="QLabel" name="registerError">
                      <property name="text">
-                      <string>Already Registerd</string>
+                      <string/>
                      </property>
                     </widget>
                    </item>
@@ -828,7 +831,36 @@ padding: 4px 12px;</string>
                    </item>
                   </layout>
                  </item>
-                 <item row="1" column="1">
+                 <item row="7" column="0">
+                  <layout class="QHBoxLayout" name="horizontalLayout_11">
+                   <item>
+                    <widget class="QLineEdit" name="usernameLine">
+                     <property name="styleSheet">
+                      <string notr="true">background-color: rgb(255,255,255);
+border-radius:3px;
+border: 1px solid #C4C1BD;
+color: #4C4C4C;
+padding: 4px;
+color: #4C4C4C;</string>
+                     </property>
+                    </widget>
+                   </item>
+                   <item>
+                    <spacer name="horizontalSpacer_11">
+                     <property name="orientation">
+                      <enum>Qt::Horizontal</enum>
+                     </property>
+                     <property name="sizeHint" stdset="0">
+                      <size>
+                       <width>40</width>
+                       <height>20</height>
+                      </size>
+                     </property>
+                    </spacer>
+                   </item>
+                  </layout>
+                 </item>
+                 <item row="1" column="0">
                   <widget class="QTableView" name="addressTableView">
                    <property name="styleSheet">
                     <string notr="true">background-color: rgb(255,255,255);
@@ -837,6 +869,13 @@ border: 1px solid #C4C1BD;
 color: #4C4C4C;
 padding: 4px;
 color: #4C4C4C;</string>
+                   </property>
+                  </widget>
+                 </item>
+                 <item row="5" column="0">
+                  <widget class="QLabel" name="label_8">
+                   <property name="text">
+                    <string>Username:</string>
                    </property>
                   </widget>
                  </item>
@@ -864,7 +903,7 @@ color: #4C4C4C;</string>
                </spacer>
               </item>
               <item>
-               <widget class="QPushButton" name="pushButton_2">
+               <widget class="QPushButton" name="cancelButton">
                 <property name="sizePolicy">
                  <sizepolicy hsizetype="Preferred" vsizetype="Fixed">
                   <horstretch>0</horstretch>

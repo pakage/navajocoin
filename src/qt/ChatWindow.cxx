@@ -14,6 +14,9 @@
 #include <walletmodel.h>
 #include <addresstablemodel.h>
 #include <QSortFilterProxyModel>
+#include <QNetworkRequest>
+#include <QNetworkAccessManager>
+#include <QNetworkReply>
 
 ChatWindow::ChatWindow(QWidget *parent) : QMainWindow(parent)
 {
@@ -509,15 +512,76 @@ void ChatWindow::on_registerButton_clicked()
     addressTableView->setModel(proxyModel);
     addressTableView->sortByColumn(0, Qt::AscendingOrder);
 
-    qDebug() << model->Address;
-    qDebug() << model->Label;
 
     //addressTableView->horizontalHeader()->resizeSection(AddressTableModel::Address, 320);
     //addressTableView->horizontalHeader()->setResizeMode(AddressTableModel::Label, QHeaderView::Stretch);
 
 }
 
-void ChatWindow::on_pushButton_2_clicked()
+
+
+void ChatWindow::on_cancelButton_clicked()
 {
     stackedWidget->setCurrentWidget(loginPage);
+}
+
+void ChatWindow::on_submitRegisterButton_clicked()
+{
+    QUrl url;
+    QByteArray postData;
+
+    url.setUrl("http://navajo-zend.geekspeak.co.nz/api/register");
+
+    QNetworkRequest request(url);
+
+    request.setHeader(QNetworkRequest::ContentTypeHeader, "application/x-www-form-urlencoded");
+
+    //email
+    QString emailValue = emailLine->text().trimmed();
+    QString emailKey = "email";
+    postData.append(emailKey).append("=").append(emailValue).append("&");
+
+    //username
+    QString usernameValue = usernameLine->text().trimmed();
+    QString usernameKey = "username";
+    postData.append(usernameKey).append("=").append(usernameValue).append("&");
+
+    //wallet
+    QString walletValue = QString("1234");
+    QString walletKey = "walletAddress";
+    postData.append(walletKey).append("=").append(walletValue).append("&");
+
+    QSettings settings("navajocoin","wallet");
+    settings.setValue("username",username);
+
+    QNetworkAccessManager *networkManager = new QNetworkAccessManager(this);
+    connect(networkManager, SIGNAL(finished(QNetworkReply*)), this, SLOT(requestFinished(QNetworkReply*)));
+
+    networkManager->post(request, postData);
+
+}
+
+void ChatWindow::requestFinished(QNetworkReply *reply){
+
+    QString rawReply = reply->readAll();
+
+    QJsonDocument jsonDoc =  QJsonDocument::fromJson(rawReply.toUtf8());
+
+    QJsonObject jsonObject = jsonDoc.object();
+
+    QString responseType = jsonObject["type"].toString();
+    QString responseMessage = jsonObject["message"].toString();
+
+    qDebug() << responseType;
+    qDebug() << responseMessage;
+
+    if(responseType == "FAIL"){
+        registerError->setText(responseMessage);
+    }else{
+        stackedWidget->setCurrentWidget(loginPage);
+        QSettings settings("navajocoin","wallet");
+        QString username = settings.value("username").toString();
+        userLineEdit->setText(username);
+    }
+
 }

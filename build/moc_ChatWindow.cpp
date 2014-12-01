@@ -19,8 +19,8 @@
 
 QT_BEGIN_MOC_NAMESPACE
 struct qt_meta_stringdata_ChatWindow_t {
-    QByteArrayData data[19];
-    char stringdata[352];
+    QByteArrayData data[23];
+    char stringdata[421];
 };
 #define QT_MOC_LITERAL(idx, ofs, len) \
     Q_STATIC_BYTE_ARRAY_DATA_HEADER_INITIALIZER_WITH_OFFSET(len, \
@@ -47,7 +47,11 @@ QT_MOC_LITERAL(14, 237, 30),
 QT_MOC_LITERAL(15, 268, 5),
 QT_MOC_LITERAL(16, 274, 26),
 QT_MOC_LITERAL(17, 301, 25),
-QT_MOC_LITERAL(18, 327, 23)
+QT_MOC_LITERAL(18, 327, 23),
+QT_MOC_LITERAL(19, 351, 31),
+QT_MOC_LITERAL(20, 383, 15),
+QT_MOC_LITERAL(21, 399, 14),
+QT_MOC_LITERAL(22, 414, 5)
     },
     "ChatWindow\0on_loginButton_clicked\0\0"
     "on_sayButton_clicked\0readyRead\0connected\0"
@@ -59,7 +63,9 @@ QT_MOC_LITERAL(18, 327, 23)
     "on_tabWidget_tabCloseRequested\0index\0"
     "on_tabWidget_tabBarClicked\0"
     "on_registerButton_clicked\0"
-    "on_pushButton_2_clicked\0"
+    "on_cancelButton_clicked\0"
+    "on_submitRegisterButton_clicked\0"
+    "requestFinished\0QNetworkReply*\0reply\0"
 };
 #undef QT_MOC_LITERAL
 
@@ -69,7 +75,7 @@ static const uint qt_meta_data_ChatWindow[] = {
        7,       // revision
        0,       // classname
        0,    0, // classinfo
-      13,   14, // methods
+      15,   14, // methods
        0,    0, // properties
        0,    0, // enums/sets
        0,    0, // constructors
@@ -77,19 +83,21 @@ static const uint qt_meta_data_ChatWindow[] = {
        0,       // signalCount
 
  // slots: name, argc, parameters, tag, flags
-       1,    0,   79,    2, 0x08,
-       3,    0,   80,    2, 0x08,
-       4,    0,   81,    2, 0x08,
-       5,    0,   82,    2, 0x08,
-       6,    0,   83,    2, 0x08,
-       7,    0,   84,    2, 0x08,
-       8,    0,   85,    2, 0x08,
-       9,    1,   86,    2, 0x08,
-      11,    1,   89,    2, 0x08,
-      14,    1,   92,    2, 0x08,
-      16,    1,   95,    2, 0x08,
-      17,    0,   98,    2, 0x08,
-      18,    0,   99,    2, 0x08,
+       1,    0,   89,    2, 0x08,
+       3,    0,   90,    2, 0x08,
+       4,    0,   91,    2, 0x08,
+       5,    0,   92,    2, 0x08,
+       6,    0,   93,    2, 0x08,
+       7,    0,   94,    2, 0x08,
+       8,    0,   95,    2, 0x08,
+       9,    1,   96,    2, 0x08,
+      11,    1,   99,    2, 0x08,
+      14,    1,  102,    2, 0x08,
+      16,    1,  105,    2, 0x08,
+      17,    0,  108,    2, 0x08,
+      18,    0,  109,    2, 0x08,
+      19,    0,  110,    2, 0x08,
+      20,    1,  111,    2, 0x08,
 
  // slots: parameters
     QMetaType::Void,
@@ -105,6 +113,8 @@ static const uint qt_meta_data_ChatWindow[] = {
     QMetaType::Void, QMetaType::Int,   15,
     QMetaType::Void,
     QMetaType::Void,
+    QMetaType::Void,
+    QMetaType::Void, 0x80000000 | 21,   22,
 
        0        // eod
 };
@@ -126,8 +136,21 @@ void ChatWindow::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, 
         case 9: _t->on_tabWidget_tabCloseRequested((*reinterpret_cast< int(*)>(_a[1]))); break;
         case 10: _t->on_tabWidget_tabBarClicked((*reinterpret_cast< int(*)>(_a[1]))); break;
         case 11: _t->on_registerButton_clicked(); break;
-        case 12: _t->on_pushButton_2_clicked(); break;
+        case 12: _t->on_cancelButton_clicked(); break;
+        case 13: _t->on_submitRegisterButton_clicked(); break;
+        case 14: _t->requestFinished((*reinterpret_cast< QNetworkReply*(*)>(_a[1]))); break;
         default: ;
+        }
+    } else if (_c == QMetaObject::RegisterMethodArgumentMetaType) {
+        switch (_id) {
+        default: *reinterpret_cast<int*>(_a[0]) = -1; break;
+        case 14:
+            switch (*reinterpret_cast<int*>(_a[1])) {
+            default: *reinterpret_cast<int*>(_a[0]) = -1; break;
+            case 0:
+                *reinterpret_cast<int*>(_a[0]) = qRegisterMetaType< QNetworkReply* >(); break;
+            }
+            break;
         }
     }
 }
@@ -159,13 +182,13 @@ int ChatWindow::qt_metacall(QMetaObject::Call _c, int _id, void **_a)
     if (_id < 0)
         return _id;
     if (_c == QMetaObject::InvokeMetaMethod) {
-        if (_id < 13)
+        if (_id < 15)
             qt_static_metacall(this, _c, _id, _a);
-        _id -= 13;
+        _id -= 15;
     } else if (_c == QMetaObject::RegisterMethodArgumentMetaType) {
-        if (_id < 13)
-            *reinterpret_cast<int*>(_a[0]) = -1;
-        _id -= 13;
+        if (_id < 15)
+            qt_static_metacall(this, _c, _id, _a);
+        _id -= 15;
     }
     return _id;
 }

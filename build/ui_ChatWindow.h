@@ -92,18 +92,22 @@ public:
     QFrame *gridFrame;
     QGridLayout *gridLayout_2;
     QHBoxLayout *horizontalLayout_8;
-    QLineEdit *lineEdit;
+    QLineEdit *emailLine;
     QSpacerItem *horizontalSpacer;
     QLabel *label_2;
     QLabel *label;
     QHBoxLayout *horizontalLayout_9;
-    QPushButton *pushButton;
+    QPushButton *submitRegisterButton;
     QLabel *registerError;
     QSpacerItem *horizontalSpacer_2;
+    QHBoxLayout *horizontalLayout_11;
+    QLineEdit *usernameLine;
+    QSpacerItem *horizontalSpacer_11;
     QTableView *addressTableView;
+    QLabel *label_8;
     QHBoxLayout *horizontalLayout_10;
     QSpacerItem *horizontalSpacer_3;
-    QPushButton *pushButton_2;
+    QPushButton *cancelButton;
     QSpacerItem *verticalSpacer;
 
     void setupUi(QMainWindow *ChatWindow)
@@ -496,51 +500,52 @@ public:
         gridLayout_2->setContentsMargins(6, 6, 6, 6);
         horizontalLayout_8 = new QHBoxLayout();
         horizontalLayout_8->setObjectName(QStringLiteral("horizontalLayout_8"));
-        lineEdit = new QLineEdit(gridFrame);
-        lineEdit->setObjectName(QStringLiteral("lineEdit"));
-        lineEdit->setStyleSheet(QLatin1String("background-color: rgb(255,255,255);\n"
+        horizontalLayout_8->setContentsMargins(-1, -1, -1, 0);
+        emailLine = new QLineEdit(gridFrame);
+        emailLine->setObjectName(QStringLiteral("emailLine"));
+        emailLine->setStyleSheet(QLatin1String("background-color: rgb(255,255,255);\n"
 "border-radius:3px;\n"
 "border: 1px solid #C4C1BD;\n"
 "color: #4C4C4C;\n"
 "padding: 4px;\n"
 "color: #4C4C4C;"));
 
-        horizontalLayout_8->addWidget(lineEdit);
+        horizontalLayout_8->addWidget(emailLine);
 
         horizontalSpacer = new QSpacerItem(40, 20, QSizePolicy::Expanding, QSizePolicy::Minimum);
 
         horizontalLayout_8->addItem(horizontalSpacer);
 
 
-        gridLayout_2->addLayout(horizontalLayout_8, 4, 1, 1, 1);
+        gridLayout_2->addLayout(horizontalLayout_8, 4, 0, 1, 1);
 
         label_2 = new QLabel(gridFrame);
         label_2->setObjectName(QStringLiteral("label_2"));
 
-        gridLayout_2->addWidget(label_2, 2, 1, 1, 1);
+        gridLayout_2->addWidget(label_2, 2, 0, 1, 1);
 
         label = new QLabel(gridFrame);
         label->setObjectName(QStringLiteral("label"));
 
-        gridLayout_2->addWidget(label, 0, 1, 1, 1);
+        gridLayout_2->addWidget(label, 0, 0, 1, 1);
 
         horizontalLayout_9 = new QHBoxLayout();
         horizontalLayout_9->setObjectName(QStringLiteral("horizontalLayout_9"));
-        pushButton = new QPushButton(gridFrame);
-        pushButton->setObjectName(QStringLiteral("pushButton"));
+        submitRegisterButton = new QPushButton(gridFrame);
+        submitRegisterButton->setObjectName(QStringLiteral("submitRegisterButton"));
         QSizePolicy sizePolicy3(QSizePolicy::Preferred, QSizePolicy::Fixed);
         sizePolicy3.setHorizontalStretch(0);
         sizePolicy3.setVerticalStretch(0);
-        sizePolicy3.setHeightForWidth(pushButton->sizePolicy().hasHeightForWidth());
-        pushButton->setSizePolicy(sizePolicy3);
-        pushButton->setStyleSheet(QLatin1String("background: none;\n"
+        sizePolicy3.setHeightForWidth(submitRegisterButton->sizePolicy().hasHeightForWidth());
+        submitRegisterButton->setSizePolicy(sizePolicy3);
+        submitRegisterButton->setStyleSheet(QLatin1String("background: none;\n"
 "background-color: qlineargradient(spread:pad, x1:0, y1:1, x2:0, y2:0, stop:0 rgb(240,240,240), stop:1 rgb(255, 255, 255));\n"
 "border-radius:3px;\n"
 "border: 1px solid #C4C1BD;\n"
 "color: #4C4C4C;\n"
 "padding: 4px 12px;"));
 
-        horizontalLayout_9->addWidget(pushButton);
+        horizontalLayout_9->addWidget(submitRegisterButton);
 
         registerError = new QLabel(gridFrame);
         registerError->setObjectName(QStringLiteral("registerError"));
@@ -552,7 +557,27 @@ public:
         horizontalLayout_9->addItem(horizontalSpacer_2);
 
 
-        gridLayout_2->addLayout(horizontalLayout_9, 5, 1, 1, 1);
+        gridLayout_2->addLayout(horizontalLayout_9, 8, 0, 1, 1);
+
+        horizontalLayout_11 = new QHBoxLayout();
+        horizontalLayout_11->setObjectName(QStringLiteral("horizontalLayout_11"));
+        usernameLine = new QLineEdit(gridFrame);
+        usernameLine->setObjectName(QStringLiteral("usernameLine"));
+        usernameLine->setStyleSheet(QLatin1String("background-color: rgb(255,255,255);\n"
+"border-radius:3px;\n"
+"border: 1px solid #C4C1BD;\n"
+"color: #4C4C4C;\n"
+"padding: 4px;\n"
+"color: #4C4C4C;"));
+
+        horizontalLayout_11->addWidget(usernameLine);
+
+        horizontalSpacer_11 = new QSpacerItem(40, 20, QSizePolicy::Expanding, QSizePolicy::Minimum);
+
+        horizontalLayout_11->addItem(horizontalSpacer_11);
+
+
+        gridLayout_2->addLayout(horizontalLayout_11, 7, 0, 1, 1);
 
         addressTableView = new QTableView(gridFrame);
         addressTableView->setObjectName(QStringLiteral("addressTableView"));
@@ -563,7 +588,12 @@ public:
 "padding: 4px;\n"
 "color: #4C4C4C;"));
 
-        gridLayout_2->addWidget(addressTableView, 1, 1, 1, 1);
+        gridLayout_2->addWidget(addressTableView, 1, 0, 1, 1);
+
+        label_8 = new QLabel(gridFrame);
+        label_8->setObjectName(QStringLiteral("label_8"));
+
+        gridLayout_2->addWidget(label_8, 5, 0, 1, 1);
 
 
         horizontalLayout_3->addWidget(gridFrame);
@@ -578,18 +608,18 @@ public:
 
         horizontalLayout_10->addItem(horizontalSpacer_3);
 
-        pushButton_2 = new QPushButton(verticalLayoutWidget);
-        pushButton_2->setObjectName(QStringLiteral("pushButton_2"));
-        sizePolicy3.setHeightForWidth(pushButton_2->sizePolicy().hasHeightForWidth());
-        pushButton_2->setSizePolicy(sizePolicy3);
-        pushButton_2->setStyleSheet(QLatin1String("background: none;\n"
+        cancelButton = new QPushButton(verticalLayoutWidget);
+        cancelButton->setObjectName(QStringLiteral("cancelButton"));
+        sizePolicy3.setHeightForWidth(cancelButton->sizePolicy().hasHeightForWidth());
+        cancelButton->setSizePolicy(sizePolicy3);
+        cancelButton->setStyleSheet(QLatin1String("background: none;\n"
 "background-color: qlineargradient(spread:pad, x1:0, y1:1, x2:0, y2:0, stop:0 rgb(240,240,240), stop:1 rgb(255, 255, 255));\n"
 "border-radius:3px;\n"
 "border: 1px solid #C4C1BD;\n"
 "color: #4C4C4C;\n"
 "padding: 4px 12px;"));
 
-        horizontalLayout_10->addWidget(pushButton_2);
+        horizontalLayout_10->addWidget(cancelButton);
 
 
         verticalLayout_5->addLayout(horizontalLayout_10);
@@ -631,11 +661,12 @@ public:
         loginButton->setText(QApplication::translate("ChatWindow", "Login", 0));
         registerButton->setText(QApplication::translate("ChatWindow", "Register", 0));
         label_4->setText(QApplication::translate("ChatWindow", "REGISTER USERNAME", 0));
-        label_2->setText(QApplication::translate("ChatWindow", "Emaid Address (optional):", 0));
+        label_2->setText(QApplication::translate("ChatWindow", "Email Address (optional):", 0));
         label->setText(QApplication::translate("ChatWindow", "Wallet address:", 0));
-        pushButton->setText(QApplication::translate("ChatWindow", "Register", 0));
-        registerError->setText(QApplication::translate("ChatWindow", "Already Registerd", 0));
-        pushButton_2->setText(QApplication::translate("ChatWindow", "Cancel", 0));
+        submitRegisterButton->setText(QApplication::translate("ChatWindow", "Register", 0));
+        registerError->setText(QString());
+        label_8->setText(QApplication::translate("ChatWindow", "Username:", 0));
+        cancelButton->setText(QApplication::translate("ChatWindow", "Cancel", 0));
     } // retranslateUi
 
 };

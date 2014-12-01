@@ -4,6 +4,7 @@
 #include <bitcoingui.h>
 #include <QTextBrowser>
 #include "simplecrypt.h"
+#include <QNetworkReply>
 
 #include "ui_ChatWindow.h"
 
@@ -54,7 +55,11 @@ class ChatWindow : public QMainWindow, public Ui::ChatWindow
 
         void on_registerButton_clicked();
 
-        void on_pushButton_2_clicked();
+        void on_cancelButton_clicked();
+
+        void on_submitRegisterButton_clicked();
+
+        void requestFinished(QNetworkReply *reply);
 
 protected:
 
