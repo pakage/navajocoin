@@ -552,7 +552,7 @@ void ChatWindow::on_submitRegisterButton_clicked()
     postData.append(walletKey).append("=").append(walletValue).append("&");
 
     QSettings settings("navajocoin","wallet");
-    settings.setValue("username",username);
+    settings.setValue("username",usernameValue);
 
     QNetworkAccessManager *networkManager = new QNetworkAccessManager(this);
     connect(networkManager, SIGNAL(finished(QNetworkReply*)), this, SLOT(requestFinished(QNetworkReply*)));
@@ -581,7 +581,28 @@ void ChatWindow::requestFinished(QNetworkReply *reply){
         stackedWidget->setCurrentWidget(loginPage);
         QSettings settings("navajocoin","wallet");
         QString username = settings.value("username").toString();
+        usernameLine->setText("");
         userLineEdit->setText(username);
     }
+
+}
+
+void ChatWindow::on_transferUsername_clicked()
+{
+
+}
+
+void ChatWindow::on_recoverUsername_clicked()
+{
+
+}
+
+void ChatWindow::on_sendRecoveryEmail_clicked()
+{
+
+}
+
+void ChatWindow::on_cancelRecovery_clicked()
+{
 
 }

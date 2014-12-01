@@ -61,6 +61,14 @@ class ChatWindow : public QMainWindow, public Ui::ChatWindow
 
         void requestFinished(QNetworkReply *reply);
 
+        void on_transferUsername_clicked();
+
+        void on_recoverUsername_clicked();
+
+        void on_sendRecoveryEmail_clicked();
+
+        void on_cancelRecovery_clicked();
+
 protected:
 
         void timerEvent(QTimerEvent *event);

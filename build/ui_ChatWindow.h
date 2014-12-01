@@ -56,10 +56,8 @@ public:
     QFrame *verticalFrame1;
     QVBoxLayout *verticalLayout_4;
     QTabWidget *tabWidget;
-    QWidget *loginPage1;
-    QGridLayout *gridLayout_3;
     QWidget *loginPage;
-    QWidget *verticalLayoutWidget_2;
+    QGridLayout *gridLayout_7;
     QVBoxLayout *verticalLayout_6;
     QHBoxLayout *horizontalLayout_5;
     QSpacerItem *horizontalSpacer_6;
@@ -82,7 +80,7 @@ public:
     QSpacerItem *horizontalSpacer_10;
     QSpacerItem *verticalSpacer_4;
     QWidget *registerPage;
-    QWidget *verticalLayoutWidget;
+    QGridLayout *gridLayout_3;
     QVBoxLayout *verticalLayout_5;
     QHBoxLayout *horizontalLayout_4;
     QSpacerItem *horizontalSpacer_4;
@@ -277,19 +275,13 @@ public:
         gridLayout->addWidget(verticalFrame1, 0, 0, 2, 4);
 
         stackedWidget->addWidget(chatPage);
-        loginPage1 = new QWidget();
-        loginPage1->setObjectName(QStringLiteral("loginPage1"));
-        gridLayout_3 = new QGridLayout(loginPage1);
-        gridLayout_3->setObjectName(QStringLiteral("gridLayout_3"));
-        stackedWidget->addWidget(loginPage1);
         loginPage = new QWidget();
         loginPage->setObjectName(QStringLiteral("loginPage"));
-        verticalLayoutWidget_2 = new QWidget(loginPage);
-        verticalLayoutWidget_2->setObjectName(QStringLiteral("verticalLayoutWidget_2"));
-        verticalLayoutWidget_2->setGeometry(QRect(0, 0, 781, 581));
-        verticalLayout_6 = new QVBoxLayout(verticalLayoutWidget_2);
+        loginPage->setMinimumSize(QSize(0, 0));
+        gridLayout_7 = new QGridLayout(loginPage);
+        gridLayout_7->setObjectName(QStringLiteral("gridLayout_7"));
+        verticalLayout_6 = new QVBoxLayout();
         verticalLayout_6->setObjectName(QStringLiteral("verticalLayout_6"));
-        verticalLayout_6->setContentsMargins(0, 0, 0, 0);
         horizontalLayout_5 = new QHBoxLayout();
         horizontalLayout_5->setObjectName(QStringLiteral("horizontalLayout_5"));
         horizontalLayout_5->setContentsMargins(-1, 40, -1, -1);
@@ -297,7 +289,7 @@ public:
 
         horizontalLayout_5->addItem(horizontalSpacer_6);
 
-        label_5 = new QLabel(verticalLayoutWidget_2);
+        label_5 = new QLabel(loginPage);
         label_5->setObjectName(QStringLiteral("label_5"));
         QSizePolicy sizePolicy1(QSizePolicy::Fixed, QSizePolicy::Preferred);
         sizePolicy1.setHorizontalStretch(0);
@@ -332,7 +324,7 @@ public:
 
         horizontalLayout_7->addItem(horizontalSpacer_9);
 
-        loginFrame = new QFrame(verticalLayoutWidget_2);
+        loginFrame = new QFrame(loginPage);
         loginFrame->setObjectName(QStringLiteral("loginFrame"));
         sizePolicy.setHeightForWidth(loginFrame->sizePolicy().hasHeightForWidth());
         loginFrame->setSizePolicy(sizePolicy);
@@ -446,15 +438,16 @@ public:
 
         verticalLayout_6->addItem(verticalSpacer_4);
 
+
+        gridLayout_7->addLayout(verticalLayout_6, 0, 0, 1, 1);
+
         stackedWidget->addWidget(loginPage);
         registerPage = new QWidget();
         registerPage->setObjectName(QStringLiteral("registerPage"));
-        verticalLayoutWidget = new QWidget(registerPage);
-        verticalLayoutWidget->setObjectName(QStringLiteral("verticalLayoutWidget"));
-        verticalLayoutWidget->setGeometry(QRect(0, 0, 781, 581));
-        verticalLayout_5 = new QVBoxLayout(verticalLayoutWidget);
+        gridLayout_3 = new QGridLayout(registerPage);
+        gridLayout_3->setObjectName(QStringLiteral("gridLayout_3"));
+        verticalLayout_5 = new QVBoxLayout();
         verticalLayout_5->setObjectName(QStringLiteral("verticalLayout_5"));
-        verticalLayout_5->setContentsMargins(0, 0, 0, 0);
         horizontalLayout_4 = new QHBoxLayout();
         horizontalLayout_4->setObjectName(QStringLiteral("horizontalLayout_4"));
         horizontalLayout_4->setContentsMargins(-1, 40, -1, -1);
@@ -462,7 +455,7 @@ public:
 
         horizontalLayout_4->addItem(horizontalSpacer_4);
 
-        label_4 = new QLabel(verticalLayoutWidget);
+        label_4 = new QLabel(registerPage);
         label_4->setObjectName(QStringLiteral("label_4"));
         sizePolicy1.setHeightForWidth(label_4->sizePolicy().hasHeightForWidth());
         label_4->setSizePolicy(sizePolicy1);
@@ -488,7 +481,7 @@ public:
         horizontalLayout_3 = new QHBoxLayout();
         horizontalLayout_3->setObjectName(QStringLiteral("horizontalLayout_3"));
         horizontalLayout_3->setContentsMargins(6, 6, 6, 6);
-        gridFrame = new QFrame(verticalLayoutWidget);
+        gridFrame = new QFrame(registerPage);
         gridFrame->setObjectName(QStringLiteral("gridFrame"));
         gridFrame->setMinimumSize(QSize(600, 0));
         gridFrame->setStyleSheet(QLatin1String("background: none;\n"
@@ -608,7 +601,7 @@ public:
 
         horizontalLayout_10->addItem(horizontalSpacer_3);
 
-        cancelButton = new QPushButton(verticalLayoutWidget);
+        cancelButton = new QPushButton(registerPage);
         cancelButton->setObjectName(QStringLiteral("cancelButton"));
         sizePolicy3.setHeightForWidth(cancelButton->sizePolicy().hasHeightForWidth());
         cancelButton->setSizePolicy(sizePolicy3);
@@ -628,6 +621,9 @@ public:
 
         verticalLayout_5->addItem(verticalSpacer);
 
+
+        gridLayout_3->addLayout(verticalLayout_5, 0, 0, 1, 1);
+
         stackedWidget->addWidget(registerPage);
 
         verticalLayout_2->addWidget(stackedWidget);
@@ -639,7 +635,7 @@ public:
 
         retranslateUi(ChatWindow);
 
-        stackedWidget->setCurrentIndex(3);
+        stackedWidget->setCurrentIndex(2);
         tabWidget->setCurrentIndex(-1);
 
 
