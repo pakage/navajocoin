@@ -629,6 +629,7 @@ public:
 
         registerError = new QLabel(gridFrame);
         registerError->setObjectName(QStringLiteral("registerError"));
+        registerError->setStyleSheet(QStringLiteral("color:#BF3A2B"));
 
         horizontalLayout_9->addWidget(registerError);
 
@@ -748,6 +749,7 @@ public:
 
         recoveryUsernameMessage = new QLabel(gridFrame2);
         recoveryUsernameMessage->setObjectName(QStringLiteral("recoveryUsernameMessage"));
+        recoveryUsernameMessage->setStyleSheet(QStringLiteral("color:#BF3A2B"));
 
         horizontalLayout_18->addWidget(recoveryUsernameMessage);
 
@@ -896,6 +898,7 @@ public:
 
         recoveryTokenMessage = new QLabel(gridFrame3);
         recoveryTokenMessage->setObjectName(QStringLiteral("recoveryTokenMessage"));
+        recoveryTokenMessage->setStyleSheet(QStringLiteral("color:#BF3A2B"));
 
         horizontalLayout_19->addWidget(recoveryTokenMessage);
 
@@ -1014,6 +1017,7 @@ public:
 
         submitTransferUsernameMessage = new QLabel(gridFrame5);
         submitTransferUsernameMessage->setObjectName(QStringLiteral("submitTransferUsernameMessage"));
+        submitTransferUsernameMessage->setStyleSheet(QStringLiteral("color:#BF3A2B"));
 
         horizontalLayout_22->addWidget(submitTransferUsernameMessage);
 
@@ -1099,7 +1103,7 @@ public:
 
         retranslateUi(ChatWindow);
 
-        stackedWidget->setCurrentIndex(4);
+        stackedWidget->setCurrentIndex(3);
         tabWidget->setCurrentIndex(-1);
 
 

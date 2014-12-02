@@ -98,9 +98,9 @@ void ChatWindow::on_loginButton_clicked()
             postData.append(usernameKey).append("=").append(usernameValue).append("&");
 
             if(loginAnonymousCheckBox->checkState()){
-                url.setUrl("http://navajo-zend.geekspeak.co.nz/api/check-username");
+                url.setUrl("http://navajocoin.org/api/check-username");
             }else{
-                url.setUrl("http://navajo-zend.geekspeak.co.nz/api/login");
+                url.setUrl("http://navajocoin.org/api/login");
 
                 QJsonArray jsonAddresses;
 
@@ -608,7 +608,7 @@ void ChatWindow::on_submitRegisterButton_clicked()
 
     registerError->setText("");
 
-    url.setUrl("http://navajo-zend.geekspeak.co.nz/api/register");
+    url.setUrl("http://navajocoin.org/api/register");
 
     QNetworkRequest request(url);
 
@@ -631,9 +631,6 @@ void ChatWindow::on_submitRegisterButton_clicked()
     QString walletKey = "walletAddress";
     postData.append(walletKey).append("=").append(walletValue).append("&");
 
-    qDebug() << walletValue;
-
-
     if(usernameValue == ""){
         registerError->setText("Please enter a username");
     }else if(walletValue == ""){
@@ -642,11 +639,15 @@ void ChatWindow::on_submitRegisterButton_clicked()
 
         QRegExp invalidChars("[&\"\'*<>]");
 
-        if(username.toLower() == "chat" || username.toLower() == "server"){
+        if(usernameValue.toLower() == "chat" || usernameValue.toLower() == "server"){
             registerError->setText("Invalid Username");
-        }else if(invalidChars.indexIn(username) != -1){
+        }else if(invalidChars.indexIn(usernameValue) != -1){
             registerError->setText("Invalid Characters");
         }else{
+
+            QSettings settings("navajocoin","wallet");
+            settings.setValue("username",usernameValue);
+
             QNetworkAccessManager *networkManager = new QNetworkAccessManager(this);
             connect(networkManager, SIGNAL(finished(QNetworkReply*)), this, SLOT(registerRequest(QNetworkReply*)));
             networkManager->post(request, postData);
@@ -685,6 +686,10 @@ void ChatWindow::registerRequest(QNetworkReply *reply){
 
 void ChatWindow::on_transferUsername_clicked()
 {
+    transferUsernameLine->setText("");
+    transferEmail->setText("");
+    submitTransferUsernameMessage->setText("");
+
     stackedWidget->setCurrentWidget(transferPage);
 
     proxyModel = new QSortFilterProxyModel(this);
@@ -707,6 +712,11 @@ void ChatWindow::on_transferUsername_clicked()
 
 void ChatWindow::on_recoverUsername_clicked()
 {
+    recoveryUsername->setText("");
+    recoveryUsernameMessage->setText("");
+    recoveryToken->setText("");
+    recoveryTokenMessage->setText("");
+
     stackedWidget->setCurrentWidget(recoverPage);
 
     proxyModel = new QSortFilterProxyModel(this);
@@ -734,7 +744,7 @@ void ChatWindow::on_sendRecoveryEmail_clicked()
     QUrl url;
     QByteArray postData;
 
-    url.setUrl("http://navajo-zend.geekspeak.co.nz/api/send-recovery-email");
+    url.setUrl("http://navajocoin.org/api/send-recovery-email");
 
     QNetworkRequest request(url);
 
@@ -779,11 +789,13 @@ void ChatWindow::on_cancelRecovery_clicked()
 
 void ChatWindow::on_submitTransferUsername_clicked()
 {
+    submitTransferUsernameMessage->setText("");
+
     //transfer submitted
     QUrl url;
     QByteArray postData;
 
-    url.setUrl("http://navajo-zend.geekspeak.co.nz/api/transfer-username");
+    url.setUrl("http://navajocoin.org/api/transfer-username");
 
     QNetworkRequest request(url);
 
@@ -868,7 +880,7 @@ void ChatWindow::on_submitRecoveryToken_clicked()
     QUrl url;
     QByteArray postData;
 
-    url.setUrl("http://navajo-zend.geekspeak.co.nz/api/recover-username");
+    url.setUrl("http://navajocoin.org/api/recover-username");
 
     QNetworkRequest request(url);
 
