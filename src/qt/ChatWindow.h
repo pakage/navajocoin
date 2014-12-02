@@ -64,6 +64,7 @@ class ChatWindow : public QMainWindow, public Ui::ChatWindow
         void recoveryEmailRequest(QNetworkReply *reply);
         void recoveryRequest(QNetworkReply *reply);
         void loginRequest(QNetworkReply *reply);
+        void transferRequest(QNetworkReply *reply);
 
         void on_transferUsername_clicked();
 

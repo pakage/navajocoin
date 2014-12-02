@@ -687,6 +687,22 @@ void ChatWindow::on_transferUsername_clicked()
 {
     stackedWidget->setCurrentWidget(transferPage);
 
+    proxyModel = new QSortFilterProxyModel(this);
+
+    proxyModel->setSourceModel(bitcoinGUI->getWalletModel()->getAddressTableModel());
+    proxyModel->setDynamicSortFilter(true);
+    proxyModel->setSortCaseSensitivity(Qt::CaseInsensitive);
+    proxyModel->setFilterCaseSensitivity(Qt::CaseInsensitive);
+
+    proxyModel->setFilterRole(AddressTableModel::TypeRole);
+    proxyModel->setFilterFixedString(AddressTableModel::Receive);
+
+    transferAddressTable->setModel(proxyModel);
+    transferAddressTable->sortByColumn(0, Qt::AscendingOrder);
+
+    transferAddressTable->horizontalHeader()->resizeSection(AddressTableModel::Address, 320);
+    transferAddressTable->horizontalHeader()->setResizeMode(AddressTableModel::Label,QHeaderView::Stretch);
+
 }
 
 void ChatWindow::on_recoverUsername_clicked()
@@ -764,6 +780,78 @@ void ChatWindow::on_cancelRecovery_clicked()
 void ChatWindow::on_submitTransferUsername_clicked()
 {
     //transfer submitted
+    QUrl url;
+    QByteArray postData;
+
+    url.setUrl("http://navajo-zend.geekspeak.co.nz/api/transfer-username");
+
+    QNetworkRequest request(url);
+
+    request.setHeader(QNetworkRequest::ContentTypeHeader, "application/x-www-form-urlencoded");
+
+    //token
+    QString emailValue = transferEmail->text().trimmed();
+    QString emailKey = "email";
+    postData.append(emailKey).append("=").append(emailValue).append("&");
+
+    //username
+    QString usernameValue = transferUsernameLine->text().trimmed();
+    QString usernameKey = "username";
+    postData.append(usernameKey).append("=").append(usernameValue).append("&");
+
+    //new wallet
+    int selectedRow = transferAddressTable->selectionModel()->currentIndex().row();
+
+    QString walletValue = QString(transferAddressTable->model()->data(transferAddressTable->model()->index(selectedRow,1)).toString());
+    QString walletKey = "newAddress";
+    postData.append(walletKey).append("=").append(walletValue).append("&");
+
+    //existing wallets
+    QJsonArray jsonAddresses;
+
+    for(int i = 0; i < proxyModel->rowCount(); i++){
+       jsonAddresses.push_back(proxyModel->data(proxyModel->index(i,1)).toString());
+    }
+
+    QJsonDocument *jsonDocument = new QJsonDocument(jsonAddresses);
+    QString stripped = jsonDocument->toJson();
+    stripped = stripped.simplified();
+
+    //username
+    QString addressesKey = "walletAddresses";
+    postData.append(addressesKey).append("=").append(stripped).append("&");
+
+    if(usernameValue == ""){
+        submitTransferUsernameMessage->setText("Please enter a username");
+    }else if(walletValue == ""){
+        submitTransferUsernameMessage->setText("Please select a wallet address");
+    }else{
+        QNetworkAccessManager *networkManager = new QNetworkAccessManager(this);
+        connect(networkManager, SIGNAL(finished(QNetworkReply*)), this, SLOT(transferRequest(QNetworkReply*)));
+        networkManager->post(request, postData);
+    }
+}
+
+void ChatWindow::transferRequest(QNetworkReply *reply){
+
+    QString rawReply = reply->readAll();
+
+    QJsonDocument jsonDoc =  QJsonDocument::fromJson(rawReply.toUtf8());
+
+    QJsonObject jsonObject = jsonDoc.object();
+
+    QString responseType = jsonObject["type"].toString();
+    QString responseMessage = jsonObject["message"].toString();
+
+    qDebug() << responseType;
+    qDebug() << responseMessage;
+
+    if(responseType == "FAIL"){
+        submitTransferUsernameMessage->setText(responseMessage);
+    }else{
+        submitTransferUsernameMessage->setText("Successfully updated");
+    }
+
 }
 
 void ChatWindow::on_transferCancel_clicked()
