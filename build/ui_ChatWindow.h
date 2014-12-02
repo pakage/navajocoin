@@ -14,6 +14,7 @@
 #include <QtWidgets/QApplication>
 #include <QtWidgets/QButtonGroup>
 #include <QtWidgets/QCheckBox>
+#include <QtWidgets/QCommandLinkButton>
 #include <QtWidgets/QFrame>
 #include <QtWidgets/QGridLayout>
 #include <QtWidgets/QHBoxLayout>
@@ -77,6 +78,10 @@ public:
     QPushButton *loginButton;
     QSpacerItem *horizontalSpacer_8;
     QPushButton *registerButton;
+    QVBoxLayout *verticalLayout_7;
+    QCommandLinkButton *transferUsername;
+    QCommandLinkButton *recoverUsername;
+    QCheckBox *loginAnonymousCheckBox;
     QSpacerItem *horizontalSpacer_10;
     QSpacerItem *verticalSpacer_4;
     QWidget *registerPage;
@@ -101,12 +106,71 @@ public:
     QHBoxLayout *horizontalLayout_11;
     QLineEdit *usernameLine;
     QSpacerItem *horizontalSpacer_11;
-    QTableView *addressTableView;
     QLabel *label_8;
+    QFrame *gridFrame1;
+    QGridLayout *gridLayout_12;
+    QTableView *addressTableView;
     QHBoxLayout *horizontalLayout_10;
     QSpacerItem *horizontalSpacer_3;
     QPushButton *cancelButton;
     QSpacerItem *verticalSpacer;
+    QWidget *recoverPage;
+    QGridLayout *gridLayout_6;
+    QHBoxLayout *horizontalLayout_21;
+    QFrame *gridFrame2;
+    QGridLayout *gridLayout_8;
+    QHBoxLayout *horizontalLayout_18;
+    QPushButton *sendRecoveryEmail;
+    QLabel *recoveryUsernameMessage;
+    QSpacerItem *horizontalSpacer_15;
+    QHBoxLayout *horizontalLayout_14;
+    QLineEdit *recoveryUsername;
+    QLabel *label_10;
+    QVBoxLayout *verticalLayout_8;
+    QHBoxLayout *horizontalLayout_12;
+    QSpacerItem *horizontalSpacer_13;
+    QLabel *label_9;
+    QSpacerItem *horizontalSpacer_12;
+    QHBoxLayout *horizontalLayout_15;
+    QSpacerItem *horizontalSpacer_14;
+    QPushButton *cancelRecovery;
+    QSpacerItem *verticalSpacer_2;
+    QHBoxLayout *horizontalLayout_16;
+    QFrame *gridFrame3;
+    QGridLayout *gridLayout_9;
+    QHBoxLayout *horizontalLayout_17;
+    QLineEdit *recoveryToken;
+    QLabel *label_11;
+    QLabel *label_13;
+    QHBoxLayout *horizontalLayout_19;
+    QPushButton *submitRecoveryToken;
+    QLabel *recoveryTokenMessage;
+    QSpacerItem *horizontalSpacer_16;
+    QFrame *gridFrame4;
+    QGridLayout *gridLayout_13;
+    QTableView *recoverAddressTable;
+    QWidget *transferPage;
+    QGridLayout *gridLayout_10;
+    QVBoxLayout *verticalLayout_9;
+    QHBoxLayout *horizontalLayout_13;
+    QSpacerItem *horizontalSpacer_17;
+    QLabel *label_14;
+    QSpacerItem *horizontalSpacer_18;
+    QSpacerItem *verticalSpacer_3;
+    QHBoxLayout *horizontalLayout_20;
+    QFrame *gridFrame5;
+    QGridLayout *gridLayout_11;
+    QLineEdit *lineEdit;
+    QListWidget *listWidget;
+    QLabel *label_15;
+    QLabel *label_16;
+    QHBoxLayout *horizontalLayout_22;
+    QPushButton *submitTransferUsername;
+    QLabel *submitTransferUsernameMessage;
+    QSpacerItem *horizontalSpacer_19;
+    QHBoxLayout *horizontalLayout_23;
+    QSpacerItem *horizontalSpacer_20;
+    QPushButton *transferCancel;
 
     void setupUi(QMainWindow *ChatWindow)
     {
@@ -319,7 +383,7 @@ public:
 
         horizontalLayout_7 = new QHBoxLayout();
         horizontalLayout_7->setObjectName(QStringLiteral("horizontalLayout_7"));
-        horizontalLayout_7->setContentsMargins(-1, 40, -1, -1);
+        horizontalLayout_7->setContentsMargins(-1, 20, -1, -1);
         horizontalSpacer_9 = new QSpacerItem(40, 20, QSizePolicy::Expanding, QSizePolicy::Minimum);
 
         horizontalLayout_7->addItem(horizontalSpacer_9);
@@ -422,7 +486,32 @@ public:
         horizontalLayout_6->addWidget(registerButton);
 
 
-        gridLayout_4->addLayout(horizontalLayout_6, 5, 1, 1, 1);
+        gridLayout_4->addLayout(horizontalLayout_6, 6, 1, 1, 1);
+
+        verticalLayout_7 = new QVBoxLayout();
+        verticalLayout_7->setSpacing(0);
+        verticalLayout_7->setObjectName(QStringLiteral("verticalLayout_7"));
+        verticalLayout_7->setContentsMargins(-1, 0, -1, -1);
+        transferUsername = new QCommandLinkButton(loginFrame);
+        transferUsername->setObjectName(QStringLiteral("transferUsername"));
+        transferUsername->setMaximumSize(QSize(16777215, 25));
+
+        verticalLayout_7->addWidget(transferUsername);
+
+        recoverUsername = new QCommandLinkButton(loginFrame);
+        recoverUsername->setObjectName(QStringLiteral("recoverUsername"));
+        recoverUsername->setMaximumSize(QSize(16777215, 25));
+        recoverUsername->setIconSize(QSize(20, 20));
+
+        verticalLayout_7->addWidget(recoverUsername);
+
+
+        gridLayout_4->addLayout(verticalLayout_7, 7, 1, 1, 1);
+
+        loginAnonymousCheckBox = new QCheckBox(loginFrame);
+        loginAnonymousCheckBox->setObjectName(QStringLiteral("loginAnonymousCheckBox"));
+
+        gridLayout_4->addWidget(loginAnonymousCheckBox, 4, 1, 1, 1);
 
 
         horizontalLayout_7->addWidget(loginFrame);
@@ -480,7 +569,7 @@ public:
 
         horizontalLayout_3 = new QHBoxLayout();
         horizontalLayout_3->setObjectName(QStringLiteral("horizontalLayout_3"));
-        horizontalLayout_3->setContentsMargins(6, 6, 6, 6);
+        horizontalLayout_3->setContentsMargins(6, 20, 6, 6);
         gridFrame = new QFrame(registerPage);
         gridFrame->setObjectName(QStringLiteral("gridFrame"));
         gridFrame->setMinimumSize(QSize(600, 0));
@@ -510,12 +599,12 @@ public:
         horizontalLayout_8->addItem(horizontalSpacer);
 
 
-        gridLayout_2->addLayout(horizontalLayout_8, 4, 0, 1, 1);
+        gridLayout_2->addLayout(horizontalLayout_8, 6, 0, 1, 1);
 
         label_2 = new QLabel(gridFrame);
         label_2->setObjectName(QStringLiteral("label_2"));
 
-        gridLayout_2->addWidget(label_2, 2, 0, 1, 1);
+        gridLayout_2->addWidget(label_2, 3, 0, 1, 1);
 
         label = new QLabel(gridFrame);
         label->setObjectName(QStringLiteral("label"));
@@ -550,7 +639,7 @@ public:
         horizontalLayout_9->addItem(horizontalSpacer_2);
 
 
-        gridLayout_2->addLayout(horizontalLayout_9, 8, 0, 1, 1);
+        gridLayout_2->addLayout(horizontalLayout_9, 10, 0, 1, 1);
 
         horizontalLayout_11 = new QHBoxLayout();
         horizontalLayout_11->setObjectName(QStringLiteral("horizontalLayout_11"));
@@ -570,23 +659,32 @@ public:
         horizontalLayout_11->addItem(horizontalSpacer_11);
 
 
-        gridLayout_2->addLayout(horizontalLayout_11, 7, 0, 1, 1);
-
-        addressTableView = new QTableView(gridFrame);
-        addressTableView->setObjectName(QStringLiteral("addressTableView"));
-        addressTableView->setStyleSheet(QLatin1String("background-color: rgb(255,255,255);\n"
-"border-radius:3px;\n"
-"border: 1px solid #C4C1BD;\n"
-"color: #4C4C4C;\n"
-"padding: 4px;\n"
-"color: #4C4C4C;"));
-
-        gridLayout_2->addWidget(addressTableView, 1, 0, 1, 1);
+        gridLayout_2->addLayout(horizontalLayout_11, 9, 0, 1, 1);
 
         label_8 = new QLabel(gridFrame);
         label_8->setObjectName(QStringLiteral("label_8"));
 
-        gridLayout_2->addWidget(label_8, 5, 0, 1, 1);
+        gridLayout_2->addWidget(label_8, 7, 0, 1, 1);
+
+        gridFrame1 = new QFrame(gridFrame);
+        gridFrame1->setObjectName(QStringLiteral("gridFrame1"));
+        gridFrame1->setStyleSheet(QLatin1String("background-color: rgb(255,255,255);\n"
+"color: #4C4C4C;\n"
+"border: 1px solid #C4C1BD;\n"
+""));
+        gridLayout_12 = new QGridLayout(gridFrame1);
+        gridLayout_12->setSpacing(0);
+        gridLayout_12->setObjectName(QStringLiteral("gridLayout_12"));
+        gridLayout_12->setContentsMargins(0, 0, 0, 0);
+        addressTableView = new QTableView(gridFrame1);
+        addressTableView->setObjectName(QStringLiteral("addressTableView"));
+        addressTableView->setStyleSheet(QLatin1String("border:none;\n"
+"background-color:none;"));
+
+        gridLayout_12->addWidget(addressTableView, 0, 0, 1, 1);
+
+
+        gridLayout_2->addWidget(gridFrame1, 1, 0, 1, 1);
 
 
         horizontalLayout_3->addWidget(gridFrame);
@@ -625,6 +723,358 @@ public:
         gridLayout_3->addLayout(verticalLayout_5, 0, 0, 1, 1);
 
         stackedWidget->addWidget(registerPage);
+        recoverPage = new QWidget();
+        recoverPage->setObjectName(QStringLiteral("recoverPage"));
+        gridLayout_6 = new QGridLayout(recoverPage);
+        gridLayout_6->setObjectName(QStringLiteral("gridLayout_6"));
+        horizontalLayout_21 = new QHBoxLayout();
+        horizontalLayout_21->setObjectName(QStringLiteral("horizontalLayout_21"));
+        horizontalLayout_21->setContentsMargins(6, 20, 6, 6);
+        gridFrame2 = new QFrame(recoverPage);
+        gridFrame2->setObjectName(QStringLiteral("gridFrame2"));
+        gridFrame2->setStyleSheet(QLatin1String("background: none;\n"
+"background-color: #F2F1F0;\n"
+"border-radius: 3px;\n"
+"color: #4C4C4C;"));
+        gridLayout_8 = new QGridLayout(gridFrame2);
+        gridLayout_8->setObjectName(QStringLiteral("gridLayout_8"));
+        gridLayout_8->setContentsMargins(6, 6, 6, 6);
+        horizontalLayout_18 = new QHBoxLayout();
+        horizontalLayout_18->setObjectName(QStringLiteral("horizontalLayout_18"));
+        sendRecoveryEmail = new QPushButton(gridFrame2);
+        sendRecoveryEmail->setObjectName(QStringLiteral("sendRecoveryEmail"));
+        sendRecoveryEmail->setStyleSheet(QLatin1String("background: none;\n"
+"background-color: qlineargradient(spread:pad, x1:0, y1:1, x2:0, y2:0, stop:0 rgb(240,240,240), stop:1 rgb(255, 255, 255));\n"
+"border-radius:3px;\n"
+"border: 1px solid #C4C1BD;\n"
+"color: #4C4C4C;\n"
+"padding: 4px 12px;"));
+
+        horizontalLayout_18->addWidget(sendRecoveryEmail);
+
+        recoveryUsernameMessage = new QLabel(gridFrame2);
+        recoveryUsernameMessage->setObjectName(QStringLiteral("recoveryUsernameMessage"));
+
+        horizontalLayout_18->addWidget(recoveryUsernameMessage);
+
+        horizontalSpacer_15 = new QSpacerItem(40, 20, QSizePolicy::Expanding, QSizePolicy::Minimum);
+
+        horizontalLayout_18->addItem(horizontalSpacer_15);
+
+
+        gridLayout_8->addLayout(horizontalLayout_18, 4, 0, 1, 1);
+
+        horizontalLayout_14 = new QHBoxLayout();
+        horizontalLayout_14->setObjectName(QStringLiteral("horizontalLayout_14"));
+        horizontalLayout_14->setContentsMargins(0, 0, 0, 0);
+        recoveryUsername = new QLineEdit(gridFrame2);
+        recoveryUsername->setObjectName(QStringLiteral("recoveryUsername"));
+        recoveryUsername->setStyleSheet(QLatin1String("background-color: rgb(255,255,255);\n"
+"border-radius:3px;\n"
+"border: 1px solid #C4C1BD;\n"
+"color: #4C4C4C;\n"
+"padding: 4px;\n"
+"color: #4C4C4C;"));
+
+        horizontalLayout_14->addWidget(recoveryUsername);
+
+
+        gridLayout_8->addLayout(horizontalLayout_14, 1, 0, 1, 1);
+
+        label_10 = new QLabel(gridFrame2);
+        label_10->setObjectName(QStringLiteral("label_10"));
+
+        gridLayout_8->addWidget(label_10, 0, 0, 1, 1);
+
+
+        horizontalLayout_21->addWidget(gridFrame2);
+
+
+        gridLayout_6->addLayout(horizontalLayout_21, 1, 0, 1, 1);
+
+        verticalLayout_8 = new QVBoxLayout();
+        verticalLayout_8->setObjectName(QStringLiteral("verticalLayout_8"));
+        horizontalLayout_12 = new QHBoxLayout();
+        horizontalLayout_12->setObjectName(QStringLiteral("horizontalLayout_12"));
+        horizontalLayout_12->setContentsMargins(-1, 40, -1, -1);
+        horizontalSpacer_13 = new QSpacerItem(40, 20, QSizePolicy::Expanding, QSizePolicy::Minimum);
+
+        horizontalLayout_12->addItem(horizontalSpacer_13);
+
+        label_9 = new QLabel(recoverPage);
+        label_9->setObjectName(QStringLiteral("label_9"));
+        label_9->setMinimumSize(QSize(320, 0));
+        label_9->setFont(font);
+        label_9->setStyleSheet(QLatin1String("background: none;\n"
+"background-color: #F2F1F0;\n"
+"border-radius: 3px;\n"
+"color: #4C4C4C;\n"
+"padding: 5px 20px;"));
+        label_9->setAlignment(Qt::AlignCenter);
+
+        horizontalLayout_12->addWidget(label_9);
+
+        horizontalSpacer_12 = new QSpacerItem(40, 20, QSizePolicy::Expanding, QSizePolicy::Minimum);
+
+        horizontalLayout_12->addItem(horizontalSpacer_12);
+
+
+        verticalLayout_8->addLayout(horizontalLayout_12);
+
+
+        gridLayout_6->addLayout(verticalLayout_8, 0, 0, 1, 1);
+
+        horizontalLayout_15 = new QHBoxLayout();
+        horizontalLayout_15->setObjectName(QStringLiteral("horizontalLayout_15"));
+        horizontalLayout_15->setContentsMargins(-1, -1, 6, -1);
+        horizontalSpacer_14 = new QSpacerItem(40, 20, QSizePolicy::Expanding, QSizePolicy::Minimum);
+
+        horizontalLayout_15->addItem(horizontalSpacer_14);
+
+        cancelRecovery = new QPushButton(recoverPage);
+        cancelRecovery->setObjectName(QStringLiteral("cancelRecovery"));
+        cancelRecovery->setStyleSheet(QLatin1String("background: none;\n"
+"background-color: qlineargradient(spread:pad, x1:0, y1:1, x2:0, y2:0, stop:0 rgb(240,240,240), stop:1 rgb(255, 255, 255));\n"
+"border-radius:3px;\n"
+"border: 1px solid #C4C1BD;\n"
+"color: #4C4C4C;\n"
+"padding: 4px 12px;"));
+
+        horizontalLayout_15->addWidget(cancelRecovery);
+
+
+        gridLayout_6->addLayout(horizontalLayout_15, 3, 0, 1, 1);
+
+        verticalSpacer_2 = new QSpacerItem(20, 40, QSizePolicy::Minimum, QSizePolicy::Expanding);
+
+        gridLayout_6->addItem(verticalSpacer_2, 5, 0, 1, 1);
+
+        horizontalLayout_16 = new QHBoxLayout();
+        horizontalLayout_16->setObjectName(QStringLiteral("horizontalLayout_16"));
+        horizontalLayout_16->setContentsMargins(6, 0, 6, 6);
+        gridFrame3 = new QFrame(recoverPage);
+        gridFrame3->setObjectName(QStringLiteral("gridFrame3"));
+        gridFrame3->setStyleSheet(QLatin1String("background: none;\n"
+"background-color: #F2F1F0;\n"
+"border-radius: 3px;\n"
+"color: #4C4C4C;"));
+        gridLayout_9 = new QGridLayout(gridFrame3);
+        gridLayout_9->setObjectName(QStringLiteral("gridLayout_9"));
+        gridLayout_9->setContentsMargins(6, 6, 6, 6);
+        horizontalLayout_17 = new QHBoxLayout();
+        horizontalLayout_17->setObjectName(QStringLiteral("horizontalLayout_17"));
+        recoveryToken = new QLineEdit(gridFrame3);
+        recoveryToken->setObjectName(QStringLiteral("recoveryToken"));
+        recoveryToken->setStyleSheet(QLatin1String("background-color: rgb(255,255,255);\n"
+"border-radius:3px;\n"
+"border: 1px solid #C4C1BD;\n"
+"color: #4C4C4C;\n"
+"padding: 4px;\n"
+"color: #4C4C4C;"));
+
+        horizontalLayout_17->addWidget(recoveryToken);
+
+
+        gridLayout_9->addLayout(horizontalLayout_17, 4, 0, 1, 1);
+
+        label_11 = new QLabel(gridFrame3);
+        label_11->setObjectName(QStringLiteral("label_11"));
+
+        gridLayout_9->addWidget(label_11, 3, 0, 1, 1);
+
+        label_13 = new QLabel(gridFrame3);
+        label_13->setObjectName(QStringLiteral("label_13"));
+
+        gridLayout_9->addWidget(label_13, 0, 0, 1, 1);
+
+        horizontalLayout_19 = new QHBoxLayout();
+        horizontalLayout_19->setObjectName(QStringLiteral("horizontalLayout_19"));
+        submitRecoveryToken = new QPushButton(gridFrame3);
+        submitRecoveryToken->setObjectName(QStringLiteral("submitRecoveryToken"));
+        submitRecoveryToken->setStyleSheet(QLatin1String("background: none;\n"
+"background-color: qlineargradient(spread:pad, x1:0, y1:1, x2:0, y2:0, stop:0 rgb(240,240,240), stop:1 rgb(255, 255, 255));\n"
+"border-radius:3px;\n"
+"border: 1px solid #C4C1BD;\n"
+"color: #4C4C4C;\n"
+"padding: 4px 12px;"));
+
+        horizontalLayout_19->addWidget(submitRecoveryToken);
+
+        recoveryTokenMessage = new QLabel(gridFrame3);
+        recoveryTokenMessage->setObjectName(QStringLiteral("recoveryTokenMessage"));
+
+        horizontalLayout_19->addWidget(recoveryTokenMessage);
+
+        horizontalSpacer_16 = new QSpacerItem(40, 20, QSizePolicy::Expanding, QSizePolicy::Minimum);
+
+        horizontalLayout_19->addItem(horizontalSpacer_16);
+
+
+        gridLayout_9->addLayout(horizontalLayout_19, 5, 0, 1, 1);
+
+        gridFrame4 = new QFrame(gridFrame3);
+        gridFrame4->setObjectName(QStringLiteral("gridFrame4"));
+        gridFrame4->setStyleSheet(QLatin1String("background-color: rgb(255,255,255);\n"
+"border: 1px solid #C4C1BD;\n"
+"color: #4C4C4C;"));
+        gridLayout_13 = new QGridLayout(gridFrame4);
+        gridLayout_13->setSpacing(0);
+        gridLayout_13->setObjectName(QStringLiteral("gridLayout_13"));
+        gridLayout_13->setContentsMargins(0, 0, 0, 0);
+        recoverAddressTable = new QTableView(gridFrame4);
+        recoverAddressTable->setObjectName(QStringLiteral("recoverAddressTable"));
+        recoverAddressTable->setStyleSheet(QLatin1String("background: none;\n"
+"border: none;"));
+
+        gridLayout_13->addWidget(recoverAddressTable, 0, 0, 1, 1);
+
+
+        gridLayout_9->addWidget(gridFrame4, 1, 0, 1, 1);
+
+
+        horizontalLayout_16->addWidget(gridFrame3);
+
+
+        gridLayout_6->addLayout(horizontalLayout_16, 2, 0, 1, 1);
+
+        stackedWidget->addWidget(recoverPage);
+        transferPage = new QWidget();
+        transferPage->setObjectName(QStringLiteral("transferPage"));
+        gridLayout_10 = new QGridLayout(transferPage);
+        gridLayout_10->setObjectName(QStringLiteral("gridLayout_10"));
+        verticalLayout_9 = new QVBoxLayout();
+        verticalLayout_9->setObjectName(QStringLiteral("verticalLayout_9"));
+        horizontalLayout_13 = new QHBoxLayout();
+        horizontalLayout_13->setObjectName(QStringLiteral("horizontalLayout_13"));
+        horizontalLayout_13->setContentsMargins(-1, 40, -1, -1);
+        horizontalSpacer_17 = new QSpacerItem(40, 20, QSizePolicy::Expanding, QSizePolicy::Minimum);
+
+        horizontalLayout_13->addItem(horizontalSpacer_17);
+
+        label_14 = new QLabel(transferPage);
+        label_14->setObjectName(QStringLiteral("label_14"));
+        label_14->setMinimumSize(QSize(320, 0));
+        label_14->setFont(font);
+        label_14->setStyleSheet(QLatin1String("background: none;\n"
+"background-color: #F2F1F0;\n"
+"border-radius: 3px;\n"
+"color: #4C4C4C;\n"
+"padding: 5px 20px;"));
+        label_14->setAlignment(Qt::AlignCenter);
+
+        horizontalLayout_13->addWidget(label_14);
+
+        horizontalSpacer_18 = new QSpacerItem(40, 20, QSizePolicy::Expanding, QSizePolicy::Minimum);
+
+        horizontalLayout_13->addItem(horizontalSpacer_18);
+
+
+        verticalLayout_9->addLayout(horizontalLayout_13);
+
+
+        gridLayout_10->addLayout(verticalLayout_9, 0, 0, 1, 1);
+
+        verticalSpacer_3 = new QSpacerItem(20, 40, QSizePolicy::Minimum, QSizePolicy::Expanding);
+
+        gridLayout_10->addItem(verticalSpacer_3, 3, 0, 1, 1);
+
+        horizontalLayout_20 = new QHBoxLayout();
+        horizontalLayout_20->setObjectName(QStringLiteral("horizontalLayout_20"));
+        horizontalLayout_20->setContentsMargins(6, 20, 6, 6);
+        gridFrame5 = new QFrame(transferPage);
+        gridFrame5->setObjectName(QStringLiteral("gridFrame5"));
+        gridFrame5->setStyleSheet(QLatin1String("background: none;\n"
+"background-color: #F2F1F0;\n"
+"border-radius: 3px;\n"
+"color: #4C4C4C;"));
+        gridLayout_11 = new QGridLayout(gridFrame5);
+        gridLayout_11->setObjectName(QStringLiteral("gridLayout_11"));
+        gridLayout_11->setContentsMargins(6, 6, 6, 6);
+        lineEdit = new QLineEdit(gridFrame5);
+        lineEdit->setObjectName(QStringLiteral("lineEdit"));
+        lineEdit->setStyleSheet(QLatin1String("background-color: rgb(255,255,255);\n"
+"border-radius:3px;\n"
+"border: 1px solid #C4C1BD;\n"
+"color: #4C4C4C;\n"
+"padding: 4px;\n"
+"color: #4C4C4C;"));
+
+        gridLayout_11->addWidget(lineEdit, 1, 0, 1, 1);
+
+        listWidget = new QListWidget(gridFrame5);
+        listWidget->setObjectName(QStringLiteral("listWidget"));
+        listWidget->setStyleSheet(QLatin1String("background-color: rgb(255,255,255);\n"
+"border-radius:3px;\n"
+"border: 1px solid #C4C1BD;\n"
+"color: #4C4C4C;\n"
+"padding: 4px;\n"
+"color: #4C4C4C;"));
+
+        gridLayout_11->addWidget(listWidget, 3, 0, 1, 1);
+
+        label_15 = new QLabel(gridFrame5);
+        label_15->setObjectName(QStringLiteral("label_15"));
+
+        gridLayout_11->addWidget(label_15, 0, 0, 1, 1);
+
+        label_16 = new QLabel(gridFrame5);
+        label_16->setObjectName(QStringLiteral("label_16"));
+
+        gridLayout_11->addWidget(label_16, 2, 0, 1, 1);
+
+        horizontalLayout_22 = new QHBoxLayout();
+        horizontalLayout_22->setObjectName(QStringLiteral("horizontalLayout_22"));
+        submitTransferUsername = new QPushButton(gridFrame5);
+        submitTransferUsername->setObjectName(QStringLiteral("submitTransferUsername"));
+        submitTransferUsername->setStyleSheet(QLatin1String("background: none;\n"
+"background-color: qlineargradient(spread:pad, x1:0, y1:1, x2:0, y2:0, stop:0 rgb(240,240,240), stop:1 rgb(255, 255, 255));\n"
+"border-radius:3px;\n"
+"border: 1px solid #C4C1BD;\n"
+"color: #4C4C4C;\n"
+"padding: 4px 12px;"));
+
+        horizontalLayout_22->addWidget(submitTransferUsername);
+
+        submitTransferUsernameMessage = new QLabel(gridFrame5);
+        submitTransferUsernameMessage->setObjectName(QStringLiteral("submitTransferUsernameMessage"));
+
+        horizontalLayout_22->addWidget(submitTransferUsernameMessage);
+
+        horizontalSpacer_19 = new QSpacerItem(40, 20, QSizePolicy::Expanding, QSizePolicy::Minimum);
+
+        horizontalLayout_22->addItem(horizontalSpacer_19);
+
+
+        gridLayout_11->addLayout(horizontalLayout_22, 4, 0, 1, 1);
+
+
+        horizontalLayout_20->addWidget(gridFrame5);
+
+
+        gridLayout_10->addLayout(horizontalLayout_20, 1, 0, 1, 1);
+
+        horizontalLayout_23 = new QHBoxLayout();
+        horizontalLayout_23->setObjectName(QStringLiteral("horizontalLayout_23"));
+        horizontalLayout_23->setContentsMargins(-1, -1, 6, -1);
+        horizontalSpacer_20 = new QSpacerItem(40, 20, QSizePolicy::Expanding, QSizePolicy::Minimum);
+
+        horizontalLayout_23->addItem(horizontalSpacer_20);
+
+        transferCancel = new QPushButton(transferPage);
+        transferCancel->setObjectName(QStringLiteral("transferCancel"));
+        transferCancel->setStyleSheet(QLatin1String("background: none;\n"
+"background-color: qlineargradient(spread:pad, x1:0, y1:1, x2:0, y2:0, stop:0 rgb(240,240,240), stop:1 rgb(255, 255, 255));\n"
+"border-radius:3px;\n"
+"border: 1px solid #C4C1BD;\n"
+"color: #4C4C4C;\n"
+"padding: 4px 12px;"));
+
+        horizontalLayout_23->addWidget(transferCancel);
+
+
+        gridLayout_10->addLayout(horizontalLayout_23, 2, 0, 1, 1);
+
+        stackedWidget->addWidget(transferPage);
 
         verticalLayout_2->addWidget(stackedWidget);
 
@@ -635,7 +1085,7 @@ public:
 
         retranslateUi(ChatWindow);
 
-        stackedWidget->setCurrentIndex(2);
+        stackedWidget->setCurrentIndex(1);
         tabWidget->setCurrentIndex(-1);
 
 
@@ -656,6 +1106,9 @@ public:
         errorMessageLabel->setText(QString());
         loginButton->setText(QApplication::translate("ChatWindow", "Login", 0));
         registerButton->setText(QApplication::translate("ChatWindow", "Register", 0));
+        transferUsername->setText(QApplication::translate("ChatWindow", "Transfer username", 0));
+        recoverUsername->setText(QApplication::translate("ChatWindow", "Recover username", 0));
+        loginAnonymousCheckBox->setText(QApplication::translate("ChatWindow", "login anonymously", 0));
         label_4->setText(QApplication::translate("ChatWindow", "REGISTER USERNAME", 0));
         label_2->setText(QApplication::translate("ChatWindow", "Email Address (optional):", 0));
         label->setText(QApplication::translate("ChatWindow", "Wallet address:", 0));
@@ -663,6 +1116,21 @@ public:
         registerError->setText(QString());
         label_8->setText(QApplication::translate("ChatWindow", "Username:", 0));
         cancelButton->setText(QApplication::translate("ChatWindow", "Cancel", 0));
+        sendRecoveryEmail->setText(QApplication::translate("ChatWindow", "Send Recovery Email", 0));
+        recoveryUsernameMessage->setText(QString());
+        label_10->setText(QApplication::translate("ChatWindow", "Username to recover:", 0));
+        label_9->setText(QApplication::translate("ChatWindow", "RECOVER USERNAME", 0));
+        cancelRecovery->setText(QApplication::translate("ChatWindow", "Cancel", 0));
+        label_11->setText(QApplication::translate("ChatWindow", "Recovery token from email:", 0));
+        label_13->setText(QApplication::translate("ChatWindow", "New wallet address:", 0));
+        submitRecoveryToken->setText(QApplication::translate("ChatWindow", "Recover Username", 0));
+        recoveryTokenMessage->setText(QString());
+        label_14->setText(QApplication::translate("ChatWindow", "TRANSFER USERNAME", 0));
+        label_15->setText(QApplication::translate("ChatWindow", "Username to transfer:", 0));
+        label_16->setText(QApplication::translate("ChatWindow", "New wallet address:", 0));
+        submitTransferUsername->setText(QApplication::translate("ChatWindow", "Transfer Username", 0));
+        submitTransferUsernameMessage->setText(QString());
+        transferCancel->setText(QApplication::translate("ChatWindow", "Cancel", 0));
     } // retranslateUi
 
 };

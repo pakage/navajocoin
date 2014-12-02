@@ -50,6 +50,8 @@ public:
 
     void chatUpdated();
 
+    WalletModel* getWalletModel();
+
 protected:
     void changeEvent(QEvent *e);
     void closeEvent(QCloseEvent *event);

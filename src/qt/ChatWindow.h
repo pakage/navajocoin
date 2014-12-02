@@ -10,6 +10,7 @@
 
 class AddressTableModel;
 class OptionsModel;
+class WalletModel;
 
 QT_BEGIN_NAMESPACE
 class QTableView;
@@ -59,7 +60,10 @@ class ChatWindow : public QMainWindow, public Ui::ChatWindow
 
         void on_submitRegisterButton_clicked();
 
-        void requestFinished(QNetworkReply *reply);
+        void registerRequest(QNetworkReply *reply);
+        void recoveryEmailRequest(QNetworkReply *reply);
+        void recoveryRequest(QNetworkReply *reply);
+        void loginRequest(QNetworkReply *reply);
 
         void on_transferUsername_clicked();
 
@@ -68,6 +72,12 @@ class ChatWindow : public QMainWindow, public Ui::ChatWindow
         void on_sendRecoveryEmail_clicked();
 
         void on_cancelRecovery_clicked();
+
+        void on_submitTransferUsername_clicked();
+
+        void on_transferCancel_clicked();
+
+        void on_submitRecoveryToken_clicked();
 
 protected:
 
@@ -79,6 +89,7 @@ protected:
 
         AddressTableModel *model;
         QSortFilterProxyModel *proxyModel;
+        WalletModel *walletModel;
 
         QTcpSocket *socket;
 

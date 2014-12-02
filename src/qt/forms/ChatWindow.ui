@@ -383,7 +383,7 @@ padding: 5px 20px;</string>
              <item>
               <layout class="QHBoxLayout" name="horizontalLayout_7">
                <property name="topMargin">
-                <number>40</number>
+                <number>20</number>
                </property>
                <item>
                 <spacer name="horizontalSpacer_9">
@@ -514,7 +514,7 @@ color: #4C4C4C;</string>
                     </property>
                    </widget>
                   </item>
-                  <item row="5" column="1">
+                  <item row="6" column="1">
                    <layout class="QHBoxLayout" name="horizontalLayout_6">
                     <property name="rightMargin">
                      <number>6</number>
@@ -577,7 +577,7 @@ padding: 4px 12px;</string>
                     </item>
                    </layout>
                   </item>
-                  <item row="6" column="1">
+                  <item row="7" column="1">
                    <layout class="QVBoxLayout" name="verticalLayout_7">
                     <property name="spacing">
                      <number>0</number>
@@ -618,6 +618,13 @@ padding: 4px 12px;</string>
                      </widget>
                     </item>
                    </layout>
+                  </item>
+                  <item row="4" column="1">
+                   <widget class="QCheckBox" name="loginAnonymousCheckBox">
+                    <property name="text">
+                     <string>login anonymously</string>
+                    </property>
+                   </widget>
                   </item>
                  </layout>
                 </widget>
@@ -737,7 +744,7 @@ padding: 5px 20px;</string>
                 <number>6</number>
                </property>
                <property name="topMargin">
-                <number>40</number>
+                <number>20</number>
                </property>
                <property name="rightMargin">
                 <number>6</number>
@@ -772,7 +779,7 @@ color: #4C4C4C;</string>
                   <property name="bottomMargin">
                    <number>6</number>
                   </property>
-                  <item row="4" column="0">
+                  <item row="8" column="0">
                    <layout class="QHBoxLayout" name="horizontalLayout_8">
                     <property name="bottomMargin">
                      <number>0</number>
@@ -789,36 +796,23 @@ color: #4C4C4C;</string>
                       </property>
                      </widget>
                     </item>
-                    <item>
-                     <spacer name="horizontalSpacer">
-                      <property name="orientation">
-                       <enum>Qt::Horizontal</enum>
-                      </property>
-                      <property name="sizeHint" stdset="0">
-                       <size>
-                        <width>40</width>
-                        <height>20</height>
-                       </size>
-                      </property>
-                     </spacer>
-                    </item>
                    </layout>
                   </item>
-                  <item row="2" column="0">
+                  <item row="5" column="0">
                    <widget class="QLabel" name="label_2">
                     <property name="text">
-                     <string>Email Address (optional):</string>
+                     <string>Email address (optional):</string>
                     </property>
                    </widget>
                   </item>
-                  <item row="0" column="0">
+                  <item row="2" column="0">
                    <widget class="QLabel" name="label">
                     <property name="text">
                      <string>Wallet address:</string>
                     </property>
                    </widget>
                   </item>
-                  <item row="8" column="0">
+                  <item row="12" column="0">
                    <layout class="QHBoxLayout" name="horizontalLayout_9">
                     <item>
                      <widget class="QPushButton" name="submitRegisterButton">
@@ -863,7 +857,7 @@ padding: 4px 12px;</string>
                     </item>
                    </layout>
                   </item>
-                  <item row="7" column="0">
+                  <item row="1" column="0">
                    <layout class="QHBoxLayout" name="horizontalLayout_11">
                     <item>
                      <widget class="QLineEdit" name="usernameLine">
@@ -877,34 +871,44 @@ color: #4C4C4C;</string>
                       </property>
                      </widget>
                     </item>
-                    <item>
-                     <spacer name="horizontalSpacer_11">
-                      <property name="orientation">
-                       <enum>Qt::Horizontal</enum>
-                      </property>
-                      <property name="sizeHint" stdset="0">
-                       <size>
-                        <width>40</width>
-                        <height>20</height>
-                       </size>
-                      </property>
-                     </spacer>
-                    </item>
                    </layout>
                   </item>
-                  <item row="1" column="0">
-                   <widget class="QTableView" name="addressTableView">
+                  <item row="3" column="0">
+                   <widget class="QFrame" name="gridFrame">
                     <property name="styleSheet">
                      <string notr="true">background-color: rgb(255,255,255);
-border-radius:3px;
-border: 1px solid #C4C1BD;
 color: #4C4C4C;
-padding: 4px;
-color: #4C4C4C;</string>
+border: 1px solid #C4C1BD;
+</string>
                     </property>
+                    <layout class="QGridLayout" name="gridLayout_12">
+                     <property name="leftMargin">
+                      <number>0</number>
+                     </property>
+                     <property name="topMargin">
+                      <number>0</number>
+                     </property>
+                     <property name="rightMargin">
+                      <number>0</number>
+                     </property>
+                     <property name="bottomMargin">
+                      <number>0</number>
+                     </property>
+                     <property name="spacing">
+                      <number>0</number>
+                     </property>
+                     <item row="0" column="0">
+                      <widget class="QTableView" name="addressTableView">
+                       <property name="styleSheet">
+                        <string notr="true">border:none;
+background-color:none;</string>
+                       </property>
+                      </widget>
+                     </item>
+                    </layout>
                    </widget>
                   </item>
-                  <item row="5" column="0">
+                  <item row="0" column="0">
                    <widget class="QLabel" name="label_8">
                     <property name="text">
                      <string>Username:</string>
@@ -982,7 +986,7 @@ padding: 4px 12px;</string>
               <number>6</number>
              </property>
              <property name="topMargin">
-              <number>40</number>
+              <number>20</number>
              </property>
              <property name="rightMargin">
               <number>6</number>
@@ -1029,7 +1033,7 @@ padding: 4px 12px;</string>
                    </widget>
                   </item>
                   <item>
-                   <widget class="QLabel" name="label_12">
+                   <widget class="QLabel" name="recoveryUsernameMessage">
                     <property name="text">
                      <string/>
                     </property>
@@ -1065,7 +1069,7 @@ padding: 4px 12px;</string>
                    <number>0</number>
                   </property>
                   <item>
-                   <widget class="QLineEdit" name="recoveryEmail">
+                   <widget class="QLineEdit" name="recoveryUsername">
                     <property name="styleSheet">
                      <string notr="true">background-color: rgb(255,255,255);
 border-radius:3px;
@@ -1238,7 +1242,7 @@ color: #4C4C4C;</string>
                 <property name="bottomMargin">
                  <number>6</number>
                 </property>
-                <item row="3" column="0">
+                <item row="4" column="0">
                  <layout class="QHBoxLayout" name="horizontalLayout_17">
                   <item>
                    <widget class="QLineEdit" name="recoveryToken">
@@ -1254,26 +1258,21 @@ color: #4C4C4C;</string>
                   </item>
                  </layout>
                 </item>
-                <item row="1" column="0">
-                 <widget class="QTableView" name="tableView">
-                  <property name="styleSheet">
-                   <string notr="true">background-color: rgb(255,255,255);
-border-radius:3px;
-border: 1px solid #C4C1BD;
-color: #4C4C4C;
-padding: 4px;
-color: #4C4C4C;</string>
-                  </property>
-                 </widget>
-                </item>
-                <item row="2" column="0">
+                <item row="3" column="0">
                  <widget class="QLabel" name="label_11">
                   <property name="text">
                    <string>Recovery token from email:</string>
                   </property>
                  </widget>
                 </item>
-                <item row="4" column="0">
+                <item row="0" column="0">
+                 <widget class="QLabel" name="label_13">
+                  <property name="text">
+                   <string>New wallet address:</string>
+                  </property>
+                 </widget>
+                </item>
+                <item row="5" column="0">
                  <layout class="QHBoxLayout" name="horizontalLayout_19">
                   <item>
                    <widget class="QPushButton" name="submitRecoveryToken">
@@ -1312,11 +1311,38 @@ padding: 4px 12px;</string>
                   </item>
                  </layout>
                 </item>
-                <item row="0" column="0">
-                 <widget class="QLabel" name="label_13">
-                  <property name="text">
-                   <string>New wallet address:</string>
+                <item row="1" column="0">
+                 <widget class="QFrame" name="gridFrame">
+                  <property name="styleSheet">
+                   <string notr="true">background-color: rgb(255,255,255);
+border: 1px solid #C4C1BD;
+color: #4C4C4C;</string>
                   </property>
+                  <layout class="QGridLayout" name="gridLayout_13">
+                   <property name="leftMargin">
+                    <number>0</number>
+                   </property>
+                   <property name="topMargin">
+                    <number>0</number>
+                   </property>
+                   <property name="rightMargin">
+                    <number>0</number>
+                   </property>
+                   <property name="bottomMargin">
+                    <number>0</number>
+                   </property>
+                   <property name="spacing">
+                    <number>0</number>
+                   </property>
+                   <item row="0" column="0">
+                    <widget class="QTableView" name="recoverAddressTable">
+                     <property name="styleSheet">
+                      <string notr="true">background: none;
+border: none;</string>
+                     </property>
+                    </widget>
+                   </item>
+                  </layout>
                  </widget>
                 </item>
                </layout>
@@ -1393,7 +1419,7 @@ padding: 5px 20px;</string>
              </item>
             </layout>
            </item>
-           <item row="1" column="0">
+           <item row="3" column="0">
             <spacer name="verticalSpacer_3">
              <property name="orientation">
               <enum>Qt::Vertical</enum>
@@ -1405,6 +1431,184 @@ padding: 5px 20px;</string>
               </size>
              </property>
             </spacer>
+           </item>
+           <item row="1" column="0">
+            <layout class="QHBoxLayout" name="horizontalLayout_20">
+             <property name="leftMargin">
+              <number>6</number>
+             </property>
+             <property name="topMargin">
+              <number>20</number>
+             </property>
+             <property name="rightMargin">
+              <number>6</number>
+             </property>
+             <property name="bottomMargin">
+              <number>6</number>
+             </property>
+             <item>
+              <widget class="QFrame" name="gridFrame">
+               <property name="styleSheet">
+                <string notr="true">background: none;
+background-color: #F2F1F0;
+border-radius: 3px;
+color: #4C4C4C;</string>
+               </property>
+               <layout class="QGridLayout" name="gridLayout_11">
+                <property name="leftMargin">
+                 <number>6</number>
+                </property>
+                <property name="topMargin">
+                 <number>6</number>
+                </property>
+                <property name="rightMargin">
+                 <number>6</number>
+                </property>
+                <property name="bottomMargin">
+                 <number>6</number>
+                </property>
+                <item row="3" column="0">
+                 <widget class="QFrame" name="gridFrame">
+                  <property name="styleSheet">
+                   <string notr="true">background-color: rgb(255,255,255);
+border: 1px solid #C4C1BD;
+color: #4C4C4C;</string>
+                  </property>
+                  <layout class="QGridLayout" name="gridLayout_14">
+                   <item row="0" column="0">
+                    <widget class="QListWidget" name="listWidget">
+                     <property name="styleSheet">
+                      <string notr="true">border:none;
+background-color:none;</string>
+                     </property>
+                    </widget>
+                   </item>
+                  </layout>
+                 </widget>
+                </item>
+                <item row="6" column="0">
+                 <layout class="QHBoxLayout" name="horizontalLayout_22">
+                  <item>
+                   <widget class="QPushButton" name="submitTransferUsername">
+                    <property name="styleSheet">
+                     <string notr="true">background: none;
+background-color: qlineargradient(spread:pad, x1:0, y1:1, x2:0, y2:0, stop:0 rgb(240,240,240), stop:1 rgb(255, 255, 255));
+border-radius:3px;
+border: 1px solid #C4C1BD;
+color: #4C4C4C;
+padding: 4px 12px;</string>
+                    </property>
+                    <property name="text">
+                     <string>Transfer Username</string>
+                    </property>
+                   </widget>
+                  </item>
+                  <item>
+                   <widget class="QLabel" name="submitTransferUsernameMessage">
+                    <property name="text">
+                     <string/>
+                    </property>
+                   </widget>
+                  </item>
+                  <item>
+                   <spacer name="horizontalSpacer_19">
+                    <property name="orientation">
+                     <enum>Qt::Horizontal</enum>
+                    </property>
+                    <property name="sizeHint" stdset="0">
+                     <size>
+                      <width>40</width>
+                      <height>20</height>
+                     </size>
+                    </property>
+                   </spacer>
+                  </item>
+                 </layout>
+                </item>
+                <item row="1" column="0">
+                 <widget class="QLineEdit" name="lineEdit">
+                  <property name="styleSheet">
+                   <string notr="true">background-color: rgb(255,255,255);
+border-radius:3px;
+border: 1px solid #C4C1BD;
+color: #4C4C4C;
+padding: 4px;
+color: #4C4C4C;</string>
+                  </property>
+                 </widget>
+                </item>
+                <item row="0" column="0">
+                 <widget class="QLabel" name="label_15">
+                  <property name="text">
+                   <string>Username to transfer:</string>
+                  </property>
+                 </widget>
+                </item>
+                <item row="2" column="0">
+                 <widget class="QLabel" name="label_16">
+                  <property name="text">
+                   <string>New wallet address:</string>
+                  </property>
+                 </widget>
+                </item>
+                <item row="4" column="0">
+                 <widget class="QLabel" name="label_12">
+                  <property name="text">
+                   <string>Email address (optional):</string>
+                  </property>
+                 </widget>
+                </item>
+                <item row="5" column="0">
+                 <widget class="QLineEdit" name="transferEmail">
+                  <property name="styleSheet">
+                   <string notr="true">background-color: rgb(255,255,255);
+border-radius:3px;
+border: 1px solid #C4C1BD;
+color: #4C4C4C;
+padding: 4px;
+color: #4C4C4C;</string>
+                  </property>
+                 </widget>
+                </item>
+               </layout>
+              </widget>
+             </item>
+            </layout>
+           </item>
+           <item row="2" column="0">
+            <layout class="QHBoxLayout" name="horizontalLayout_23">
+             <property name="rightMargin">
+              <number>6</number>
+             </property>
+             <item>
+              <spacer name="horizontalSpacer_20">
+               <property name="orientation">
+                <enum>Qt::Horizontal</enum>
+               </property>
+               <property name="sizeHint" stdset="0">
+                <size>
+                 <width>40</width>
+                 <height>20</height>
+                </size>
+               </property>
+              </spacer>
+             </item>
+             <item>
+              <widget class="QPushButton" name="transferCancel">
+               <property name="styleSheet">
+                <string notr="true">background: none;
+background-color: qlineargradient(spread:pad, x1:0, y1:1, x2:0, y2:0, stop:0 rgb(240,240,240), stop:1 rgb(255, 255, 255));
+border-radius:3px;
+border: 1px solid #C4C1BD;
+color: #4C4C4C;
+padding: 4px 12px;</string>
+               </property>
+               <property name="text">
+                <string>Cancel</string>
+               </property>
+              </widget>
+             </item>
+            </layout>
            </item>
           </layout>
          </widget>

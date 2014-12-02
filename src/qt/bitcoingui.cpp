@@ -465,6 +465,11 @@ void BitcoinGUI::setWalletModel(WalletModel *walletModel)
     }
 }
 
+WalletModel* BitcoinGUI::getWalletModel()
+{
+    return this->walletModel;
+}
+
 void BitcoinGUI::createTrayIcon()
 {
     QMenu *trayIconMenu;
