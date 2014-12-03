@@ -19,8 +19,8 @@
 
 QT_BEGIN_MOC_NAMESPACE
 struct qt_meta_stringdata_BitcoinGUI_t {
-    QByteArrayData data[51];
-    char stringdata[648];
+    QByteArrayData data[52];
+    char stringdata[667];
 };
 #define QT_MOC_LITERAL(idx, ofs, len) \
     Q_STATIC_BYTE_ARRAY_DATA_HEADER_INITIALIZER_WITH_OFFSET(len, \
@@ -76,10 +76,11 @@ QT_MOC_LITERAL(43, 526, 12),
 QT_MOC_LITERAL(44, 539, 16),
 QT_MOC_LITERAL(45, 556, 12),
 QT_MOC_LITERAL(46, 569, 10),
-QT_MOC_LITERAL(47, 580, 21),
-QT_MOC_LITERAL(48, 602, 13),
-QT_MOC_LITERAL(49, 616, 12),
-QT_MOC_LITERAL(50, 629, 17)
+QT_MOC_LITERAL(47, 580, 18),
+QT_MOC_LITERAL(48, 599, 21),
+QT_MOC_LITERAL(49, 621, 13),
+QT_MOC_LITERAL(50, 635, 12),
+QT_MOC_LITERAL(51, 648, 17)
     },
     "BitcoinGUI\0setNumConnections\0\0count\0"
     "setNumBlocks\0nTotalBlocks\0setEncryptionStatus\0"
@@ -97,8 +98,8 @@ QT_MOC_LITERAL(50, 629, 17)
     "reason\0incomingTransaction\0parent\0"
     "start\0end\0encryptWallet\0backupWallet\0"
     "changePassphrase\0unlockWallet\0lockWallet\0"
-    "showNormalIfMinimized\0fToggleHidden\0"
-    "toggleHidden\0updateStakingIcon\0"
+    "stakeReportClicked\0showNormalIfMinimized\0"
+    "fToggleHidden\0toggleHidden\0updateStakingIcon\0"
 };
 #undef QT_MOC_LITERAL
 
@@ -108,7 +109,7 @@ static const uint qt_meta_data_BitcoinGUI[] = {
        7,       // revision
        0,       // classname
        0,    0, // classinfo
-      35,   14, // methods
+      36,   14, // methods
        0,    0, // properties
        0,    0, // enums/sets
        0,    0, // constructors
@@ -116,41 +117,42 @@ static const uint qt_meta_data_BitcoinGUI[] = {
        0,       // signalCount
 
  // slots: name, argc, parameters, tag, flags
-       1,    1,  189,    2, 0x0a,
-       4,    2,  192,    2, 0x0a,
-       6,    1,  197,    2, 0x0a,
-       8,    3,  200,    2, 0x0a,
-      12,    2,  207,    2, 0x0a,
-      16,    1,  212,    2, 0x0a,
-      18,    0,  215,    2, 0x08,
-      19,    0,  216,    2, 0x08,
-      20,    0,  217,    2, 0x08,
-      21,    0,  218,    2, 0x08,
-      22,    0,  219,    2, 0x08,
-      23,    0,  220,    2, 0x08,
-      24,    1,  221,    2, 0x08,
-      24,    0,  224,    2, 0x28,
-      26,    1,  225,    2, 0x08,
-      26,    0,  228,    2, 0x28,
-      27,    0,  229,    2, 0x08,
-      28,    0,  230,    2, 0x08,
-      29,    0,  231,    2, 0x08,
-      30,    0,  232,    2, 0x08,
-      31,    0,  233,    2, 0x08,
-      32,    0,  234,    2, 0x08,
-      33,    0,  235,    2, 0x08,
-      34,    0,  236,    2, 0x08,
-      35,    1,  237,    2, 0x08,
-      38,    3,  240,    2, 0x08,
-      42,    1,  247,    2, 0x08,
-      43,    0,  250,    2, 0x08,
-      44,    0,  251,    2, 0x08,
-      45,    0,  252,    2, 0x08,
-      46,    0,  253,    2, 0x08,
-      47,    1,  254,    2, 0x08,
-      47,    0,  257,    2, 0x28,
-      49,    0,  258,    2, 0x08,
-      50,    0,  259,    2, 0x08,
+       1,    1,  194,    2, 0x0a,
+       4,    2,  197,    2, 0x0a,
+       6,    1,  202,    2, 0x0a,
+       8,    3,  205,    2, 0x0a,
+      12,    2,  212,    2, 0x0a,
+      16,    1,  217,    2, 0x0a,
+      18,    0,  220,    2, 0x08,
+      19,    0,  221,    2, 0x08,
+      20,    0,  222,    2, 0x08,
+      21,    0,  223,    2, 0x08,
+      22,    0,  224,    2, 0x08,
+      23,    0,  225,    2, 0x08,
+      24,    1,  226,    2, 0x08,
+      24,    0,  229,    2, 0x28,
+      26,    1,  230,    2, 0x08,
+      26,    0,  233,    2, 0x28,
+      27,    0,  234,    2, 0x08,
+      28,    0,  235,    2, 0x08,
+      29,    0,  236,    2, 0x08,
+      30,    0,  237,    2, 0x08,
+      31,    0,  238,    2, 0x08,
+      32,    0,  239,    2, 0x08,
+      33,    0,  240,    2, 0x08,
+      34,    0,  241,    2, 0x08,
+      35,    1,  242,    2, 0x08,
+      38,    3,  245,    2, 0x08,
+      42,    1,  252,    2, 0x08,
+      43,    0,  255,    2, 0x08,
+      44,    0,  256,    2, 0x08,
+      45,    0,  257,    2, 0x08,
+      46,    0,  258,    2, 0x08,
+      47,    0,  259,    2, 0x08,
+      48,    1,  260,    2, 0x08,
+      48,    0,  263,    2, 0x28,
+      50,    0,  264,    2, 0x08,
+      51,    0,  265,    2, 0x08,
 
  // slots: parameters
     QMetaType::Void, QMetaType::Int,    3,
@@ -184,7 +186,8 @@ static const uint qt_meta_data_BitcoinGUI[] = {
     QMetaType::Void,
     QMetaType::Void,
     QMetaType::Void,
-    QMetaType::Void, QMetaType::Bool,   48,
+    QMetaType::Void,
+    QMetaType::Void, QMetaType::Bool,   49,
     QMetaType::Void,
     QMetaType::Void,
     QMetaType::Void,
@@ -228,10 +231,11 @@ void BitcoinGUI::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, 
         case 28: _t->changePassphrase(); break;
         case 29: _t->unlockWallet(); break;
         case 30: _t->lockWallet(); break;
-        case 31: _t->showNormalIfMinimized((*reinterpret_cast< bool(*)>(_a[1]))); break;
-        case 32: _t->showNormalIfMinimized(); break;
-        case 33: _t->toggleHidden(); break;
-        case 34: _t->updateStakingIcon(); break;
+        case 31: _t->stakeReportClicked(); break;
+        case 32: _t->showNormalIfMinimized((*reinterpret_cast< bool(*)>(_a[1]))); break;
+        case 33: _t->showNormalIfMinimized(); break;
+        case 34: _t->toggleHidden(); break;
+        case 35: _t->updateStakingIcon(); break;
         default: ;
         }
     }
@@ -262,13 +266,13 @@ int BitcoinGUI::qt_metacall(QMetaObject::Call _c, int _id, void **_a)
     if (_id < 0)
         return _id;
     if (_c == QMetaObject::InvokeMetaMethod) {
-        if (_id < 35)
+        if (_id < 36)
             qt_static_metacall(this, _c, _id, _a);
-        _id -= 35;
+        _id -= 36;
     } else if (_c == QMetaObject::RegisterMethodArgumentMetaType) {
-        if (_id < 35)
+        if (_id < 36)
             *reinterpret_cast<int*>(_a[0]) = -1;
-        _id -= 35;
+        _id -= 36;
     }
     return _id;
 }
