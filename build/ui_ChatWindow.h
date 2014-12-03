@@ -1100,10 +1100,38 @@ public:
         verticalLayout->addWidget(mainFrame);
 
         ChatWindow->setCentralWidget(centralwidget);
+        QWidget::setTabOrder(serverLineEdit, userLineEdit);
+        QWidget::setTabOrder(userLineEdit, rememberCheckBox);
+        QWidget::setTabOrder(rememberCheckBox, loginAnonymousCheckBox);
+        QWidget::setTabOrder(loginAnonymousCheckBox, loginButton);
+        QWidget::setTabOrder(loginButton, registerButton);
+        QWidget::setTabOrder(registerButton, transferUsername);
+        QWidget::setTabOrder(transferUsername, recoverUsername);
+        QWidget::setTabOrder(recoverUsername, usernameLine);
+        QWidget::setTabOrder(usernameLine, emailLine);
+        QWidget::setTabOrder(emailLine, submitRegisterButton);
+        QWidget::setTabOrder(submitRegisterButton, cancelButton);
+        QWidget::setTabOrder(cancelButton, recoveryUsername);
+        QWidget::setTabOrder(recoveryUsername, sendRecoveryEmail);
+        QWidget::setTabOrder(sendRecoveryEmail, recoveryToken);
+        QWidget::setTabOrder(recoveryToken, submitRecoveryToken);
+        QWidget::setTabOrder(submitRecoveryToken, cancelRecovery);
+        QWidget::setTabOrder(cancelRecovery, transferUsernameLine);
+        QWidget::setTabOrder(transferUsernameLine, transferEmail);
+        QWidget::setTabOrder(transferEmail, submitTransferUsername);
+        QWidget::setTabOrder(submitTransferUsername, transferCancel);
+        QWidget::setTabOrder(transferCancel, sayLineEdit);
+        QWidget::setTabOrder(sayLineEdit, sayButton);
+        QWidget::setTabOrder(sayButton, recoverAddressTable);
+        QWidget::setTabOrder(recoverAddressTable, transferAddressTable);
+        QWidget::setTabOrder(transferAddressTable, tabWidget);
+        QWidget::setTabOrder(tabWidget, addressTableView);
+        QWidget::setTabOrder(addressTableView, logoutButton);
+        QWidget::setTabOrder(logoutButton, userListWidget);
 
         retranslateUi(ChatWindow);
 
-        stackedWidget->setCurrentIndex(3);
+        stackedWidget->setCurrentIndex(1);
         tabWidget->setCurrentIndex(-1);
 
 

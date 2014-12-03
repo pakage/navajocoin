@@ -73,7 +73,7 @@ border-radius: 25px;
           <string notr="true">background-image:url(:/images/res/images/nav-bg.jpg)</string>
          </property>
          <property name="currentIndex">
-          <number>3</number>
+          <number>1</number>
          </property>
          <widget class="QWidget" name="chatPage">
           <layout class="QGridLayout" name="gridLayout">
@@ -1627,6 +1627,37 @@ padding: 4px 12px;</string>
    </layout>
   </widget>
  </widget>
+ <tabstops>
+  <tabstop>serverLineEdit</tabstop>
+  <tabstop>userLineEdit</tabstop>
+  <tabstop>rememberCheckBox</tabstop>
+  <tabstop>loginAnonymousCheckBox</tabstop>
+  <tabstop>loginButton</tabstop>
+  <tabstop>registerButton</tabstop>
+  <tabstop>transferUsername</tabstop>
+  <tabstop>recoverUsername</tabstop>
+  <tabstop>usernameLine</tabstop>
+  <tabstop>emailLine</tabstop>
+  <tabstop>submitRegisterButton</tabstop>
+  <tabstop>cancelButton</tabstop>
+  <tabstop>recoveryUsername</tabstop>
+  <tabstop>sendRecoveryEmail</tabstop>
+  <tabstop>recoveryToken</tabstop>
+  <tabstop>submitRecoveryToken</tabstop>
+  <tabstop>cancelRecovery</tabstop>
+  <tabstop>transferUsernameLine</tabstop>
+  <tabstop>transferEmail</tabstop>
+  <tabstop>submitTransferUsername</tabstop>
+  <tabstop>transferCancel</tabstop>
+  <tabstop>sayLineEdit</tabstop>
+  <tabstop>sayButton</tabstop>
+  <tabstop>recoverAddressTable</tabstop>
+  <tabstop>transferAddressTable</tabstop>
+  <tabstop>tabWidget</tabstop>
+  <tabstop>addressTableView</tabstop>
+  <tabstop>logoutButton</tabstop>
+  <tabstop>userListWidget</tabstop>
+ </tabstops>
  <resources>
   <include location="../bitcoin.qrc"/>
  </resources>
