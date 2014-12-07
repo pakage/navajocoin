@@ -5,12 +5,12 @@ obj/wallet.o: wallet.cpp txdb.h txdb-leveldb.h main.h bignum.h \
  sph_blake.h sph_types.h sph_bmw.h sph_groestl.h sph_jh.h sph_keccak.h \
  sph_skein.h sph_luffa.h sph_cubehash.h sph_shavite.h sph_simd.h \
  sph_echo.h sph_hamsi.h sph_fugue.h \
- /root/Desktop/NavajoAnonBeta-Linux/src/leveldb/include/leveldb/db.h \
- /root/Desktop/NavajoAnonBeta-Linux/src/leveldb/include/leveldb/iterator.h \
- /root/Desktop/NavajoAnonBeta-Linux/src/leveldb/include/leveldb/slice.h \
- /root/Desktop/NavajoAnonBeta-Linux/src/leveldb/include/leveldb/status.h \
- /root/Desktop/NavajoAnonBeta-Linux/src/leveldb/include/leveldb/options.h \
- /root/Desktop/NavajoAnonBeta-Linux/src/leveldb/include/leveldb/write_batch.h \
+ /home/craig/Projects/QT/navajocoin/src/leveldb/include/leveldb/db.h \
+ /home/craig/Projects/QT/navajocoin/src/leveldb/include/leveldb/iterator.h \
+ /home/craig/Projects/QT/navajocoin/src/leveldb/include/leveldb/slice.h \
+ /home/craig/Projects/QT/navajocoin/src/leveldb/include/leveldb/status.h \
+ /home/craig/Projects/QT/navajocoin/src/leveldb/include/leveldb/options.h \
+ /home/craig/Projects/QT/navajocoin/src/leveldb/include/leveldb/write_batch.h \
  wallet.h ui_interface.h walletdb.h db.h base58.h kernel.h coincontrol.h
 wallet.cpp txdb.h txdb-leveldb.h main.h bignum.h :
  serialize.h allocators.h version.h clientversion.h uint256.h sync.h :
@@ -19,10 +19,10 @@ wallet.cpp txdb.h txdb-leveldb.h main.h bignum.h :
  sph_blake.h sph_types.h sph_bmw.h sph_groestl.h sph_jh.h sph_keccak.h :
  sph_skein.h sph_luffa.h sph_cubehash.h sph_shavite.h sph_simd.h :
  sph_echo.h sph_hamsi.h sph_fugue.h :
- /root/Desktop/NavajoAnonBeta-Linux/src/leveldb/include/leveldb/db.h :
- /root/Desktop/NavajoAnonBeta-Linux/src/leveldb/include/leveldb/iterator.h :
- /root/Desktop/NavajoAnonBeta-Linux/src/leveldb/include/leveldb/slice.h :
- /root/Desktop/NavajoAnonBeta-Linux/src/leveldb/include/leveldb/status.h :
- /root/Desktop/NavajoAnonBeta-Linux/src/leveldb/include/leveldb/options.h :
- /root/Desktop/NavajoAnonBeta-Linux/src/leveldb/include/leveldb/write_batch.h :
+ /home/craig/Projects/QT/navajocoin/src/leveldb/include/leveldb/db.h :
+ /home/craig/Projects/QT/navajocoin/src/leveldb/include/leveldb/iterator.h :
+ /home/craig/Projects/QT/navajocoin/src/leveldb/include/leveldb/slice.h :
+ /home/craig/Projects/QT/navajocoin/src/leveldb/include/leveldb/status.h :
+ /home/craig/Projects/QT/navajocoin/src/leveldb/include/leveldb/options.h :
+ /home/craig/Projects/QT/navajocoin/src/leveldb/include/leveldb/write_batch.h :
  wallet.h ui_interface.h walletdb.h db.h base58.h kernel.h coincontrol.h :
