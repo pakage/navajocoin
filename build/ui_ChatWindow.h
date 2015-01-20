@@ -1100,6 +1100,7 @@ public:
         verticalLayout->addWidget(mainFrame);
 
         ChatWindow->setCentralWidget(centralwidget);
+<<<<<<< HEAD
         QWidget::setTabOrder(serverLineEdit, userLineEdit);
         QWidget::setTabOrder(userLineEdit, rememberCheckBox);
         QWidget::setTabOrder(rememberCheckBox, loginAnonymousCheckBox);
@@ -1132,6 +1133,12 @@ public:
         retranslateUi(ChatWindow);
 
         stackedWidget->setCurrentIndex(1);
+=======
+
+        retranslateUi(ChatWindow);
+
+        stackedWidget->setCurrentIndex(3);
+>>>>>>> 4b155241856c51b55981be1600842210edfb0198
         tabWidget->setCurrentIndex(-1);
 
 

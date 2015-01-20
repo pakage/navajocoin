@@ -73,7 +73,11 @@ border-radius: 25px;
           <string notr="true">background-image:url(:/images/res/images/nav-bg.jpg)</string>
          </property>
          <property name="currentIndex">
+<<<<<<< HEAD
           <number>1</number>
+=======
+          <number>3</number>
+>>>>>>> 4b155241856c51b55981be1600842210edfb0198
          </property>
          <widget class="QWidget" name="chatPage">
           <layout class="QGridLayout" name="gridLayout">
@@ -1627,6 +1631,7 @@ padding: 4px 12px;</string>
    </layout>
   </widget>
  </widget>
+<<<<<<< HEAD
  <tabstops>
   <tabstop>serverLineEdit</tabstop>
   <tabstop>userLineEdit</tabstop>
@@ -1658,6 +1663,8 @@ padding: 4px 12px;</string>
   <tabstop>logoutButton</tabstop>
   <tabstop>userListWidget</tabstop>
  </tabstops>
+=======
+>>>>>>> 4b155241856c51b55981be1600842210edfb0198
  <resources>
   <include location="../bitcoin.qrc"/>
  </resources>

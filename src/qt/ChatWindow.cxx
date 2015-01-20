@@ -57,6 +57,10 @@ void ChatWindow::on_loginButton_clicked()
     proxyModel->setDynamicSortFilter(true);
     proxyModel->setSortCaseSensitivity(Qt::CaseInsensitive);
     proxyModel->setFilterCaseSensitivity(Qt::CaseInsensitive);
+<<<<<<< HEAD
+=======
+
+>>>>>>> 4b155241856c51b55981be1600842210edfb0198
     proxyModel->setFilterRole(AddressTableModel::TypeRole);
     proxyModel->setFilterFixedString(AddressTableModel::Receive);
 
@@ -126,9 +130,14 @@ void ChatWindow::on_loginButton_clicked()
         }
     }
 
+<<<<<<< HEAD
 
 }
 
+=======
+}
+
+>>>>>>> 4b155241856c51b55981be1600842210edfb0198
 void ChatWindow::loginRequest(QNetworkReply *reply){
 
     QString rawReply = reply->readAll();

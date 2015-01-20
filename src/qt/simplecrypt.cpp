@@ -1,4 +1,7 @@
+<<<<<<< HEAD
 
+=======
+>>>>>>> 4b155241856c51b55981be1600842210edfb0198
 /*
 Copyright (c) 2011, Andre Somers
 All rights reserved.
