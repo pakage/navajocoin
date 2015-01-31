@@ -1,4 +1,4 @@
-IDI_ICON1 ICON DISCARDABLE "icons/navajocoin.ico"
+IDI_ICON1 ICON DISCARDABLE "icons/navajoanonbeta.ico"
 
 #include <windows.h>             // needed for VERSIONINFO
 #include "../../clientversion.h" // holds the needed client version information
@@ -18,14 +18,14 @@ BEGIN
     BEGIN
         BLOCK "040904E4" // U.S. English - multilingual (hex)
         BEGIN
-            VALUE "CompanyName",        "SummerCoinV2"
-            VALUE "FileDescription",    "SummerCoinV2-Qt (OSS GUI client for SummerCoinV2)"
+            VALUE "CompanyName",        "NavajoAnonBeta"
+            VALUE "FileDescription",    "NavajoAnonBeta-Qt (OSS GUI client for NavajoAnonBeta)"
             VALUE "FileVersion",        VER_FILEVERSION_STR
-            VALUE "InternalName",       "summercoinv2-qt"
-            VALUE "LegalCopyright",     "2014 The SummerCoinV2 developers"
+            VALUE "InternalName",       "navajoanonbeta-qt"
+            VALUE "LegalCopyright",     "2014 The NavajoAnonBeta developers"
             VALUE "LegalTrademarks1",   "Distributed under the MIT/X11 software license, see the accompanying file COPYING or http://www.opensource.org/licenses/mit-license.php."
-            VALUE "OriginalFilename",   "summercoinv2-qt.exe"
-            VALUE "ProductName",        "SummerCoinV2-Qt"
+            VALUE "OriginalFilename",   "navajoanonbeta-qt.exe"
+            VALUE "ProductName",        "NavajoAnonBeta-Qt"
             VALUE "ProductVersion",     VER_PRODUCTVERSION_STR
         END
     END

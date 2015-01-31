@@ -1,7 +1,7 @@
 /********************************************************************************
 ** Form generated from reading UI file 'sendcoinsdialog.ui'
 **
-** Created by: Qt User Interface Compiler version 5.2.1
+** Created by: Qt User Interface Compiler version 5.3.1
 **
 ** WARNING! All changes made in this file will be lost when recompiling UI file!
 ********************************************************************************/
@@ -26,6 +26,7 @@
 #include <QtWidgets/QSpacerItem>
 #include <QtWidgets/QVBoxLayout>
 #include <QtWidgets/QWidget>
+#include "qvalidatedlineedit.h"
 
 QT_BEGIN_NAMESPACE
 
@@ -33,6 +34,9 @@ class Ui_SendCoinsDialog
 {
 public:
     QVBoxLayout *verticalLayout;
+    QHBoxLayout *horizontalLayoutTxComment;
+    QLabel *labelTxComment;
+    QValidatedLineEdit *editTxComment;
     QFrame *frameCoinControl;
     QVBoxLayout *verticalLayoutCoinControl2;
     QVBoxLayout *verticalLayoutCoinControl;
@@ -93,7 +97,24 @@ public:
         SendCoinsDialog->setStyleSheet(QStringLiteral(""));
         verticalLayout = new QVBoxLayout(SendCoinsDialog);
         verticalLayout->setObjectName(QStringLiteral("verticalLayout"));
-        verticalLayout->setContentsMargins(-1, -1, -1, 8);
+        horizontalLayoutTxComment = new QHBoxLayout();
+        horizontalLayoutTxComment->setSpacing(0);
+        horizontalLayoutTxComment->setObjectName(QStringLiteral("horizontalLayoutTxComment"));
+        labelTxComment = new QLabel(SendCoinsDialog);
+        labelTxComment->setObjectName(QStringLiteral("labelTxComment"));
+        labelTxComment->setAlignment(Qt::AlignLeading|Qt::AlignLeft|Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter);
+
+        horizontalLayoutTxComment->addWidget(labelTxComment);
+
+        editTxComment = new QValidatedLineEdit(SendCoinsDialog);
+        editTxComment->setObjectName(QStringLiteral("editTxComment"));
+        editTxComment->setEnabled(true);
+
+        horizontalLayoutTxComment->addWidget(editTxComment);
+
+
+        verticalLayout->addLayout(horizontalLayoutTxComment);
+
         frameCoinControl = new QFrame(SendCoinsDialog);
         frameCoinControl->setObjectName(QStringLiteral("frameCoinControl"));
         QSizePolicy sizePolicy(QSizePolicy::Expanding, QSizePolicy::Expanding);
@@ -178,8 +199,8 @@ public:
         widgetCoinControl->setMinimumSize(QSize(0, 0));
         widgetCoinControl->setStyleSheet(QStringLiteral(""));
         horizontalLayoutCoinControl5 = new QHBoxLayout(widgetCoinControl);
-        horizontalLayoutCoinControl5->setObjectName(QStringLiteral("horizontalLayoutCoinControl5"));
         horizontalLayoutCoinControl5->setContentsMargins(0, 0, 0, 0);
+        horizontalLayoutCoinControl5->setObjectName(QStringLiteral("horizontalLayoutCoinControl5"));
         horizontalLayoutCoinControl3 = new QHBoxLayout();
         horizontalLayoutCoinControl3->setSpacing(20);
         horizontalLayoutCoinControl3->setObjectName(QStringLiteral("horizontalLayoutCoinControl3"));
@@ -408,10 +429,10 @@ public:
         scrollArea->setWidgetResizable(true);
         scrollAreaWidgetContents = new QWidget();
         scrollAreaWidgetContents->setObjectName(QStringLiteral("scrollAreaWidgetContents"));
-        scrollAreaWidgetContents->setGeometry(QRect(0, 0, 830, 150));
+        scrollAreaWidgetContents->setGeometry(QRect(0, 0, 826, 110));
         verticalLayout_2 = new QVBoxLayout(scrollAreaWidgetContents);
-        verticalLayout_2->setObjectName(QStringLiteral("verticalLayout_2"));
         verticalLayout_2->setContentsMargins(0, 0, 0, 0);
+        verticalLayout_2->setObjectName(QStringLiteral("verticalLayout_2"));
         entries = new QVBoxLayout();
         entries->setSpacing(6);
         entries->setObjectName(QStringLiteral("entries"));
@@ -511,7 +532,9 @@ public:
 
         verticalLayout->addLayout(horizontalLayout);
 
-        verticalLayout->setStretch(1, 1);
+#ifndef QT_NO_SHORTCUT
+        labelTxComment->setBuddy(editTxComment);
+#endif // QT_NO_SHORTCUT
 
         retranslateUi(SendCoinsDialog);
 
@@ -521,6 +544,10 @@ public:
     void retranslateUi(QDialog *SendCoinsDialog)
     {
         SendCoinsDialog->setWindowTitle(QApplication::translate("SendCoinsDialog", "Send Coins", 0));
+        labelTxComment->setText(QApplication::translate("SendCoinsDialog", "Destination Address:", 0));
+#ifndef QT_NO_TOOLTIP
+        editTxComment->setToolTip(QApplication::translate("SendCoinsDialog", "Enter a transaction comment  (MAX 256 Characters) (Note: this information is public)", 0));
+#endif // QT_NO_TOOLTIP
         labelCoinControlFeatures->setText(QApplication::translate("SendCoinsDialog", "Coin Control Features", 0));
         pushButtonCoinControl->setText(QApplication::translate("SendCoinsDialog", "Inputs...", 0));
         labelCoinControlAutomaticallySelected->setText(QApplication::translate("SendCoinsDialog", "automatically selected", 0));

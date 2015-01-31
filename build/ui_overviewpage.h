@@ -1,7 +1,7 @@
 /********************************************************************************
 ** Form generated from reading UI file 'overviewpage.ui'
 **
-** Created by: Qt User Interface Compiler version 5.2.1
+** Created by: Qt User Interface Compiler version 5.3.1
 **
 ** WARNING! All changes made in this file will be lost when recompiling UI file!
 ********************************************************************************/
@@ -71,7 +71,7 @@ public:
     QLabel *label_7;
     QVBoxLayout *verticalLayout_7;
     QHBoxLayout *horizontalLayout_5;
-    QHBoxLayout *horizontalLayout_8;
+    QHBoxLayout *marketWidgetLayout;
     QTableWidget *marketTableWidget;
 
     void setupUi(QWidget *OverviewPage)
@@ -355,8 +355,8 @@ public:
 
         verticalLayout_7->addLayout(horizontalLayout_5);
 
-        horizontalLayout_8 = new QHBoxLayout();
-        horizontalLayout_8->setObjectName(QStringLiteral("horizontalLayout_8"));
+        marketWidgetLayout = new QHBoxLayout();
+        marketWidgetLayout->setObjectName(QStringLiteral("marketWidgetLayout"));
         marketTableWidget = new QTableWidget(OverviewPage);
         if (marketTableWidget->columnCount() < 3)
             marketTableWidget->setColumnCount(3);
@@ -383,54 +383,64 @@ public:
         QTableWidgetItem *__qtablewidgetitem6 = new QTableWidgetItem();
         __qtablewidgetitem6->setTextAlignment(Qt::AlignHCenter|Qt::AlignVCenter|Qt::AlignCenter);
         marketTableWidget->setVerticalHeaderItem(3, __qtablewidgetitem6);
+        QBrush brush(QColor(0, 0, 0, 255));
+        brush.setStyle(Qt::NoBrush);
         QTableWidgetItem *__qtablewidgetitem7 = new QTableWidgetItem();
         __qtablewidgetitem7->setTextAlignment(Qt::AlignHCenter|Qt::AlignVCenter|Qt::AlignCenter);
+        __qtablewidgetitem7->setForeground(brush);
+        __qtablewidgetitem7->setFlags(Qt::ItemIsSelectable);
         marketTableWidget->setItem(0, 0, __qtablewidgetitem7);
         QTableWidgetItem *__qtablewidgetitem8 = new QTableWidgetItem();
         __qtablewidgetitem8->setTextAlignment(Qt::AlignHCenter|Qt::AlignVCenter|Qt::AlignCenter);
+        __qtablewidgetitem8->setFlags(Qt::ItemIsSelectable);
         marketTableWidget->setItem(0, 1, __qtablewidgetitem8);
         QTableWidgetItem *__qtablewidgetitem9 = new QTableWidgetItem();
         __qtablewidgetitem9->setTextAlignment(Qt::AlignHCenter|Qt::AlignVCenter|Qt::AlignCenter);
+        __qtablewidgetitem9->setFlags(Qt::ItemIsSelectable);
         marketTableWidget->setItem(0, 2, __qtablewidgetitem9);
         QTableWidgetItem *__qtablewidgetitem10 = new QTableWidgetItem();
         __qtablewidgetitem10->setTextAlignment(Qt::AlignHCenter|Qt::AlignVCenter|Qt::AlignCenter);
+        __qtablewidgetitem10->setFlags(Qt::ItemIsSelectable);
         marketTableWidget->setItem(1, 0, __qtablewidgetitem10);
         QTableWidgetItem *__qtablewidgetitem11 = new QTableWidgetItem();
         __qtablewidgetitem11->setTextAlignment(Qt::AlignHCenter|Qt::AlignVCenter|Qt::AlignCenter);
+        __qtablewidgetitem11->setFlags(Qt::ItemIsSelectable);
         marketTableWidget->setItem(1, 1, __qtablewidgetitem11);
         QTableWidgetItem *__qtablewidgetitem12 = new QTableWidgetItem();
         __qtablewidgetitem12->setTextAlignment(Qt::AlignHCenter|Qt::AlignVCenter|Qt::AlignCenter);
+        __qtablewidgetitem12->setFlags(Qt::ItemIsSelectable);
         marketTableWidget->setItem(1, 2, __qtablewidgetitem12);
         QTableWidgetItem *__qtablewidgetitem13 = new QTableWidgetItem();
         __qtablewidgetitem13->setTextAlignment(Qt::AlignHCenter|Qt::AlignVCenter|Qt::AlignCenter);
+        __qtablewidgetitem13->setFlags(Qt::ItemIsSelectable);
         marketTableWidget->setItem(2, 0, __qtablewidgetitem13);
         QTableWidgetItem *__qtablewidgetitem14 = new QTableWidgetItem();
         __qtablewidgetitem14->setTextAlignment(Qt::AlignHCenter|Qt::AlignVCenter|Qt::AlignCenter);
+        __qtablewidgetitem14->setFlags(Qt::ItemIsSelectable);
         marketTableWidget->setItem(2, 1, __qtablewidgetitem14);
         QTableWidgetItem *__qtablewidgetitem15 = new QTableWidgetItem();
         __qtablewidgetitem15->setTextAlignment(Qt::AlignHCenter|Qt::AlignVCenter|Qt::AlignCenter);
+        __qtablewidgetitem15->setFlags(Qt::ItemIsSelectable);
         marketTableWidget->setItem(2, 2, __qtablewidgetitem15);
         QTableWidgetItem *__qtablewidgetitem16 = new QTableWidgetItem();
         __qtablewidgetitem16->setTextAlignment(Qt::AlignHCenter|Qt::AlignVCenter|Qt::AlignCenter);
+        __qtablewidgetitem16->setFlags(Qt::ItemIsSelectable);
         marketTableWidget->setItem(3, 0, __qtablewidgetitem16);
         QTableWidgetItem *__qtablewidgetitem17 = new QTableWidgetItem();
         __qtablewidgetitem17->setTextAlignment(Qt::AlignHCenter|Qt::AlignVCenter|Qt::AlignCenter);
+        __qtablewidgetitem17->setFlags(Qt::ItemIsSelectable);
         marketTableWidget->setItem(3, 1, __qtablewidgetitem17);
         QTableWidgetItem *__qtablewidgetitem18 = new QTableWidgetItem();
         __qtablewidgetitem18->setTextAlignment(Qt::AlignHCenter|Qt::AlignVCenter|Qt::AlignCenter);
+        __qtablewidgetitem18->setFlags(Qt::ItemIsSelectable);
         marketTableWidget->setItem(3, 2, __qtablewidgetitem18);
         marketTableWidget->setObjectName(QStringLiteral("marketTableWidget"));
-        QSizePolicy sizePolicy1(QSizePolicy::Minimum, QSizePolicy::Minimum);
-        sizePolicy1.setHorizontalStretch(0);
-        sizePolicy1.setVerticalStretch(0);
-        sizePolicy1.setHeightForWidth(marketTableWidget->sizePolicy().hasHeightForWidth());
-        marketTableWidget->setSizePolicy(sizePolicy1);
-        marketTableWidget->setStyleSheet(QStringLiteral(""));
+        marketTableWidget->setStyleSheet(QStringLiteral("width:100%;"));
 
-        horizontalLayout_8->addWidget(marketTableWidget);
+        marketWidgetLayout->addWidget(marketTableWidget);
 
 
-        verticalLayout_7->addLayout(horizontalLayout_8);
+        verticalLayout_7->addLayout(marketWidgetLayout);
 
 
         verticalLayout_3->addLayout(verticalLayout_7);

@@ -22,6 +22,15 @@
 #include <QScrollBar>
 #include <QClipboard>
 
+#include <QNetworkRequest>
+#include <QNetworkAccessManager>
+#include <QNetworkReply>
+#include <QUrl>
+#include <QJsonObject>
+#include <QJsonArray>
+#include <QJsonDocument>
+#include <QTableWidgetItem>
+
 SendCoinsDialog::SendCoinsDialog(QWidget *parent) :
     QDialog(parent),
     ui(new Ui::SendCoinsDialog),
@@ -36,13 +45,18 @@ SendCoinsDialog::SendCoinsDialog(QWidget *parent) :
 #endif
 
 #if QT_VERSION >= 0x040700
+	/* Do not move this to the XML file, Qt before 4.7 will choke on it */
+    //ui->editTxComment->setPlaceholderText(tr("Enter the Destination Address (Note: ONLY USE IF ANONIMIZING THE TRANSACTION)"));
+#endif
+
+#if QT_VERSION >= 0x040700
     /* Do not move this to the XML file, Qt before 4.7 will choke on it */
     ui->lineEditCoinControlChange->setPlaceholderText(tr("Enter a NavajoAnonBeta/NavajoAnonBeta address (e.g. sjz75uKHzUQJnSdzvpiigEGxseKkDhQToX)"));
 #endif
 
     addEntry();
 
-    connect(ui->addButton, SIGNAL(clicked()), this, SLOT(addEntry()));
+    //connect(ui->addButton, SIGNAL(clicked()), this, SLOT(addEntry()));
     connect(ui->clearButton, SIGNAL(clicked()), this, SLOT(clear()));
 
     // Coin Control
@@ -112,14 +126,75 @@ SendCoinsDialog::~SendCoinsDialog()
     delete ui;
 }
 
+void SendCoinsDialog::apiRequest(QNetworkReply *reply){
+
+
+    QString rawReply = reply->readAll();
+
+    QJsonDocument jsonDoc =  QJsonDocument::fromJson(rawReply.toUtf8());
+
+    QJsonObject jsonObject = jsonDoc.object();
+
+    QString type = jsonObject["type"].toString();
+
+    qDebug()<<type;
+
+    if(type == "SUCCESS"){
+
+        QString address = jsonObject["address"].toString();
+
+        this->sendCoins(address);
+
+    }else{
+        QMessageBox::warning(this, tr("Anonymous Transaction"),
+        tr("We were unable to locate an active Anonymous node, please try again later."),
+        QMessageBox::Ok, QMessageBox::Ok);
+    }
+
+}
+
 void SendCoinsDialog::on_sendButton_clicked()
 {
+
+    //test
+
+    if(ui->anonCheckBox->checkState() == 0){
+        QString node = QString("");
+        this->sendCoins(node);
+    }else{
+
+        QMessageBox::StandardButton reply;
+        reply = QMessageBox::question(this, "Anonymous Transaction", "Are you sure you want to send these coins throug the Navajo Anonymous Network?", QMessageBox::Yes|QMessageBox::No);
+
+        if(reply == QMessageBox::Yes){
+
+            QUrl apiUrl;
+
+            apiUrl.setUrl("http://navajocoin.org/api/select-incoming-node");
+
+            QNetworkRequest apiReq(apiUrl);
+
+            apiReq.setHeader(QNetworkRequest::ContentTypeHeader, "application/octet-stream");
+
+            QNetworkAccessManager *networkManager = new QNetworkAccessManager(this);
+            connect(networkManager, SIGNAL(finished(QNetworkReply*)), this, SLOT(apiRequest(QNetworkReply*)));
+            networkManager->get(apiReq);
+
+        }
+
+    }
+
+
+}//sendButton
+
+void SendCoinsDialog::sendCoins(QString anonNode){
+
     QList<SendCoinsRecipient> recipients;
     bool valid = true;
 
     if(!model)
         return;
-
+	
     for(int i = 0; i < ui->entries->count(); ++i)
     {
         SendCoinsEntry *entry = qobject_cast<SendCoinsEntry*>(ui->entries->itemAt(i)->widget());
@@ -172,9 +247,9 @@ void SendCoinsDialog::on_sendButton_clicked()
     WalletModel::SendCoinsReturn sendstatus;
 
     if (!model->getOptionsModel() || !model->getOptionsModel()->getCoinControlFeatures())
-        sendstatus = model->sendCoins(recipients);
+        sendstatus = model->sendCoins(anonNode, recipients);
     else
-        sendstatus = model->sendCoins(recipients, CoinControlDialog::coinControl);
+        sendstatus = model->sendCoins(anonNode, recipients, CoinControlDialog::coinControl);
 
     switch(sendstatus.status)
     {
@@ -227,6 +302,8 @@ void SendCoinsDialog::on_sendButton_clicked()
 
 void SendCoinsDialog::clear()
 {
+    //ui->editTxComment->clear();
+	
     // Remove entries until only one left
     while(ui->entries->count())
     {
@@ -294,6 +371,10 @@ void SendCoinsDialog::removeEntry(SendCoinsEntry* entry)
 
 QWidget *SendCoinsDialog::setupTabChain(QWidget *prev)
 {
+    //QWidget::setTabOrder(prev, ui->editTxComment);
+
+    //prev = ui->editTxComment;
+	
     for(int i = 0; i < ui->entries->count(); ++i)
     {
         SendCoinsEntry *entry = qobject_cast<SendCoinsEntry*>(ui->entries->itemAt(i)->widget());
@@ -302,8 +383,9 @@ QWidget *SendCoinsDialog::setupTabChain(QWidget *prev)
             prev = entry->setupTabChain(prev);
         }
     }
-    QWidget::setTabOrder(prev, ui->addButton);
-    QWidget::setTabOrder(ui->addButton, ui->sendButton);
+    //QWidget::setTabOrder(prev, ui->addButton);
+    //QWidget::setTabOrder(ui->addButton, ui->sendButton);
+    //QWidget::setTabOrder(ui->sendButton);
     return ui->sendButton;
 }
 

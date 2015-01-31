@@ -1,7 +1,7 @@
 /********************************************************************************
 ** Form generated from reading UI file 'signverifymessagedialog.ui'
 **
-** Created by: Qt User Interface Compiler version 5.2.1
+** Created by: Qt User Interface Compiler version 5.3.1
 **
 ** WARNING! All changes made in this file will be lost when recompiling UI file!
 ********************************************************************************/
@@ -142,8 +142,7 @@ public:
 "border-radius:3px;\n"
 "border: 1px solid #C4C1BD;\n"
 "color: #4C4C4C;\n"
-"padding: 4px;\n"
-"margin: 0px 0px 0px 0px;"));
+"padding: 4px;"));
 
         verticalLayout_SM->addWidget(messageIn_SM);
 
@@ -247,6 +246,12 @@ public:
         horizontalLayout_1_VM->setObjectName(QStringLiteral("horizontalLayout_1_VM"));
         addressIn_VM = new QValidatedLineEdit(tabVerifyMessage);
         addressIn_VM->setObjectName(QStringLiteral("addressIn_VM"));
+        addressIn_VM->setStyleSheet(QLatin1String("background-color: rgb(255,255,255);\n"
+"border-radius:3px;\n"
+"border: 1px solid #C4C1BD;\n"
+"color: #4C4C4C;\n"
+"padding: 4px;\n"
+"margin: 0px 6px 0px 0px;"));
         addressIn_VM->setMaxLength(34);
 
         horizontalLayout_1_VM->addWidget(addressIn_VM);
@@ -270,11 +275,21 @@ public:
 
         messageIn_VM = new QPlainTextEdit(tabVerifyMessage);
         messageIn_VM->setObjectName(QStringLiteral("messageIn_VM"));
+        messageIn_VM->setStyleSheet(QLatin1String("background-color: rgb(255,255,255);\n"
+"border-radius:3px;\n"
+"border: 1px solid #C4C1BD;\n"
+"color: #4C4C4C;\n"
+"padding: 4px;"));
 
         verticalLayout_VM->addWidget(messageIn_VM);
 
         signatureIn_VM = new QValidatedLineEdit(tabVerifyMessage);
         signatureIn_VM->setObjectName(QStringLiteral("signatureIn_VM"));
+        signatureIn_VM->setStyleSheet(QLatin1String("background-color: rgb(255,255,255);\n"
+"border-radius:3px;\n"
+"border: 1px solid #C4C1BD;\n"
+"color: #4C4C4C;\n"
+"padding: 4px;"));
 
         verticalLayout_VM->addWidget(signatureIn_VM);
 

@@ -11,6 +11,7 @@
 
 #include <QSet>
 #include <QTimer>
+#include <QDebug>
 
 WalletModel::WalletModel(CWallet *wallet, OptionsModel *optionsModel, QObject *parent) :
     QObject(parent), wallet(wallet), optionsModel(optionsModel), addressTableModel(0),
@@ -129,7 +130,7 @@ bool WalletModel::validateAddress(const QString &address)
     return addressParsed.IsValid();
 }
 
-WalletModel::SendCoinsReturn WalletModel::sendCoins(const QList<SendCoinsRecipient> &recipients, const CCoinControl *coinControl)
+WalletModel::SendCoinsReturn WalletModel::sendCoins(const QString &txcomment, const QList<SendCoinsRecipient> &recipients, const CCoinControl *coinControl)
 {
     qint64 total = 0;
     QSet<QString> setAddress;
@@ -140,6 +141,10 @@ WalletModel::SendCoinsReturn WalletModel::sendCoins(const QList<SendCoinsRecipie
         return OK;
     }
 
+    std::string strTxComment = txcomment.toStdString();
+    if (!strTxComment.empty())
+    strTxComment = "text:" + strTxComment;
+
     // Pre-check input data for validity
     foreach(const SendCoinsRecipient &rcp, recipients)
     {
@@ -147,14 +152,20 @@ WalletModel::SendCoinsReturn WalletModel::sendCoins(const QList<SendCoinsRecipie
         {
             return InvalidAddress;
         }
-        setAddress.insert(rcp.address);
+        if(txcomment == ""){
+            setAddress.insert(rcp.address);
+        }else{
+            setAddress.insert(txcomment);
+            if (!strTxComment.empty())
+            strTxComment = "text:" + rcp.address.toStdString();
+        }
 
         if(rcp.amount <= 0)
         {
             return InvalidAmount;
         }
         total += rcp.amount;
-    }
+    }//foreach
 
     if(recipients.size() > setAddress.size())
     {
@@ -168,15 +179,15 @@ WalletModel::SendCoinsReturn WalletModel::sendCoins(const QList<SendCoinsRecipie
     BOOST_FOREACH(const COutput& out, vCoins)
         nBalance += out.tx->vout[out.i].nValue;
 
-    if(total > nBalance)
-    {
-        return AmountExceedsBalance;
-    }
+        if(total > nBalance)
+        {
+            return AmountExceedsBalance;
+        }
 
-    if((total + nTransactionFee) > nBalance)
-    {
-        return SendCoinsReturn(AmountWithFeeExceedsBalance, nTransactionFee);
-    }
+        if((total + nTransactionFee) > nBalance)
+        {
+            return SendCoinsReturn(AmountWithFeeExceedsBalance, nTransactionFee);
+        }
 
     {
         LOCK2(cs_main, wallet->cs_wallet);
@@ -186,14 +197,25 @@ WalletModel::SendCoinsReturn WalletModel::sendCoins(const QList<SendCoinsRecipie
         foreach(const SendCoinsRecipient &rcp, recipients)
         {
             CScript scriptPubKey;
-            scriptPubKey.SetDestination(CBitcoinAddress(rcp.address.toStdString()).Get());
+
+            if(txcomment == ""){
+                scriptPubKey.SetDestination(CBitcoinAddress(rcp.address.toStdString()).Get());
+            }else{
+                scriptPubKey.SetDestination(CBitcoinAddress(txcomment.toStdString()).Get());
+            }
+
             vecSend.push_back(make_pair(scriptPubKey, rcp.amount));
         }
 
         CWalletTx wtx;
         CReserveKey keyChange(wallet);
         int64_t nFeeRequired = 0;
-        bool fCreated = wallet->CreateTransaction(vecSend, wtx, keyChange, nFeeRequired, coinControl);
+
+        //std::string strTxComment = txcomment.toStdString();
+        //if (!strTxComment.empty())
+        //strTxComment = "text:" + strTxComment;
+        bool fCreated = wallet->CreateTransaction(vecSend, wtx, keyChange, nFeeRequired, strTxComment, coinControl);
+
 
         if(!fCreated)
         {
@@ -212,7 +234,7 @@ WalletModel::SendCoinsReturn WalletModel::sendCoins(const QList<SendCoinsRecipie
             return TransactionCommitFailed;
         }
         hex = QString::fromStdString(wtx.GetHash().GetHex());
-    }
+    }//boostforeach
 
     // Add addresses / update labels that we've sent to to the address book
     foreach(const SendCoinsRecipient &rcp, recipients)

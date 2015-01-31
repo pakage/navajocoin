@@ -1,7 +1,7 @@
 /********************************************************************************
 ** Form generated from reading UI file 'editaddressdialog.ui'
 **
-** Created by: Qt User Interface Compiler version 5.2.1
+** Created by: Qt User Interface Compiler version 5.3.1
 **
 ** WARNING! All changes made in this file will be lost when recompiling UI file!
 ********************************************************************************/
@@ -51,6 +51,11 @@ public:
 
         labelEdit = new QLineEdit(EditAddressDialog);
         labelEdit->setObjectName(QStringLiteral("labelEdit"));
+        labelEdit->setStyleSheet(QLatin1String("background-color: rgb(255,255,255);\n"
+"border-radius:3px;\n"
+"border: 1px solid #C4C1BD;\n"
+"color: #4C4C4C;\n"
+"padding: 4px;"));
 
         formLayout->setWidget(0, QFormLayout::FieldRole, labelEdit);
 
@@ -61,6 +66,11 @@ public:
 
         addressEdit = new QLineEdit(EditAddressDialog);
         addressEdit->setObjectName(QStringLiteral("addressEdit"));
+        addressEdit->setStyleSheet(QLatin1String("background-color: rgb(255,255,255);\n"
+"border-radius:3px;\n"
+"border: 1px solid #C4C1BD;\n"
+"color: #4C4C4C;\n"
+"padding: 4px;"));
 
         formLayout->setWidget(1, QFormLayout::FieldRole, addressEdit);
 
@@ -69,6 +79,11 @@ public:
 
         buttonBox = new QDialogButtonBox(EditAddressDialog);
         buttonBox->setObjectName(QStringLiteral("buttonBox"));
+        buttonBox->setStyleSheet(QLatin1String("background-color: qlineargradient(spread:pad, x1:0, y1:1, x2:0, y2:0, stop:0 rgb(240,240,240), stop:1 rgb(255, 255, 255));\n"
+"border-radius:3px;\n"
+"border: 1px solid #C4C1BD;\n"
+"color: #4C4C4C;\n"
+"padding: 4px 12px;"));
         buttonBox->setOrientation(Qt::Horizontal);
         buttonBox->setStandardButtons(QDialogButtonBox::Cancel|QDialogButtonBox::Ok);
 

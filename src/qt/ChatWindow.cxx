@@ -139,8 +139,6 @@ void ChatWindow::loginRequest(QNetworkReply *reply){
     QString responseType = jsonObject["type"].toString();
     QString responseMessage = jsonObject["message"].toString();
 
-    qDebug() << responseType;
-    qDebug() << responseMessage;
 
     if(responseType == "FAIL"){
         errorMessageLabel->setText(responseMessage);
@@ -286,8 +284,6 @@ void ChatWindow::readyRead()
 
                         }
 
-                        qDebug() << isServer;
-
                         if(tabIndex != -1){
 
                             QTextBrowser *tab = tabWidget->widget(tabIndex);
@@ -325,8 +321,6 @@ void ChatWindow::setGUI(BitcoinGUI* gui){
 }
 
 void ChatWindow::disconnected(){
-
-    qDebug() << "DISCONNECTED";
 
     heartBeatTimer.stop();
 
@@ -460,8 +454,7 @@ void ChatWindow::timerEvent(QTimerEvent *event)
 {
 
     if(event->timerId() == heartBeatTimer.timerId()){
-        //qDebug() << "heartbeat";
-        //qDebug() << socket->state();
+
         if(socket->state() == QAbstractSocket::UnconnectedState){
             qDebug("QAbstractSocket::UnconnectedState");
         }
@@ -571,6 +564,7 @@ void ChatWindow::on_tabWidget_tabBarClicked(int index)
 
 void ChatWindow::on_registerButton_clicked()
 {
+
     stackedWidget->setCurrentWidget(registerPage);
 
     registerError->setText("");
@@ -667,9 +661,6 @@ void ChatWindow::registerRequest(QNetworkReply *reply){
 
     QString responseType = jsonObject["type"].toString();
     QString responseMessage = jsonObject["message"].toString();
-
-    qDebug() << responseType;
-    qDebug() << responseMessage;
 
     if(responseType == "FAIL"){
         registerError->setText(responseMessage);
@@ -854,8 +845,6 @@ void ChatWindow::transferRequest(QNetworkReply *reply){
     QString responseType = jsonObject["type"].toString();
     QString responseMessage = jsonObject["message"].toString();
 
-    qDebug() << responseType;
-    qDebug() << responseMessage;
 
     if(responseType == "FAIL"){
         submitTransferUsernameMessage->setText(responseMessage);
@@ -926,9 +915,6 @@ void ChatWindow::recoveryRequest(QNetworkReply *reply){
 
     QString responseType = jsonObject["type"].toString();
     QString responseMessage = jsonObject["message"].toString();
-
-    qDebug() << responseType;
-    qDebug() << responseMessage;
 
     if(responseType == "FAIL"){
         recoveryTokenMessage->setText(responseMessage);

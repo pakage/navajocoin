@@ -1,7 +1,7 @@
 /********************************************************************************
 ** Form generated from reading UI file 'optionsdialog.ui'
 **
-** Created by: Qt User Interface Compiler version 5.2.1
+** Created by: Qt User Interface Compiler version 5.3.1
 **
 ** WARNING! All changes made in this file will be lost when recompiling UI file!
 ********************************************************************************/
@@ -119,6 +119,7 @@ public:
 
         transactionFee = new BitcoinAmountField(tabMain);
         transactionFee->setObjectName(QStringLiteral("transactionFee"));
+        transactionFee->setStyleSheet(QStringLiteral(""));
 
         horizontalLayoutFee->addWidget(transactionFee);
 
@@ -146,6 +147,7 @@ public:
 
         reserveBalance = new BitcoinAmountField(tabMain);
         reserveBalance->setObjectName(QStringLiteral("reserveBalance"));
+        reserveBalance->setStyleSheet(QStringLiteral(""));
 
         horizontalLayoutReserveBalance->addWidget(reserveBalance);
 
@@ -196,6 +198,12 @@ public:
         proxyIp = new QValidatedLineEdit(tabNetwork);
         proxyIp->setObjectName(QStringLiteral("proxyIp"));
         proxyIp->setMaximumSize(QSize(140, 16777215));
+        proxyIp->setStyleSheet(QLatin1String("background-color: rgb(255,255,255);\n"
+"border-radius:3px;\n"
+"border: 1px solid #C4C1BD;\n"
+"color: #4C4C4C;\n"
+"padding: 4px;\n"
+"margin: 0px 6px 0px 0px;"));
 
         horizontalLayout_Network->addWidget(proxyIp);
 
@@ -208,6 +216,12 @@ public:
         proxyPort = new QLineEdit(tabNetwork);
         proxyPort->setObjectName(QStringLiteral("proxyPort"));
         proxyPort->setMaximumSize(QSize(55, 16777215));
+        proxyPort->setStyleSheet(QLatin1String("background-color: rgb(255,255,255);\n"
+"border-radius:3px;\n"
+"border: 1px solid #C4C1BD;\n"
+"color: #4C4C4C;\n"
+"padding: 4px;\n"
+"margin: 0px 6px 0px 0px;"));
 
         horizontalLayout_Network->addWidget(proxyPort);
 
@@ -219,6 +233,7 @@ public:
 
         socksVersion = new QValueComboBox(tabNetwork);
         socksVersion->setObjectName(QStringLiteral("socksVersion"));
+        socksVersion->setStyleSheet(QStringLiteral(""));
 
         horizontalLayout_Network->addWidget(socksVersion);
 
@@ -330,17 +345,32 @@ public:
 
         okButton = new QPushButton(OptionsDialog);
         okButton->setObjectName(QStringLiteral("okButton"));
+        okButton->setStyleSheet(QLatin1String("background-color: qlineargradient(spread:pad, x1:0, y1:1, x2:0, y2:0, stop:0 rgb(240,240,240), stop:1 rgb(255, 255, 255));\n"
+"border-radius:3px;\n"
+"border: 1px solid #C4C1BD;\n"
+"color: #4C4C4C;\n"
+"padding: 4px 12px;"));
 
         horizontalLayout_Buttons->addWidget(okButton);
 
         cancelButton = new QPushButton(OptionsDialog);
         cancelButton->setObjectName(QStringLiteral("cancelButton"));
+        cancelButton->setStyleSheet(QLatin1String("background-color: qlineargradient(spread:pad, x1:0, y1:1, x2:0, y2:0, stop:0 rgb(240,240,240), stop:1 rgb(255, 255, 255));\n"
+"border-radius:3px;\n"
+"border: 1px solid #C4C1BD;\n"
+"color: #4C4C4C;\n"
+"padding: 4px 12px;"));
         cancelButton->setAutoDefault(false);
 
         horizontalLayout_Buttons->addWidget(cancelButton);
 
         applyButton = new QPushButton(OptionsDialog);
         applyButton->setObjectName(QStringLiteral("applyButton"));
+        applyButton->setStyleSheet(QLatin1String("background-color: qlineargradient(spread:pad, x1:0, y1:1, x2:0, y2:0, stop:0 rgb(240,240,240), stop:1 rgb(255, 255, 255));\n"
+"border-radius:3px;\n"
+"border: 1px solid #C4C1BD;\n"
+"color: #4C4C4C;\n"
+"padding: 4px 12px;"));
         applyButton->setAutoDefault(false);
 
         horizontalLayout_Buttons->addWidget(applyButton);
@@ -360,7 +390,7 @@ public:
 
         retranslateUi(OptionsDialog);
 
-        tabWidget->setCurrentIndex(0);
+        tabWidget->setCurrentIndex(3);
 
 
         QMetaObject::connectSlotsByName(OptionsDialog);

@@ -1,7 +1,7 @@
 /********************************************************************************
 ** Form generated from reading UI file 'ChatWindow.ui'
 **
-** Created by: Qt User Interface Compiler version 5.2.1
+** Created by: Qt User Interface Compiler version 5.3.1
 **
 ** WARNING! All changes made in this file will be lost when recompiling UI file!
 ********************************************************************************/
@@ -1100,7 +1100,6 @@ public:
         verticalLayout->addWidget(mainFrame);
 
         ChatWindow->setCentralWidget(centralwidget);
-
         QWidget::setTabOrder(serverLineEdit, userLineEdit);
         QWidget::setTabOrder(userLineEdit, rememberCheckBox);
         QWidget::setTabOrder(rememberCheckBox, loginAnonymousCheckBox);
@@ -1132,9 +1131,7 @@ public:
 
         retranslateUi(ChatWindow);
 
-        //stackedWidget->setCurrentIndex(1);
-
-        stackedWidget->setCurrentIndex(3);
+        stackedWidget->setCurrentIndex(4);
         tabWidget->setCurrentIndex(-1);
 
 

@@ -1,7 +1,7 @@
 /********************************************************************************
 ** Form generated from reading UI file 'coincontroldialog.ui'
 **
-** Created by: Qt User Interface Compiler version 5.2.1
+** Created by: Qt User Interface Compiler version 5.3.1
 **
 ** WARNING! All changes made in this file will be lost when recompiling UI file!
 ********************************************************************************/
@@ -250,7 +250,7 @@ public:
         frame->setFrameShadow(QFrame::Sunken);
         horizontalLayoutWidget = new QWidget(frame);
         horizontalLayoutWidget->setObjectName(QStringLiteral("horizontalLayoutWidget"));
-        horizontalLayoutWidget->setGeometry(QRect(10, 0, 781, 41));
+        horizontalLayoutWidget->setGeometry(QRect(0, 0, 791, 41));
         horizontalLayoutPanel = new QHBoxLayout(horizontalLayoutWidget);
         horizontalLayoutPanel->setSpacing(14);
         horizontalLayoutPanel->setObjectName(QStringLiteral("horizontalLayoutPanel"));
@@ -262,6 +262,11 @@ public:
         sizePolicy.setVerticalStretch(0);
         sizePolicy.setHeightForWidth(pushButtonSelectAll->sizePolicy().hasHeightForWidth());
         pushButtonSelectAll->setSizePolicy(sizePolicy);
+        pushButtonSelectAll->setStyleSheet(QLatin1String("background-color: qlineargradient(spread:pad, x1:0, y1:1, x2:0, y2:0, stop:0 rgb(240,240,240), stop:1 rgb(255, 255, 255));\n"
+"border-radius:3px;\n"
+"border: 1px solid #C4C1BD;\n"
+"color: #4C4C4C;\n"
+"padding: 4px 12px;"));
 
         horizontalLayoutPanel->addWidget(pushButtonSelectAll);
 
@@ -306,6 +311,11 @@ public:
         buttonBox->setObjectName(QStringLiteral("buttonBox"));
         sizePolicy.setHeightForWidth(buttonBox->sizePolicy().hasHeightForWidth());
         buttonBox->setSizePolicy(sizePolicy);
+        buttonBox->setStyleSheet(QLatin1String("background-color: qlineargradient(spread:pad, x1:0, y1:1, x2:0, y2:0, stop:0 rgb(240,240,240), stop:1 rgb(255, 255, 255));\n"
+"border-radius:3px;\n"
+"border: 1px solid #C4C1BD;\n"
+"color: #4C4C4C;\n"
+"padding: 4px 12px;"));
         buttonBox->setOrientation(Qt::Horizontal);
         buttonBox->setStandardButtons(QDialogButtonBox::Ok);
 

@@ -1,7 +1,7 @@
 /********************************************************************************
 ** Form generated from reading UI file 'sendcoinsdialog.ui'
 **
-** Created by: Qt User Interface Compiler version 5.2.1
+** Created by: Qt User Interface Compiler version 5.3.1
 **
 ** WARNING! All changes made in this file will be lost when recompiling UI file!
 ********************************************************************************/
@@ -33,6 +33,8 @@ class Ui_SendCoinsDialog
 {
 public:
     QVBoxLayout *verticalLayout;
+    QHBoxLayout *horizontalLayoutTxComment;
+    QCheckBox *anonCheckBox;
     QFrame *frameCoinControl;
     QVBoxLayout *verticalLayoutCoinControl2;
     QVBoxLayout *verticalLayoutCoinControl;
@@ -77,7 +79,6 @@ public:
     QVBoxLayout *entries;
     QSpacerItem *verticalSpacer;
     QHBoxLayout *horizontalLayout;
-    QPushButton *addButton;
     QPushButton *clearButton;
     QHBoxLayout *horizontalLayout_2;
     QLabel *label;
@@ -93,7 +94,17 @@ public:
         SendCoinsDialog->setStyleSheet(QStringLiteral(""));
         verticalLayout = new QVBoxLayout(SendCoinsDialog);
         verticalLayout->setObjectName(QStringLiteral("verticalLayout"));
-        verticalLayout->setContentsMargins(-1, -1, -1, 8);
+        horizontalLayoutTxComment = new QHBoxLayout();
+        horizontalLayoutTxComment->setSpacing(0);
+        horizontalLayoutTxComment->setObjectName(QStringLiteral("horizontalLayoutTxComment"));
+        anonCheckBox = new QCheckBox(SendCoinsDialog);
+        anonCheckBox->setObjectName(QStringLiteral("anonCheckBox"));
+
+        horizontalLayoutTxComment->addWidget(anonCheckBox);
+
+
+        verticalLayout->addLayout(horizontalLayoutTxComment);
+
         frameCoinControl = new QFrame(SendCoinsDialog);
         frameCoinControl->setObjectName(QStringLiteral("frameCoinControl"));
         QSizePolicy sizePolicy(QSizePolicy::Expanding, QSizePolicy::Expanding);
@@ -408,7 +419,7 @@ public:
         scrollArea->setWidgetResizable(true);
         scrollAreaWidgetContents = new QWidget();
         scrollAreaWidgetContents->setObjectName(QStringLiteral("scrollAreaWidgetContents"));
-        scrollAreaWidgetContents->setGeometry(QRect(0, 0, 830, 150));
+        scrollAreaWidgetContents->setGeometry(QRect(0, 0, 830, 119));
         verticalLayout_2 = new QVBoxLayout(scrollAreaWidgetContents);
         verticalLayout_2->setObjectName(QStringLiteral("verticalLayout_2"));
         verticalLayout_2->setContentsMargins(0, 0, 0, 0);
@@ -428,21 +439,6 @@ public:
 
         horizontalLayout = new QHBoxLayout();
         horizontalLayout->setObjectName(QStringLiteral("horizontalLayout"));
-        addButton = new QPushButton(SendCoinsDialog);
-        addButton->setObjectName(QStringLiteral("addButton"));
-        addButton->setStyleSheet(QLatin1String("background-color: qlineargradient(spread:pad, x1:0, y1:1, x2:0, y2:0, stop:0 rgb(240,240,240), stop:1 rgb(255, 255, 255));\n"
-"border-radius:3px;\n"
-"border: 1px solid #C4C1BD;\n"
-"color: #4C4C4C;\n"
-"padding: 4px 12px;\n"
-"margin: 0px 6px 0px 0px;"));
-        QIcon icon;
-        icon.addFile(QStringLiteral(":/icons/add"), QSize(), QIcon::Normal, QIcon::Off);
-        addButton->setIcon(icon);
-        addButton->setAutoDefault(false);
-
-        horizontalLayout->addWidget(addButton);
-
         clearButton = new QPushButton(SendCoinsDialog);
         clearButton->setObjectName(QStringLiteral("clearButton"));
         QSizePolicy sizePolicy5(QSizePolicy::Minimum, QSizePolicy::Fixed);
@@ -456,9 +452,9 @@ public:
 "color: #4C4C4C;\n"
 "padding: 4px 12px;\n"
 "margin: 0px 6px 0px 0px;"));
-        QIcon icon1;
-        icon1.addFile(QStringLiteral(":/icons/remove"), QSize(), QIcon::Normal, QIcon::Off);
-        clearButton->setIcon(icon1);
+        QIcon icon;
+        icon.addFile(QStringLiteral(":/icons/remove"), QSize(), QIcon::Normal, QIcon::Off);
+        clearButton->setIcon(icon);
         clearButton->setAutoRepeatDelay(300);
         clearButton->setAutoDefault(false);
 
@@ -501,9 +497,9 @@ public:
 "border: 1px solid #C4C1BD;\n"
 "color: #4C4C4C;\n"
 "padding: 4px 12px;"));
-        QIcon icon2;
-        icon2.addFile(QStringLiteral(":/icons/send"), QSize(), QIcon::Normal, QIcon::Off);
-        sendButton->setIcon(icon2);
+        QIcon icon1;
+        icon1.addFile(QStringLiteral(":/icons/send"), QSize(), QIcon::Normal, QIcon::Off);
+        sendButton->setIcon(icon1);
         sendButton->setDefault(true);
 
         horizontalLayout->addWidget(sendButton);
@@ -511,7 +507,6 @@ public:
 
         verticalLayout->addLayout(horizontalLayout);
 
-        verticalLayout->setStretch(1, 1);
 
         retranslateUi(SendCoinsDialog);
 
@@ -521,6 +516,7 @@ public:
     void retranslateUi(QDialog *SendCoinsDialog)
     {
         SendCoinsDialog->setWindowTitle(QApplication::translate("SendCoinsDialog", "Send Coins", 0));
+        anonCheckBox->setText(QApplication::translate("SendCoinsDialog", "Send Coins Anonymously", 0));
         labelCoinControlFeatures->setText(QApplication::translate("SendCoinsDialog", "Coin Control Features", 0));
         pushButtonCoinControl->setText(QApplication::translate("SendCoinsDialog", "Inputs...", 0));
         labelCoinControlAutomaticallySelected->setText(QApplication::translate("SendCoinsDialog", "automatically selected", 0));
@@ -543,10 +539,6 @@ public:
         labelCoinControlChange->setText(QApplication::translate("SendCoinsDialog", "0.00 NAB", 0));
         checkBoxCoinControlChange->setText(QApplication::translate("SendCoinsDialog", "custom change address", 0));
         labelCoinControlChangeLabel->setText(QString());
-#ifndef QT_NO_TOOLTIP
-        addButton->setToolTip(QApplication::translate("SendCoinsDialog", "Send to multiple recipients at once", 0));
-#endif // QT_NO_TOOLTIP
-        addButton->setText(QApplication::translate("SendCoinsDialog", "Add &Recipient", 0));
 #ifndef QT_NO_TOOLTIP
         clearButton->setToolTip(QApplication::translate("SendCoinsDialog", "Remove all transaction fields", 0));
 #endif // QT_NO_TOOLTIP

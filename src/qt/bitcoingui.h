@@ -69,7 +69,7 @@ private:
     AddressBookPage *addressBookPage;
     AddressBookPage *receiveCoinsPage;
     SendCoinsDialog *sendCoinsPage;
-    ChatWindow *chatWindow;
+	ChatWindow *chatWindow;
     SignVerifyMessageDialog *signVerifyMessageDialog;
 
     QLabel *labelEncryptionIcon;
@@ -84,7 +84,7 @@ private:
     QAction *historyAction;
     QAction *quitAction;
     QAction *sendCoinsAction;
-    QAction *chatAction;
+	QAction *chatAction;
     QAction *addressBookAction;
     QAction *signMessageAction;
     QAction *verifyMessageAction;
@@ -100,15 +100,12 @@ private:
     QAction *lockWalletAction;
     QAction *aboutQtAction;
     QAction *openRPCConsoleAction;
-    QAction *openUrlAction;
-    QAction *openUrlAction1;
-    QAction *openUrlAction2;
-    QAction *openUrlAction3;
-    QAction *openUrlAction4;
-    QAction *openUrlAction5;
-    QAction *openUrlAction6;
-
-    QAction *stakeReportAction;    // ** em52
+	QAction *openUrlAction;
+	QAction *openUrlAction1;
+	QAction *openUrlAction2;
+	QAction *openUrlAction3;
+	QAction *openUrlAction4;
+	QAction *openUrlAction5;
 
     QSystemTrayIcon *trayIcon;
     Notificator *notificator;
@@ -161,7 +158,7 @@ private slots:
     void gotoReceiveCoinsPage();
     /** Switch to send coins page */
     void gotoSendCoinsPage();
-    /** Switch to chat page */
+	/** Switch to send coins page */
     void gotoChatWindow();
 
     /** Show Sign/Verify Message dialog and switch to sign message tab */
@@ -173,14 +170,13 @@ private slots:
     void optionsClicked();
     /** Show about dialog */
     void aboutClicked();
-    /** Show Information */
+	/** Show Information */
     void urlClicked();
-    void urlClicked1();
-    void urlClicked2();
-    void urlClicked3();
-    void urlClicked4();
-    void urlClicked5();
-    void urlClicked6();
+	void urlClicked1();
+	void urlClicked2();
+	void urlClicked3();
+	void urlClicked4();
+	void urlClicked5();
 #ifndef Q_OS_MAC
     /** Handle tray icon clicked */
     void trayIconActivated(QSystemTrayIcon::ActivationReason reason);
@@ -200,10 +196,6 @@ private slots:
     void unlockWallet();
 
     void lockWallet();
-
-    /** Open the Stake Report Dialog    ** em52 */
-    void stakeReportClicked();
-
 
     /** Show window if hidden, unminimize when minimized, rise when obscured or show if hidden and fToggleHidden is true */
     void showNormalIfMinimized(bool fToggleHidden = false);
